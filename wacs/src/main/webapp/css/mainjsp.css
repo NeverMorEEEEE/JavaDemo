@@ -1,0 +1,121 @@
+body{
+	background: #0075c4 url(../images/center_bg.png) repeat-x 0 0;
+}
+.mini-tabs-scrollCt {
+   border-top:0;
+   border-left:0;
+   border-right:0;
+}
+.mini-outlookbar-groupBody{
+	padding-top:1px;
+}
+.mini-layout-split-west{
+	background:#f8f8f8;
+}
+.mini-layout-proxy-west {
+	border-bottom: 0px;
+    border: 0px;
+}
+
+.navbar-brand{
+	padding: 15px;
+}
+.logo{
+	padding:3px 0px 0px 8px;
+}
+.header-title{
+	font-size:18px;
+	font-weight: bolder;
+	font-family: ·ÂËÎ;
+	color: #FFF;
+}
+
+.navbar-collapse{
+	position:absolute;
+	right:5px;
+	z-index: 3;
+	background: #0075c4 url(../images/center_bg.png) repeat-x 0 0;
+}
+.navbar-collapse a{
+	color: #FFF;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+.navbar-collapse  .navbar-nav > li > a {
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+.navbar-nav a:HOVER {
+	color: #0075c4;
+}
+.nav-active{
+	color: #0075c4;
+}
+
+.centerCls{
+	border:0;
+	padding:5px;
+	padding-top:0px;
+}
+.westCls{
+	background:#fff;
+}
+.navbar-collapsebtm{
+	position:absolute;
+	top:39px;
+    width: 100%;
+    height: 30px;
+	z-index: 2;
+    background: #2288ce url(../images/nav-bg.png) repeat-x;
+}
+.navbar-collapsebtm a{
+    color: #FFF;  
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+}    
+.navbar-collapsebtm a:link{
+	color: #FFF;    
+}
+.navbar-collapsebtm li:hover{
+    margin-top: 3px;
+    height: 24px ;
+    line-height: 24px;
+    border: 1px solid #75b4e0;    
+}
+
+.navbar-collapsebtm ul{
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+    margin: 0;
+} 
+.navbar-collapsebtm .nav-head{
+    width: 130px;
+    background: url(../images/nav-headbg.png) no-repeat left center;
+    color: #FFF;
+    text-align: center;
+}    
+.navbar-collapsebtm li{  
+    float: left;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    list-style: none;
+    line-height: 30px;
+    font-family: "ºÚÌå";
+}   
+.navbar-collapsebtm .nav-right{
+    float: right;
+    margin-right:5px;
+}
+
+.navbar-collapsebtm .nav-right span{
+    display: block;
+    float: left;
+    margin-left: 30px;
+    color: #fff;
+}  
+.navbar-collapsebtm .nav-right span i{
+    margin-right: 5px;
+}

@@ -1,0 +1,193 @@
+* {
+	font-size: 12px;
+}
+
+/* ::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background-color:#e6f2f7;}
+::-webkit-scrollbar-thumb{background-color:#42cbff;}
+::-webkit-scrollbar-thumb:hover {background-color:#00aff0}
+::-webkit-scrollbar-thumb:active {background-color:#00aff0} */
+
+table {
+	border-collapse: collapse;
+}
+
+td {
+	font-size: 12px;
+	padding: 0px;
+}
+
+legend {
+	font-size: 13px;
+}
+
+fieldset {
+/* 	border: 1px solid #99bce8 */
+	border: 1px solid #ddd
+}
+
+div {
+	border: none;
+}
+
+.pageBg {
+/* 	background: url(.././../../../images/bg.jpg) no-repeat left top #deecfd; */
+}
+
+.content {
+	width: 100%;
+	height: 100%;
+}
+
+.wcontent {
+	width: 100%;
+}
+
+th {
+	font-size: 12px;
+	padding: 0px;
+	font-weight: normal;
+	text-align: right;
+	padding-right: 3px;
+}
+
+html, body {
+	padding: 0;
+	border: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* ajax请求遮罩不透明 */
+.mini-mask-background
+{
+    background:#fff;    
+    opacity: .6 !important;
+    filter: alpha(opacity=60) !important;    
+}
+
+/*datagrid底部自定义按钮偏差*/
+.mini-page-buttons {
+	margin-top: 2px;
+}
+
+.mini-pager-first:before {
+	content: "\f048";
+}
+.mini-pager-prev:before {
+	content: "\f053";
+}
+.mini-pager-next:before {
+	content: "\f054";
+}
+.mini-pager-last:before {
+	content: "\f051";
+}
+.mini-pager-reload:before {
+	content: "\f021";
+}
+.mini-pager-first, .mini-pager-prev, .mini-pager-next, .mini-pager-last, .mini-pager-reload {
+	background-image: none;
+}
+
+.mini-required .mini-textbox-border, .mini-required .mini-buttonedit-border {
+	border-color: #ffa8a8;
+    background: #FFFFE6;
+}
+
+.mini-window .mini-panel-header{
+    height: 30px;
+    line-height: 30x; 
+    /* position: relative;
+    border-bottom: 0px;
+    text-indent: 22px;
+    font-size: 14px;
+    background: #3da4eb;
+    font-weight: bold;
+    border:1px solid #cccccc;
+    color: white; */
+}
+
+.eform table{
+	border-collapse: separate;
+	border-spacing:0px 6px;
+	width:100%;
+}
+
+.eform th{
+	font-size: 12px;
+	padding-right:3px;
+	text-align: right;
+}
+
+.cform{
+	padding:10px;
+}
+
+.cform table{
+	border-collapse: separate;
+	border-spacing:0px 5px;
+}
+
+.cform th{
+	font-size: 12px;
+	padding-left: 10px;
+	padding-right: 3px;
+	text-align: right;
+}
+
+
+
+
+/**附加样式*/
+.pageBg{
+	background-color:#0e2349;
+}
+.mini-toolbar,
+.mini-grid-viewport,
+.mini-grid-headerCell,
+.mini-grid-topRightCell,
+.mini-grid-columnproxy,
+html body .mini-grid-row-selected,
+html body .mini-grid-row-hover,
+.mini-grid-row,
+.mini-window .mini-panel-header,
+.mini-panel-header,
+.mini-panel-viewport,
+.mini-tab-active,
+.mini-tabs-bodys,
+.mini-grid-pager,
+.mini-buttonedit-border,
+.mini-popup,
+.mini-buttonedit-input,
+.mini-pager-index input,
+.mini-textbox-border,
+.mini-textbox-input,
+.mini-button,
+body a.mini-button-disabled,
+body a:hover.mini-button-disabled,
+.mini-popupedit .mini-buttonedit-trigger .mini-buttonedit-icon,
+.mini-buttonedit-button-pressed,
+.mini-buttonedit-popup .mini-buttonedit-trigger,
+.mini-tab,
+.mini-listbox-item{
+	color: #fff;
+	background-color:#0e2349 !important;
+}
+.mini-tab-active{
+	border-bottom-color: #0e2349;
+}
+.mini-listbox-item-hover  td,
+.mini-listbox-item-selected{
+	color: #333;
+}
+body a:hover.mini-button{
+	color: #333;
+	background-color:#ebebeb !important;
+}
+
+.mini-buttonedit-button-hover,
+.mini-buttonedit-hover .mini-buttonedit-trigger{
+	background:url(images/buttonedit/arrow_hover.gif) no-repeat  1px 2px;
+}
