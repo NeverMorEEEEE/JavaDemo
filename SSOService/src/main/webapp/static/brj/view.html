@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+<script src='imgUp/js/jquery-1.7.2.min.js'></script>
+<script src='imgUp/js/jquery-MaterialUpload-Jingtoo.js'></script>
+<link rel="stylesheet" href="ajaxfileupload/ajaxfileupload.css" />
+<script src='ajaxfileupload/ajaxfileupload.js'></script>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/preview.css" />
+<link rel="stylesheet" href="imgUp/css/IMGUP.css" />
+<!-- validate -->
+<script src="form/js/TipsIframe.min.js" type="text/javascript"></script>
+<script src="form/js/validator.pack.js" type="text/javascript"></script>
+<script src="form/js/jquery.validate.js" type="text/javascript"></script>
+<script src="form/js/jquery.validate.jingtoo.js"	type="text/javascript"></script>
+<script src="form/js/messages_cn.js" type="text/javascript"></script>
+<script type="text/javascript" src="dialog/lhgdialog.js?skin=iblue"></script>
+<script type="text/javascript" src="dialog/lhgdialog.common.js"></script>
+<script src='js/main.js'></script>
+<script>
+var camurl = "";
+	$(function() {
+		var materialUrl = "/bipW/EntityServlet";//材料后台请求地址；
+		var businessCode = "gl03.05";//业务类别代码
+		var businessNum = "akjhjkashjk";//业务流水号
+		var fileInputstreamUrl = "/bipW/LicenseServlet";//文件流地址
+		var options = new Object;
+		options.MaterialUrl = materialUrl;//获取材料后台请求地址；必填
+		options.BusinessCode = businessCode;//业务类别代码；必填
+		options.BusinessNum = businessNum;//业务类流水号；初始办理前为空，办理后再次查询时必填
+		options.FileInputstreamUrl = fileInputstreamUrl;//获取文件流地址；必填
+		//init(options);
+		//初始化采集页面
+		var bussinessData = new Object;
+		 var other=0;//数据状态*
+		 var state="办理中";//业务经办状态*
+		 var operated="2017-07-08 12:57:57";//初始业务操作时间*
+		 var ywmc="生育保险";//业务名称*
+		 var flh=businessCode;//该笔业务归档所对应的档案分类编号*
+		 var sfzh="87687687623";//身份证号码
+		 var xm="不就收";//姓名
+		 var dwbh="1523";//单位编号
+		 var dwmc="1452";//单位名称
+		 var rybh="1423";//人员编号
+		 var pzbh="431";//凭证编号
+		 var gsny="20180105";//归属年月
+		 var gsd="341";//归属地
+		 var rq="20180306";//日期
+		 var fl="1523";//分类
+		 var bz="815";//备注
+		 var privates;//私有字段信息
+		 var ywxw;//业务行为（如拟稿、修改、核稿、会办、签发）
+		 var clry;//处理人员
+		 var clsj;//处理时间
+		 var cljg;//处理机构 
+		 var dzdaId="";
+		 var bizId=businessNum;
+		 bussinessData.other=other;
+		 bussinessData.state=state;
+		 bussinessData.operated=operated;
+		 bussinessData.ywmc=ywmc;
+		 bussinessData.flh=flh;
+		 bussinessData.sfzh=sfzh;
+		 bussinessData.xm=xm;
+		 bussinessData.dwbh=dwbh;
+		 bussinessData.dwmc=dwmc;
+		 bussinessData.rybh=rybh;
+		 bussinessData.pzbh=pzbh;
+		 bussinessData.gsny=gsny;
+		 bussinessData.gsd=gsd;
+		 bussinessData.rq=rq;
+		 bussinessData.fl=fl;
+		 bussinessData.bz=bz;
+		 bussinessData.privates=privates;
+		 bussinessData.ywxw=ywxw;
+		 bussinessData.clry=clry;
+		 bussinessData.clsj=clsj;
+		 bussinessData.cljg=cljg;
+		 bussinessData.bizId=bizId;
+		 bussinessData.dzdaId=dzdaId;
+		 options.BussinessData = bussinessData;
+		 JingTooUploadUtil.initView(options);
+	})
+	
+	
+</script>
+
+</head>
+<body>
+	<div class="cailiao" id="cailiao">
+		<div class="cailiao-left">
+			<!--图片预览容器-->
+			<div id="div_imglook">
+					<div class="motai"  id="mo">
+					<span class="img-switch-btn-right" onclick="changePage(1)"  onmouseover="onmouseupBtnOver(this,2)" onmouseout="onmouseupBtnOut(this,2)"></span>
+					<div id="caption"></div>
+					
+					<img class="motaiimg moimg" id="moimgImg">
+					<div class="motaiimg moimg" id="moimgDiv"></div>
+				<!-- 	<span class="close" style="right:60px;" id="allScreen">×1</span>  -->
+					<span class="close" id="close">×</span> 
+					<span class="img-switch-btn-left" onclick="changePage(2)"  onmouseover="onmouseupBtnOver(this,1)" onmouseout="onmouseupBtnOut(this,1)"></span>
+
+				</div>
+				<!-- <div>
+					<img id="image" src="" alt="" style="width: 215px; height: 215px;">
+				</div> -->
+			</div>
+		</div>
+		<div class="cailiao-right">
+			<span class='lookall'>查看全部</span>
+			<ul class='cardList' id="material">
+			</ul>
+		</div>
+	 	<!-- <div class="cailiao-center" style="float:none;width:20%;margin-left:auto;margin-right:auto;margin-top:35%;" >
+			
+		</div> -->
+	</div>
+</body>
+<script src="imgUp/js/IMGUP.js" type="text/javascript" charset="utf-8"></script>
+</html>

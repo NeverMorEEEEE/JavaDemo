@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjtzsw.modules.demo.dao.DemoDao">
+<parameterMap type="com.zjtzsw.modules.demo.entity.DemoEntity" id="parameterMap"></parameterMap>
+	<resultMap type="com.zjtzsw.modules.demo.entity.DemoEntity" id="DemoEntity"></resultMap>
+	
+	<insert id="add" parameterMap="parameterMap">
+		insert into demo(id,name)
+			values(#{id,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR})
+	</insert>
+
+ 	<select id="query" resultType="com.zjtzsw.common.utils.LowerCaseKeyMap">
+		select * from demo where 1=1
+		<if test='id != "" and id != null'>
+			and id = #{id}
+		</if>
+		<if test='name != "" and name != null'>
+			and name = #{name}
+		</if>
+		
+	</select> 
+	
+	<select id="queryById" resultMap="DemoEntity">
+		select * from demo where id = #{id}
+	</select> 
+	
+	<delete id="delete">
+		delete from demo where id = #{id}
+	</delete>
+	
+	<update id="update" parameterMap="parameterMap">
+		update demo set 
+		<if test="name!=null">name=#{name,jdbcType=VARCHAR}</if>
+		where id = #{id}
+	</update>
+	
+		
+	<insert id="save" parameterMap="parameterMap">
+		insert into demo(id,name) values(
+			#{id,jdbcType=VARCHAR},
+			#{name,jdbcType=VARCHAR})
+	</insert>
+	
+	
+</mapper>

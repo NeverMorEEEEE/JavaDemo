@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Camera</title>
+ 	<script src="js/globeVar.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/WebSocket.js" type="text/javascript" charset="utf-8"></script>
+ 	<script src='imgUp/js/jquery-1.7.2.min.js'></script>
+	<link rel="stylesheet" href="ajaxfileupload/ajaxfileupload.css" />
+	<script src='ajaxfileupload/ajaxfileupload.js'></script>
+	<script src='js/dmc_dialog.js'></script>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/preview.css" />
+	<link rel="stylesheet" href="imgUp/css/IMGUP.css" />
+	<script src='js/main.js'></script>
+</head>
+<script>
+	var closeDialog = function(){
+		/* $("#div_imglook",window.parent.document).children("div:last").after($("#div_imglook").html().replace("<div></div>",""));
+		$(".fos .number:eq(0)",window.parent.document).text(parseInt($(".fos .number:eq(0)",window.parent.document).text())+$(".lookimg").length);
+		getDialog().close(); */
+		var html=$("#div_imglook").html().replace("<div></div>","");
+		$win.setImg(html);  
+		$dl.close();
+		
+	}
+	var qh = function(){
+		if( $("#device").val() == 0){
+			$("#device").val(1);
+		}else{
+			$("#device").val(0);
+		}
+		$("#device").change();
+	}
+</script>
+<body onload="load()" onunload="unload()" >
+	
+	
+	<div id="mainUI">
+		
+		<img id="myCanvas" width='480' height='300' style="background-color: black; float: left;margin-left: 30px;"/>
+			<div style="display: none">
+				<input type="text"  id="saveText" value="C:\tmp\img.jpg" style="width: 150px;text-align: left;"/>
+				<input type="text" id="dpix" value="300" />
+				<input type="text" id="dpiy" value="300" />
+				<select name="" id="resoultion" ></select>
+				<select id="device" > </select>
+				<select onchange="SetCutStyle()" id="cutStyle" >
+						<option >不裁切</option>
+						<option >单图裁切</option>
+						<option >多图裁切</option>
+						<option >单图裁切 & 补边</option>
+						<option >书本页</option>
+						<option >手动裁切</option>
+					</select>
+			</div>
+			<div class="paizhao">
+				<span onclick="CaptureBase64()"  class='sumbts'>拍照</span>
+				<span onclick="qh()"  class='sumbts'>切换摄像头</span>
+				<span onclick="closeDialog()"  class='sumbts'>保存并退出</span>
+			</div>
+			<div id="div_imglook">
+				<div></div>
+			</div>
+	</div>
+			
+		
+	
+	
+	
+	
+</body>
+<script src="imgUp/js/IMGUP.js" type="text/javascript" charset="utf-8"></script>
+</html>
