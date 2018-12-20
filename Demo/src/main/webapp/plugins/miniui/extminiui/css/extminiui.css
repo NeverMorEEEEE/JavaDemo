@@ -1,0 +1,90 @@
+* {
+	font-size: 12px;
+}
+
+table {
+	/* border-collapse: collapse; */
+}
+
+td {
+	font-size: 12px;
+	padding: 0px;
+}
+
+legend {
+	font-size: 13px;
+}
+
+fieldset {
+/* 	border: 1px solid #99bce8 */
+	border: 1px solid #ddd
+}
+
+div {
+	border: none;
+}
+
+.pageBg {
+/* 	background: url(.././../../../images/bg.jpg) no-repeat left top #deecfd; */
+}
+
+.content {
+	width: 100%;
+	height: 100%;
+}
+
+.wcontent {
+	width: 100%;
+}
+
+th {
+	font-size: 12px;
+	padding: 0px;
+	font-weight: normal;
+	text-align: right;
+}
+
+html, body {
+	padding: 0;
+	border: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* ajax璇锋眰閬僵涓嶉�忔槑 */
+.mini-mask-background
+{
+    background:#fff;    
+    opacity: .6 !important;
+    filter: alpha(opacity=60) !important;    
+}
+
+/*datagrid搴曢儴鑷畾涔夋寜閽亸宸�*/
+.mini-page-buttons {
+	margin-top: 2px;
+}
+
+.mini-pager-first:before {
+	content: "\f048";
+}
+.mini-pager-prev:before {
+	content: "\f053";
+}
+.mini-pager-next:before {
+	content: "\f054";
+}
+.mini-pager-last:before {
+	content: "\f051";
+}
+.mini-pager-reload:before {
+	content: "\f021";
+}
+.mini-pager-first, .mini-pager-prev, .mini-pager-next, .mini-pager-last, .mini-pager-reload {
+	background-image: none;
+}
+
+input[disabled] {
+	color: blue !important;
+	opacity: 1 !important
+}

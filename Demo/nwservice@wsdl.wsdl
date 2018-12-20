@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservice.ces.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="NwServiceService" targetNamespace="http://webservice.ces.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservice.ces.com/" elementFormDefault="unqualified" targetNamespace="http://webservice.ces.com/" version="1.0">
+
+  <xs:element name="getBatch" type="tns:getBatch"/>
+
+  <xs:element name="getBatchResponse" type="tns:getBatchResponse"/>
+
+  <xs:element name="getCheckResult" type="tns:getCheckResult"/>
+
+  <xs:element name="getCheckResultResponse" type="tns:getCheckResultResponse"/>
+
+  <xs:element name="getDeptcode" type="tns:getDeptcode"/>
+
+  <xs:element name="getDeptcodeResponse" type="tns:getDeptcodeResponse"/>
+
+  <xs:element name="getDetail" type="tns:getDetail"/>
+
+  <xs:element name="getDetailResponse" type="tns:getDetailResponse"/>
+
+  <xs:element name="getPeriod" type="tns:getPeriod"/>
+
+  <xs:element name="getPeriodResponse" type="tns:getPeriodResponse"/>
+
+  <xs:element name="getValue" type="tns:getValue"/>
+
+  <xs:element name="getValueResponse" type="tns:getValueResponse"/>
+
+  <xs:complexType name="getValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:receive"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="receive">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bjsj" type="xs:string"/>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+      <xs:element minOccurs="0" name="dateName" type="xs:string"/>
+      <xs:element minOccurs="0" name="datePath" type="xs:string"/>
+      <xs:element minOccurs="0" name="dateSize" type="xs:string"/>
+      <xs:element minOccurs="0" name="dateType" type="xs:string"/>
+      <xs:element minOccurs="0" name="sendPerson" type="xs:string"/>
+      <xs:element minOccurs="0" name="sendTime" type="xs:string"/>
+      <xs:element minOccurs="0" name="sxbbh" type="xs:string"/>
+      <xs:element minOccurs="0" name="sxbm" type="xs:string"/>
+      <xs:element minOccurs="0" name="systemtype" type="xs:string"/>
+      <xs:element minOccurs="0" name="timeStamp" type="xs:string"/>
+      <xs:element minOccurs="0" name="uid" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getValueResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:batchdetail"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="batchdetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string"/>
+      <xs:element minOccurs="0" name="dateName" type="xs:string"/>
+      <xs:element minOccurs="0" name="datePath" type="xs:string"/>
+      <xs:element minOccurs="0" name="dateSize" type="xs:string"/>
+      <xs:element minOccurs="0" name="dateType" type="xs:string"/>
+      <xs:element minOccurs="0" name="pch" type="xs:string"/>
+      <xs:element minOccurs="0" name="sendPerson" type="xs:string"/>
+      <xs:element minOccurs="0" name="sendTime" type="xs:string"/>
+      <xs:element minOccurs="0" name="sxbbh" type="xs:string"/>
+      <xs:element minOccurs="0" name="sxbm" type="xs:string"/>
+      <xs:element minOccurs="0" name="timeStamp" type="xs:string"/>
+      <xs:element minOccurs="0" name="uid" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDetailResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getPeriod">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:period"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="period">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bgqx" type="xs:string"/>
+      <xs:element minOccurs="0" name="bmbm" type="xs:string"/>
+      <xs:element minOccurs="0" name="bmmc" type="xs:string"/>
+      <xs:element minOccurs="0" name="gdfw" type="xs:string"/>
+      <xs:element minOccurs="0" name="sxbbh" type="xs:string"/>
+      <xs:element minOccurs="0" name="sxbm" type="xs:string"/>
+      <xs:element minOccurs="0" name="sxmc" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getPeriodResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getBatch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:batch"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="batch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="pch" type="xs:string"/>
+      <xs:element minOccurs="0" name="sendnumber" type="xs:string"/>
+      <xs:element minOccurs="0" name="sendpath" type="xs:string"/>
+      <xs:element minOccurs="0" name="sendtime" type="xs:string"/>
+      <xs:element minOccurs="0" name="syetemtype" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getBatchResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDeptcode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:deptcode"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deptcode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bmbm" type="xs:string"/>
+      <xs:element minOccurs="0" name="bmmc" type="xs:string"/>
+      <xs:element minOccurs="0" name="qzqc" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDeptcodeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCheckResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCheckResultResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getPeriodResponse">
+    <wsdl:part element="tns:getPeriodResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeptcodeResponse">
+    <wsdl:part element="tns:getDeptcodeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getValueResponse">
+    <wsdl:part element="tns:getValueResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDetailResponse">
+    <wsdl:part element="tns:getDetailResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBatchResponse">
+    <wsdl:part element="tns:getBatchResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPeriod">
+    <wsdl:part element="tns:getPeriod" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCheckResultResponse">
+    <wsdl:part element="tns:getCheckResultResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getValue">
+    <wsdl:part element="tns:getValue" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDeptcode">
+    <wsdl:part element="tns:getDeptcode" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBatch">
+    <wsdl:part element="tns:getBatch" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCheckResult">
+    <wsdl:part element="tns:getCheckResult" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDetail">
+    <wsdl:part element="tns:getDetail" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="NwService">
+    <wsdl:operation name="getValue">
+      <wsdl:input message="tns:getValue" name="getValue">
+    </wsdl:input>
+      <wsdl:output message="tns:getValueResponse" name="getValueResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDetail">
+      <wsdl:input message="tns:getDetail" name="getDetail">
+    </wsdl:input>
+      <wsdl:output message="tns:getDetailResponse" name="getDetailResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPeriod">
+      <wsdl:input message="tns:getPeriod" name="getPeriod">
+    </wsdl:input>
+      <wsdl:output message="tns:getPeriodResponse" name="getPeriodResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBatch">
+      <wsdl:input message="tns:getBatch" name="getBatch">
+    </wsdl:input>
+      <wsdl:output message="tns:getBatchResponse" name="getBatchResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeptcode">
+      <wsdl:input message="tns:getDeptcode" name="getDeptcode">
+    </wsdl:input>
+      <wsdl:output message="tns:getDeptcodeResponse" name="getDeptcodeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCheckResult">
+      <wsdl:input message="tns:getCheckResult" name="getCheckResult">
+    </wsdl:input>
+      <wsdl:output message="tns:getCheckResultResponse" name="getCheckResultResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NwServiceServiceSoapBinding" type="tns:NwService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getDetail">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDetail">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDetailResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValue">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getValue">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getValueResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPeriod">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPeriod">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPeriodResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBatch">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getBatch">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBatchResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCheckResult">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCheckResult">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCheckResultResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeptcode">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDeptcode">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDeptcodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NwServiceService">
+    <wsdl:port binding="tns:NwServiceServiceSoapBinding" name="NwServicePort">
+      <soap:address location="http://59.202.34.221:8080/zjservice/ws/nwservice"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

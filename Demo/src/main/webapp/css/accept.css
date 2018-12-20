@@ -1,0 +1,103 @@
+.mini-layout-region-title {
+	color: #0072E3;
+}
+
+.mini-layout-region-header {
+	display: none;
+}
+
+.myrow1 {
+	color: #BB5E00;
+}
+
+.myrow2 {
+	color: #019858;
+}
+
+.serch_box {
+	margin-left: 10px;
+}
+
+ul, li, input {
+	margin: 0;
+	padding: 0;
+}
+
+.item-search {
+	margin-bottom: 40px;
+	font-size: 12px;
+}
+
+.item-search>input {
+	height: 22px;
+	margin-left: 5px;
+	border-radius: 4px;
+	border: 1px solid #dddddd;
+	color: #777;
+	background: white;
+}
+
+.item-search>input[type=text] {
+	width: 200px;
+	vertical-align: top;
+}
+
+.item-search>input[type=button] {
+	width: 60px;
+	height: 24px;
+	vertical-align: middle;
+}
+
+.item-listBox {
+	padding: 40px 35px;
+}
+
+.item-list>h3 {
+	height: 31px;
+	border-bottom: 3px solid #1580d2;
+	color: white;
+	font-size: 16px;
+}
+
+.item-list>h3>span {
+	display: inline-block;
+	width: 149px;
+	height: 31px;
+	background: url(../images/itemlist-tit.png) no-repeat left;
+	text-align: center;
+	line-height: 31px;
+}
+
+.item-list>ul {
+	margin-bottom: 30px;
+}
+
+.item-list li {
+	float: left;
+	/* width: 23%; */
+	width:31%;
+	margin-right: 2%;
+	line-height: 40px;
+	background: url("../images/itemlist-ico.png") no-repeat left center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 14px;
+	text-indent: 15px;
+}
+
+.item-list li>a {
+	color: #060606;
+	text-decoration: none;
+}
+
+.item-list li>a:hover {
+	color: #1580d2;
+}
+
+.clear:after {
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+}

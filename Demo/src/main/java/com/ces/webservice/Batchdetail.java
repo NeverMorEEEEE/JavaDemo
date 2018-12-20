@@ -1,0 +1,527 @@
+/**
+ * Batchdetail.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
+
+package com.ces.webservice;
+
+public class Batchdetail  implements java.io.Serializable {
+    private java.lang.String code;
+
+    private java.lang.String dateName;
+
+    private java.lang.String datePath;
+
+    private java.lang.String dateSize;
+
+    private java.lang.String dateType;
+
+    private java.lang.String pch;
+
+    private java.lang.String sendPerson;
+
+    private java.lang.String sendTime;
+
+    private java.lang.String sxbbh;
+
+    private java.lang.String sxbm;
+
+    private java.lang.String timeStamp;
+
+    private java.lang.String uid;
+
+    public Batchdetail() {
+    }
+
+    public Batchdetail(
+           java.lang.String code,
+           java.lang.String dateName,
+           java.lang.String datePath,
+           java.lang.String dateSize,
+           java.lang.String dateType,
+           java.lang.String pch,
+           java.lang.String sendPerson,
+           java.lang.String sendTime,
+           java.lang.String sxbbh,
+           java.lang.String sxbm,
+           java.lang.String timeStamp,
+           java.lang.String uid) {
+           this.code = code;
+           this.dateName = dateName;
+           this.datePath = datePath;
+           this.dateSize = dateSize;
+           this.dateType = dateType;
+           this.pch = pch;
+           this.sendPerson = sendPerson;
+           this.sendTime = sendTime;
+           this.sxbbh = sxbbh;
+           this.sxbm = sxbm;
+           this.timeStamp = timeStamp;
+           this.uid = uid;
+    }
+
+
+    /**
+     * Gets the code value for this Batchdetail.
+     * 
+     * @return code
+     */
+    public java.lang.String getCode() {
+        return code;
+    }
+
+
+    /**
+     * Sets the code value for this Batchdetail.
+     * 
+     * @param code
+     */
+    public void setCode(java.lang.String code) {
+        this.code = code;
+    }
+
+
+    /**
+     * Gets the dateName value for this Batchdetail.
+     * 
+     * @return dateName
+     */
+    public java.lang.String getDateName() {
+        return dateName;
+    }
+
+
+    /**
+     * Sets the dateName value for this Batchdetail.
+     * 
+     * @param dateName
+     */
+    public void setDateName(java.lang.String dateName) {
+        this.dateName = dateName;
+    }
+
+
+    /**
+     * Gets the datePath value for this Batchdetail.
+     * 
+     * @return datePath
+     */
+    public java.lang.String getDatePath() {
+        return datePath;
+    }
+
+
+    /**
+     * Sets the datePath value for this Batchdetail.
+     * 
+     * @param datePath
+     */
+    public void setDatePath(java.lang.String datePath) {
+        this.datePath = datePath;
+    }
+
+
+    /**
+     * Gets the dateSize value for this Batchdetail.
+     * 
+     * @return dateSize
+     */
+    public java.lang.String getDateSize() {
+        return dateSize;
+    }
+
+
+    /**
+     * Sets the dateSize value for this Batchdetail.
+     * 
+     * @param dateSize
+     */
+    public void setDateSize(java.lang.String dateSize) {
+        this.dateSize = dateSize;
+    }
+
+
+    /**
+     * Gets the dateType value for this Batchdetail.
+     * 
+     * @return dateType
+     */
+    public java.lang.String getDateType() {
+        return dateType;
+    }
+
+
+    /**
+     * Sets the dateType value for this Batchdetail.
+     * 
+     * @param dateType
+     */
+    public void setDateType(java.lang.String dateType) {
+        this.dateType = dateType;
+    }
+
+
+    /**
+     * Gets the pch value for this Batchdetail.
+     * 
+     * @return pch
+     */
+    public java.lang.String getPch() {
+        return pch;
+    }
+
+
+    /**
+     * Sets the pch value for this Batchdetail.
+     * 
+     * @param pch
+     */
+    public void setPch(java.lang.String pch) {
+        this.pch = pch;
+    }
+
+
+    /**
+     * Gets the sendPerson value for this Batchdetail.
+     * 
+     * @return sendPerson
+     */
+    public java.lang.String getSendPerson() {
+        return sendPerson;
+    }
+
+
+    /**
+     * Sets the sendPerson value for this Batchdetail.
+     * 
+     * @param sendPerson
+     */
+    public void setSendPerson(java.lang.String sendPerson) {
+        this.sendPerson = sendPerson;
+    }
+
+
+    /**
+     * Gets the sendTime value for this Batchdetail.
+     * 
+     * @return sendTime
+     */
+    public java.lang.String getSendTime() {
+        return sendTime;
+    }
+
+
+    /**
+     * Sets the sendTime value for this Batchdetail.
+     * 
+     * @param sendTime
+     */
+    public void setSendTime(java.lang.String sendTime) {
+        this.sendTime = sendTime;
+    }
+
+
+    /**
+     * Gets the sxbbh value for this Batchdetail.
+     * 
+     * @return sxbbh
+     */
+    public java.lang.String getSxbbh() {
+        return sxbbh;
+    }
+
+
+    /**
+     * Sets the sxbbh value for this Batchdetail.
+     * 
+     * @param sxbbh
+     */
+    public void setSxbbh(java.lang.String sxbbh) {
+        this.sxbbh = sxbbh;
+    }
+
+
+    /**
+     * Gets the sxbm value for this Batchdetail.
+     * 
+     * @return sxbm
+     */
+    public java.lang.String getSxbm() {
+        return sxbm;
+    }
+
+
+    /**
+     * Sets the sxbm value for this Batchdetail.
+     * 
+     * @param sxbm
+     */
+    public void setSxbm(java.lang.String sxbm) {
+        this.sxbm = sxbm;
+    }
+
+
+    /**
+     * Gets the timeStamp value for this Batchdetail.
+     * 
+     * @return timeStamp
+     */
+    public java.lang.String getTimeStamp() {
+        return timeStamp;
+    }
+
+
+    /**
+     * Sets the timeStamp value for this Batchdetail.
+     * 
+     * @param timeStamp
+     */
+    public void setTimeStamp(java.lang.String timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+
+    /**
+     * Gets the uid value for this Batchdetail.
+     * 
+     * @return uid
+     */
+    public java.lang.String getUid() {
+        return uid;
+    }
+
+
+    /**
+     * Sets the uid value for this Batchdetail.
+     * 
+     * @param uid
+     */
+    public void setUid(java.lang.String uid) {
+        this.uid = uid;
+    }
+
+    private java.lang.Object __equalsCalc = null;
+    public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Batchdetail)) return false;
+        Batchdetail other = (Batchdetail) obj;
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (__equalsCalc != null) {
+            return (__equalsCalc == obj);
+        }
+        __equalsCalc = obj;
+        boolean _equals;
+        _equals = true && 
+            ((this.code==null && other.getCode()==null) || 
+             (this.code!=null &&
+              this.code.equals(other.getCode()))) &&
+            ((this.dateName==null && other.getDateName()==null) || 
+             (this.dateName!=null &&
+              this.dateName.equals(other.getDateName()))) &&
+            ((this.datePath==null && other.getDatePath()==null) || 
+             (this.datePath!=null &&
+              this.datePath.equals(other.getDatePath()))) &&
+            ((this.dateSize==null && other.getDateSize()==null) || 
+             (this.dateSize!=null &&
+              this.dateSize.equals(other.getDateSize()))) &&
+            ((this.dateType==null && other.getDateType()==null) || 
+             (this.dateType!=null &&
+              this.dateType.equals(other.getDateType()))) &&
+            ((this.pch==null && other.getPch()==null) || 
+             (this.pch!=null &&
+              this.pch.equals(other.getPch()))) &&
+            ((this.sendPerson==null && other.getSendPerson()==null) || 
+             (this.sendPerson!=null &&
+              this.sendPerson.equals(other.getSendPerson()))) &&
+            ((this.sendTime==null && other.getSendTime()==null) || 
+             (this.sendTime!=null &&
+              this.sendTime.equals(other.getSendTime()))) &&
+            ((this.sxbbh==null && other.getSxbbh()==null) || 
+             (this.sxbbh!=null &&
+              this.sxbbh.equals(other.getSxbbh()))) &&
+            ((this.sxbm==null && other.getSxbm()==null) || 
+             (this.sxbm!=null &&
+              this.sxbm.equals(other.getSxbm()))) &&
+            ((this.timeStamp==null && other.getTimeStamp()==null) || 
+             (this.timeStamp!=null &&
+              this.timeStamp.equals(other.getTimeStamp()))) &&
+            ((this.uid==null && other.getUid()==null) || 
+             (this.uid!=null &&
+              this.uid.equals(other.getUid())));
+        __equalsCalc = null;
+        return _equals;
+    }
+
+    private boolean __hashCodeCalc = false;
+    public synchronized int hashCode() {
+        if (__hashCodeCalc) {
+            return 0;
+        }
+        __hashCodeCalc = true;
+        int _hashCode = 1;
+        if (getCode() != null) {
+            _hashCode += getCode().hashCode();
+        }
+        if (getDateName() != null) {
+            _hashCode += getDateName().hashCode();
+        }
+        if (getDatePath() != null) {
+            _hashCode += getDatePath().hashCode();
+        }
+        if (getDateSize() != null) {
+            _hashCode += getDateSize().hashCode();
+        }
+        if (getDateType() != null) {
+            _hashCode += getDateType().hashCode();
+        }
+        if (getPch() != null) {
+            _hashCode += getPch().hashCode();
+        }
+        if (getSendPerson() != null) {
+            _hashCode += getSendPerson().hashCode();
+        }
+        if (getSendTime() != null) {
+            _hashCode += getSendTime().hashCode();
+        }
+        if (getSxbbh() != null) {
+            _hashCode += getSxbbh().hashCode();
+        }
+        if (getSxbm() != null) {
+            _hashCode += getSxbm().hashCode();
+        }
+        if (getTimeStamp() != null) {
+            _hashCode += getTimeStamp().hashCode();
+        }
+        if (getUid() != null) {
+            _hashCode += getUid().hashCode();
+        }
+        __hashCodeCalc = false;
+        return _hashCode;
+    }
+
+    // Type metadata
+    private static org.apache.axis.description.TypeDesc typeDesc =
+        new org.apache.axis.description.TypeDesc(Batchdetail.class, true);
+
+    static {
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://webservice.ces.com/", "batchdetail"));
+        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("code");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "code"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("dateName");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "dateName"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("datePath");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "datePath"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("dateSize");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "dateSize"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("dateType");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "dateType"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("pch");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "pch"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("sendPerson");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "sendPerson"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("sendTime");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "sendTime"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("sxbbh");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "sxbbh"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("sxbm");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "sxbm"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("timeStamp");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "timeStamp"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("uid");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "uid"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+    }
+
+    /**
+     * Return type metadata object
+     */
+    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+        return typeDesc;
+    }
+
+    /**
+     * Get Custom Serializer
+     */
+    public static org.apache.axis.encoding.Serializer getSerializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanSerializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+    /**
+     * Get Custom Deserializer
+     */
+    public static org.apache.axis.encoding.Deserializer getDeserializer(
+           java.lang.String mechType, 
+           java.lang.Class _javaType,  
+           javax.xml.namespace.QName _xmlType) {
+        return 
+          new  org.apache.axis.encoding.ser.BeanDeserializer(
+            _javaType, _xmlType, typeDesc);
+    }
+
+}

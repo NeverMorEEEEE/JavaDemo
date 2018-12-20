@@ -1,0 +1,17 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/ces/webservice/Batch.java=UTF-8
+encoding//src/main/java/com/ces/webservice/Batchdetail.java=UTF-8
+encoding//src/main/java/com/ces/webservice/Deptcode.java=UTF-8
+encoding//src/main/java/com/ces/webservice/NwService.java=UTF-8
+encoding//src/main/java/com/ces/webservice/NwServiceService.java=UTF-8
+encoding//src/main/java/com/ces/webservice/NwServiceServiceLocator.java=UTF-8
+encoding//src/main/java/com/ces/webservice/NwServiceServiceSoapBindingStub.java=UTF-8
+encoding//src/main/java/com/ces/webservice/Period.java=UTF-8
+encoding//src/main/java/com/ces/webservice/Receive.java=UTF-8
+encoding//src/main/java/com/zjtzsw/modules/webservices/service/DemoServiceWsSoapBindingStub.java=UTF-8
+encoding//src/main/java/com/zjtzsw/modules/webservices/service/DemoServiceWs_PortType.java=UTF-8
+encoding//src/main/java/com/zjtzsw/modules/webservices/service/DemoServiceWs_Service.java=UTF-8
+encoding//src/main/java/com/zjtzsw/modules/webservices/service/DemoServiceWs_ServiceLocator.java=UTF-8
+encoding//src/main/resources=UTF-8
+encoding/<project>=UTF-8
+encoding/src=UTF-8
