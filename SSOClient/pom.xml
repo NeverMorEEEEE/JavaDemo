@@ -15,6 +15,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.9.RELEASE</version>
+		<!-- <version>2.1.0.RELEASE</version> -->
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -35,6 +36,9 @@
 		<zkclient.version>0.1</zkclient.version>
 		<activemq.version>5.11.2</activemq.version>
 		<freemarker.version>2.3.23</freemarker.version>
+		<!-- <thymeleaf.version> 3.0.11.RELEASE</thymeleaf.version> -->
+		<thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
+		<thymeleaf-layout-dialect.version>2.2.0</thymeleaf-layout-dialect.version>
 	</properties>
 
 	<dependencies>
@@ -59,6 +63,10 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
@@ -75,7 +83,7 @@
 			</dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-freemarker</artifactId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
@@ -251,6 +259,8 @@
 			<artifactId>dubbo-service-api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<!-- <dependency> <groupId>org.thymeleaf</groupId> <artifactId>thymeleaf</artifactId> 
+			<version>${thymeleaf.version}}</version> </dependency> -->
 
 	</dependencies>
 

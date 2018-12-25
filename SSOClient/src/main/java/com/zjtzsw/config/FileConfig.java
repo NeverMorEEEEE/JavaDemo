@@ -3,9 +3,6 @@ package com.zjtzsw.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,7 +18,7 @@ public class FileConfig {
 	// Set maxPostSize of embedded tomcat server to 10 megabytes (default is 2 MB, not large enough to support file uploads > 1.5 MB)
 	private final static Logger logger = LoggerFactory.getLogger(FileConfig.class);
 	
-	@Bean
+	/*@Bean
 	public EmbeddedServletContainerCustomizer containerCustomizer() throws Exception {
 		logger.info("配置tomcat容器setMaxPostSize为50MB..");
 	    return (ConfigurableEmbeddedServletContainer container) -> {
@@ -34,5 +31,5 @@ public class FileConfig {
 	            );
 	        }
 	    };
-	}
+	}*/
 }

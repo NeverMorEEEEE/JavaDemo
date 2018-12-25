@@ -60,13 +60,13 @@ public class RedisConfig extends CachingConfigurerSupport {
 	 * 我们需要将应用连接到它并使用某种“语言”进行交互，因此我们还需要一个连接工厂以及一个 Spring 和 Redis 对话要用的
 	 * RedisTemplate， 这些都是 Redis 缓存所必需的配置，把它们都放在自定义的 CachingConfigurerSupport 中
 	 */
-	@Bean
+/*	@Bean
 	public CacheManager cacheManager(
 			@SuppressWarnings("rawtypes") RedisTemplate redisTemplate) {
 		RedisCacheManager cacheManager = new RedisCacheManager(redisTemplate);
 		// cacheManager.setDefaultExpiration(60);//设置缓存保留时间（seconds）
 		return cacheManager;
-	}
+	}*/
 
 	@Bean
 	public RedisTemplate<String, String> redisTemplate(

@@ -57,28 +57,20 @@ public class WebConfig extends WebMvcConfigurerAdapter {
          converters.add(fastJsonHttpMessageConverter);
    }
 
-    @Override
-    public void configureViewResolvers(ViewResolverRegistry registry) {
-        registry.jsp("/jsp/", ".jsp");
-    
-    }
+//    @Override
+//    public void configureViewResolvers(ViewResolverRegistry registry) {
+////        registry.jsp("/jsp/", ".jsp");
+//    
+//    }
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**").addResourceLocations("/static/");
-    }
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        registry.addResourceHandler("/**").addResourceLocations("/static/");
+//    }
     /*
     addViewControllers可以方便的实现一个请求直接映射成视图，而无需书写controller
     registry.addViewController("请求路径").setViewName("请求页面文件路径")
      */
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry ) {
-    	System.out.println("笑出猪叫！");
-        registry.addViewController( "/" ).setViewName( "hello" );
-//        registry.addViewController( "/" ).setViewName( "/modules/home/LogonDialog" );
-        registry.setOrder( Ordered.HIGHEST_PRECEDENCE );
-        super.addViewControllers( registry );
-    } 
     
     
 //    @Bean
@@ -91,12 +83,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 //        return resolver;
 //    }
  
-    @Bean
-    public FreeMarkerConfigurer freemarkerConfig() throws IOException, TemplateException {
-        FreeMarkerConfigurer configurer = new FreeMarkerConfigurer();
-        configurer.setTemplateLoaderPaths("classpath:/templates/");
-        configurer.setDefaultEncoding("UTF-8");
-        return configurer;
-    }
+//    @Bean
+//    public FreeMarkerConfigurer freemarkerConfig() throws IOException, TemplateException {
+//        FreeMarkerConfigurer configurer = new FreeMarkerConfigurer();
+//        configurer.setTemplateLoaderPaths("classpath:/templates/");
+//        configurer.setDefaultEncoding("UTF-8");
+//        return configurer;
+//    }
 
 }

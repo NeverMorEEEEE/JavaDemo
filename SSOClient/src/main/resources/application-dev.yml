@@ -1,18 +1,9 @@
-spring:  
-
-  freemarker:
-    #关闭缓存
-    cache: false
-    request-context-attribute: request
-    #模板加载的位置
-    template-loader-path: classpath:/templates
-    #前缀
-    suffix: .dtl
-    #后缀
-    prefix:
+spring:
+  session:
+        store-type:none 
   redis:
     database: 0
-    host: 144.101.6.3 
+    host: 10.80.79.15
     port: 6379
     password: jtzsw_redis
     timeout: 6000
@@ -24,8 +15,8 @@ spring:
   datasource:
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: oracle.jdbc.driver.OracleDriver
-        url: jdbc:oracle:thin:@144.101.6.3:1521/zjtz
-        username: tz_yth
+        url: jdbc:oracle:thin:@127.0.0.1:1521/orcl
+        username: orcl
         password: oracle
         druid:
             initial-size: 10
