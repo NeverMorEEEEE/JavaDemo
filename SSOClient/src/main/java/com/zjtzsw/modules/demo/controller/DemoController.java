@@ -23,7 +23,6 @@ import seas.SeasInterface;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSONObject;
-import com.opslab.util.StringUtils;
 import com.zjtzsw.common.exception.WacException;
 import com.zjtzsw.common.utils.R;
 import com.zjtzsw.modules.demo.dao.DemoDao;
@@ -36,7 +35,7 @@ import com.zjtzsw.modules.sys.service.LoginService;
 
 @Controller
 @RequestMapping("/demo")
-public class HelloController {
+public class DemoController {
     
     @Autowired
     RestTemplate restTemplate;
@@ -50,7 +49,7 @@ public class HelloController {
     
     
     @Autowired  
-    private MyMapper myMapper;
+    private MyMapper myMapper; 
     
     @RequestMapping("/hello")
     public String hello(String url) {
@@ -69,6 +68,13 @@ public class HelloController {
     	System.out.println("Path : " +  path );
 		return path;
 
+    }
+    
+    @RequestMapping(value="/testChinese")  
+    @ResponseBody
+    public String testChinese() {  
+        return "我是中国人,我爱中文";  
+          
     }
     
     
