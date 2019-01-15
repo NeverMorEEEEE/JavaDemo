@@ -14,11 +14,11 @@ public interface DemoDao {
    
    DemoEntity queryById(String id);
    
-   abstract void delete(String id);
+   abstract int delete(String id);
    
-   abstract void update(DemoEntity demo);
+   abstract int update(DemoEntity demo);
 
-   void save(DemoEntity demo);
+   int save(DemoEntity demo);
    
 
 }

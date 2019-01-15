@@ -14,6 +14,7 @@ import org.activiti.engine.impl.util.json.JSONArray;
 import org.activiti.engine.impl.util.json.XML;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,9 +26,12 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSONObject;
 import com.zjtzsw.common.exception.WacException;
 import com.zjtzsw.common.utils.R;
-import com.zjtzsw.modules.demo.dao.DemoDao;
 import com.zjtzsw.modules.demo.dao.MyMapper;
+import com.zjtzsw.modules.demo.dao.wacDao;
 import com.zjtzsw.modules.demo.entity.DemoEntity;
+import com.zjtzsw.modules.demo.entity.WacEntity;
+import com.zjtzsw.modules.demo.service.DemoService;
+import com.zjtzsw.modules.demo.service.WacService;
 import com.zjtzsw.modules.sys.domain.UserInfo;
 import com.zjtzsw.modules.sys.entity.Aa10Entity;
 import com.zjtzsw.modules.sys.result.CodeMsg;
@@ -45,8 +49,10 @@ public class DemoController {
     LoginService loginService;*/
     
     @Autowired  
-    private DemoDao demo;
+    private DemoService demoService;
     
+    @Autowired  
+    private WacService wacService;
     
     @Autowired  
     private MyMapper myMapper; 
@@ -78,11 +84,36 @@ public class DemoController {
     }
     
     
+    @RequestMapping(value="/testTrans")  
+    @ResponseBody
+    @Transactional
+    public String testTranscal(String wacid,String wacName,String id,String name) {  
+    	DemoEntity demo = new DemoEntity();
+    	WacEntity wac = new WacEntity();
+    	demo.setId(id);
+    	demo.setName(name);
+    	wac.setId(wacid);
+    	wac.setName(wacName);
+    	
+    	System.out.println("Wac : " + wac);
+    	System.out.println("Demo : " + demo);
+    	
+    	demoService.save(demo);
+    	
+    	wacService.save(wac);
+    	
+        return "我是中国人,我爱中文";  
+          
+    }
+    
+    
     @RequestMapping(value="/fileview")  
     public String testF2F() {  
         return "/modules/demo/hello";  
           
     }
+    
+    
     
     @ResponseBody
     @RequestMapping("/testFormXml")
@@ -147,7 +178,7 @@ public class DemoController {
     @ResponseBody
     public Object query(DemoEntity demoe){
 
-		return demo.query(demoe);
+		return demoService.query(demoe);
     }
     
     @RequestMapping("/delete")
@@ -157,7 +188,7 @@ public class DemoController {
     	res.put("code", "00");
     	String result = "删除成功！";
     	try{
-    		demo.delete(id);
+    		demoService.delete(id);
     	}catch(Exception e){
     		e.printStackTrace();
     		res.put("code", "-1");
@@ -176,11 +207,11 @@ public class DemoController {
     	String result = "新增成功！";
     	
     	try{
-    		if(demo.queryById(demoe.getId()) == null){
-    			demo.save(demoe);
+    		if(demoService.queryById(demoe.getId()) == null){
+    			demoService.save(demoe);
     			
     		}else{
-    			demo.update(demoe);
+    			demoService.update(demoe);
     			result = "修改成功";
     		}
     		

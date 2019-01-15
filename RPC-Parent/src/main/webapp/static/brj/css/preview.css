@@ -1,0 +1,95 @@
+#real {
+	/*点击弹出模态框的图片*/
+	margin: 30px;
+	width: 250px;
+	border-radius: 6px;
+}
+
+#real:hover {
+	opacity: 0.6;
+}
+
+#mo {
+	display: none;
+	/*隐藏*/
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	overflow: auto;
+	/* background: rgb(0, 0, 0); */    /*不支持rgba的浏览器*/
+	background-color: rgba(0, 0, 0, 0.7);  /*支持rgba的浏览器*/
+	filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#7F000000,endcolorstr=#7F000000);
+	top: 0px;
+	left: 0px;
+	z-index: 99999;
+	text-align: center;
+}
+#inputFileUpload {
+	/*隐藏*/
+	width: 150px;
+	height: 150px;
+	position: absolute;
+  	opacity:0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);  
+	z-index: 9999;
+	font-size:50px;
+	cursor: pointer;
+}
+#filename {
+	/*隐藏*/
+  	opacity:0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0); 
+}
+
+.moimg {
+	display: block;
+	margin: 0 auto;
+	max-width: 90%;
+	/* height:100%; */
+	/* float:left!important; */
+}
+
+#caption {
+	text-align: center;
+	margin: 15px auto;
+	width: 60%;
+	max-height: 750px;
+	font-size: 20px;
+	color: #ccc;
+}
+
+.moimg,#caption {
+	-webkit-animation: first 1s;
+	-o-animation: first 1s;
+	animation: first 1s;
+}
+
+@
+keyframes first {from { transform:scale(0.1);
+	
+}
+
+to {
+	transform: scale(1);
+}
+
+}
+.close {
+	font-size: 40px;
+	font-weight: bold;
+	position: absolute;
+	top: 20px;
+	right: 1%;
+	color: #f1f1f1;
+}
+
+.close:hover,.close:focus {
+	color: #bbb;
+	cursor: pointer;
+}
+
+@media only screen and(max-width:750px) {
+	.moimg {
+		width: 100%;
+	}
+}

@@ -33,16 +33,16 @@ public class FilterConfig {
         return registration;
     }
     
-    @Bean
-    public FilterRegistrationBean SSOFilterRegistration() {
-        FilterRegistrationBean registration = new FilterRegistrationBean();
-        registration.setDispatcherTypes(DispatcherType.REQUEST);
-        registration.setFilter(new SessionClientFilter());
-        registration.addUrlPatterns("/demo/*");
-        registration.setName("sessionFilter");
-        registration.setOrder(Integer.MAX_VALUE);
-        System.out.println("set SsoFilter_ssourl :" + ssourl);
-        registration.addInitParameter("ssourl", ssourl);
-        return registration;
-    }
+//    @Bean
+//    public FilterRegistrationBean SSOFilterRegistration() {
+//        FilterRegistrationBean registration = new FilterRegistrationBean();
+//        registration.setDispatcherTypes(DispatcherType.REQUEST);
+//        registration.setFilter(new SessionClientFilter());
+//        registration.addUrlPatterns("/demo/*");
+//        registration.setName("sessionFilter");
+//        registration.setOrder(Integer.MAX_VALUE);
+//        System.out.println("set SsoFilter_ssourl :" + ssourl);
+//        registration.addInitParameter("ssourl", ssourl);
+//        return registration;
+//    }
 }

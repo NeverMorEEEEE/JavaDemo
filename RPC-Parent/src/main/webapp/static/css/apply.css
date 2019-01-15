@@ -1,0 +1,167 @@
+@charset "UTF-8";
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #f0f0f0;
+}
+
+.clear:after {
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+.title-fixed {
+	position: fixed;
+	width: 100%;
+	height: auto;
+	top: 0;
+	left: 0;
+	z-index: 999;
+}
+
+.content-title {
+	background-color: #4b7ddc;
+	line-height: 40px;
+	color: white;
+	text-indent: 20px;
+	font-size: 16px;
+	margin: 0;
+}
+
+.btn-box {
+	padding: 10px 20px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #dfdfdf;
+	background-color: white;
+}
+
+.btn-box>input[type=button] {
+	width: 90px;
+	height: 26px;
+	color: white;
+	text-align: center;
+	margin-right: 10px;
+	border: 0;
+	cursor: pointer;
+}
+
+.btn-box>input.btn-green {
+	background-color: #0ddb1e;
+}
+
+.btn-box>input.btn-yellow {
+	background-color: #edb20e;
+}
+
+.info-content {
+	width: 1000px;
+	padding: 0 16px;
+	margin: 95px auto 10px auto;
+	border: 1px solid #e0e0e0;
+	background: white;
+	font-size: 12px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.info-content>h3 {
+	margin: 12px 0;
+	border-left: 3px solid #5775e3;
+	line-height: 1em;
+	color: #5775e3;
+	text-indent: 10px;
+	position: relative;
+	font-size: 12px;
+	font-weight:normal;
+}
+
+.info-content>div>h3 {
+	margin: 12px 0;
+	border-left: 3px solid #5775e3;
+	line-height: 1em;
+	color: #5775e3;
+	text-indent: 10px;
+	position: relative;
+	font-size: 12px;
+	font-weight:normal;
+}
+
+.info-content>h3>div {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.info-content>h3>div>span {
+	padding-right: 10px;
+}
+
+.roundType {
+	line-height: 20px;
+}
+
+.roundType>span, .roundType>i {
+	float: left;
+	color: #939393;
+	height: 20px;
+	line-height: 20px;
+}
+
+.roundType>i {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 20px;
+	color: white;
+	font-style: normal;
+	line-height: 20px;
+	text-align: center;
+}
+
+.roundType>i.yellow {
+	background-color: #f1d200;
+}
+
+.roundType>i.blue {
+	background-color: #30a2de;
+}
+
+.roundType>i.green {
+	background-color: #12dcac;
+}
+
+.roundType>i.grey {
+	background-color: #c4c5c0;
+}
+
+.info-content>h4 {
+	color: #5775e3;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.info-content>h4>span {
+	display: inline-block;
+	padding: 0 15px;
+	height: 36px;
+	line-height: 36px;
+	border-top: 2px solid #546378;
+	border-left: 1px solid #e5e5e5;
+	border-right: 1px solid #e5e5e5;
+	margin-bottom: -1px;
+	background: white;
+	font-size: 12px;
+	font-weight:normal
+}
+
+.info-box {
+	padding: 10px 30px;
+	border: 1px solid #dfdfdf;
+}
+
+.info-box .roundType {
+	padding: 5px 0;
+}

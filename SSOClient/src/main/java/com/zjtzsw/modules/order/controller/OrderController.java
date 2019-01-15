@@ -33,7 +33,7 @@ import com.zjtzsw.common.utils.R;
 import com.zjtzsw.modules.demo.dao.DemoDao;
 import com.zjtzsw.modules.demo.dao.MyMapper;
 import com.zjtzsw.modules.demo.entity.DemoEntity;
-import com.zjtzsw.modules.order.controller.entity.OrderEntity;
+import com.zjtzsw.modules.order.entity.OrderEntity;
 import com.zjtzsw.modules.sys.domain.UserInfo;
 import com.zjtzsw.modules.sys.entity.Aa10Entity;
 import com.zjtzsw.modules.sys.result.CodeMsg;

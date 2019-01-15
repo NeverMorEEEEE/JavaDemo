@@ -38,4 +38,12 @@ public class DemoEntity implements Serializable {
         return serialVersionUID;
     }
 
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("[");
+		return sb.append("id :" + id + ", name : " + name + "]").toString();
+	}
+
+	
 }

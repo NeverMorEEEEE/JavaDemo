@@ -1,0 +1,36 @@
+server:
+  port: 8080
+  tomcat: 
+    uri-encoding: UTF-8
+spring:
+    mvc: 
+      static-path-pattern: /static/**
+    # 环境 dev
+    profiles: 
+        active: dev
+    application:
+        name: zjtzsw-ssm
+    # jackson时间格式化
+    jackson:
+        time-zone: GMT+8
+        date-format: yyyy-MM-dd HH:mm:ss
+    http:
+        multipart:
+          maxFileSize: 50MB
+          maxRequestSize: 100MB
+       #模板引擎
+
+# Mybatis配置
+mybatis:
+    mapperLocations: classpath:mapper/**/*.xml
+    configLocation: classpath:mybatis.xml
+    
+pagehelper:
+    helperDialect: oracle
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+sso:
+  url: http://127.0.0.1:8081/sso/index
+  loginUrl: http://127.0.0.1:8081/home/login
+  passUrl: /sso/*

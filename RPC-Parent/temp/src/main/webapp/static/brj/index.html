@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>信息采集页面</title>
+<script src='imgUp/js/jquery-1.7.2.min.js'></script>
+<script src='imgUp/js/jquery-MaterialUpload-Jingtoo.js'></script>
+<link rel="stylesheet" href="ajaxfileupload/ajaxfileupload.css" />
+<script src='ajaxfileupload/ajaxfileupload.js'></script>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/preview.css" />
+<link rel="stylesheet" href="imgUp/css/IMGUP.css" />
+<!-- validate -->
+<script src="form/js/TipsIframe.min.js" type="text/javascript"></script>
+<script src="form/js/validator.pack.js" type="text/javascript"></script>
+<script src="form/js/jquery.validate.js" type="text/javascript"></script>
+<script src="form/js/jquery.validate.jingtoo.js" type="text/javascript"></script>
+<script src="form/js/messages_cn.js" type="text/javascript"></script>
+<script type="text/javascript" src="dialog/lhgdialog.js?skin=iblue"></script>
+<script type="text/javascript" src="dialog/lhgdialog.common.js"></script>
+<script type="text/javascript" src="dialog/lhgdialog.message.js"></script>
+<script src='js/main.js'></script>
+<style>
+	html{
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+</style>
+<script type="text/javascript">
+var imgcount = 1;
+	var camurl = "";
+	var dzdaId = "";
+	$(function() {
+		var materialUrl = "/dzda/entity";//材料后台请求地址；
+		var businessCode = parent.flh;//业务类别代码
+		var businessNum = parent.bizId;//业务流水号
+		var fileInputstreamUrl = "/dzda/license";//文件流地址
+		var saveRecordUrl = "/dzda/dataTransmission";//保存业务基本信息地址
+		var saveFileUrl = "/dzda/upload";//保存文件地址
+		var deleteUrl = "/dzda/deleteFile";//删除原文地址
+
+		var ChangeDataStateUrl = "/bipW/bipW/BussDataStateUpdateServlet";//数据状态变更地址；
+		var aga001 = parent.aga001;
+		var ticket = parent.ticket;
+		var options = new Object;
+		options.MaterialUrl = materialUrl;//获取材料后台请求地址；必填
+		options.BusinessCode = businessCode;//业务类别代码；必填
+		options.BusinessNum = businessNum;//业务类流水号；初始办理前为空，办理后再次查询时必填
+		options.FileInputstreamUrl = fileInputstreamUrl;//获取文件流地址；必填
+		options.SaveRecordUrl = saveRecordUrl;//保存业务基本信息地址；必填
+		options.SaveFileUrl = saveFileUrl;//保存业务材料地址；必填
+		options.DeleteUrl = deleteUrl;
+		options.ChangeDataStateUrl = ChangeDataStateUrl;//数据状态变更地址；
+		//init(options);
+		//初始化采集参数
+		var bussinessData = new Object;
+		var other = 0;//数据状态*
+		var state = "办理中";//业务经办状态*
+		var operated = getFormatDate2();//初始业务操作时间*
+		var ywmc = parent.aga003;//业务名称*
+		var flh = businessCode;//该笔业务归档所对应的档案分类编号*
+		var xzqh = parent.xzqh;//行政区划代码
+		var sfzh = "87687687623";//身份证号码
+		var xm = "不就收";//姓名
+		var dwbh = "";//单位编号
+		var dwmc = "";//单位名称
+		var rybh = "";//人员编号
+		var pzbh = "";//凭证编号
+		var gsny = getFormatDate();//归属年月
+		var gsd = "";//归属地
+		var rq = new Date();//日期
+		var fl = "";//分类
+		var bz = "";//备注
+		var privates;//私有字段信息
+		var ywxw;//业务行为（如拟稿、修改、核稿、会办、签发）
+		var clry;//处理人员
+		var clsj;//处理时间
+		var cljg;//处理机构 
+		var bizId = businessNum;
+		bussinessData.ticket = ticket;
+		bussinessData.aga001 = aga001;
+		bussinessData.other = other;
+		bussinessData.state = state;
+		bussinessData.operated = operated;
+		bussinessData.ywmc = ywmc;
+		bussinessData.flh = flh;
+		bussinessData.sfzh = sfzh;
+		bussinessData.xm = xm;
+		bussinessData.xzqh = xzqh;
+		bussinessData.dwbh = dwbh;
+		bussinessData.dwmc = dwmc;
+		bussinessData.rybh = rybh;
+		bussinessData.pzbh = pzbh;
+		bussinessData.gsny = gsny;
+		bussinessData.gsd = gsd;
+		bussinessData.rq = rq;
+		bussinessData.fl = fl;
+		bussinessData.bz = bz;
+		bussinessData.privates = privates;
+		bussinessData.ywxw = ywxw;
+		bussinessData.clry = clry;
+		bussinessData.clsj = clsj;
+		bussinessData.cljg = cljg;
+		bussinessData.bizId = bizId;
+		bussinessData.dzdaId = dzdaId;
+		options.BussinessData = bussinessData;
+		JingTooUploadUtil.init(options);
+		//高拍
+		if (browser.versions.webKit) {//谷歌内核
+			camurl = "/brj/GoogleCam.html";
+		} else if (browser.versions.trident) {//IE内核
+			camurl = "/brj/IeCam.html";
+		}
+		$(".gaopai").parent().click(function() {
+
+			$.dialog({
+				id : 'diag',
+				title : '高拍采集',
+				width : 550,
+				height : 600,
+				parent : $("#div_imglook"),
+				lock : true,
+				content : 'url:' + camurl
+			});
+		})
+	});
+
+	//校验必有材料文件是否上传
+	function oncheck(flg) {
+		//flag为true时,说明必有材料已经上传
+		return flag = JingTooUploadUtil.onCheck(flg);
+	}
+	var browser = {
+		versions : function() {
+			var u = navigator.userAgent, app = navigator.appVersion;
+			return {
+				trident : u.indexOf('Trident') > -1, //IE内核
+				presto : u.indexOf('Presto') > -1, //opera内核
+				webKit : u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+				gecko : u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,//火狐内核
+				mobile : !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+				ios : !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+				android : u.indexOf('Android') > -1 || u.indexOf('Adr') > -1, //android终端
+				iPhone : u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+				iPad : u.indexOf('iPad') > -1, //是否iPad
+				webApp : u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+				weixin : u.indexOf('MicroMessenger') > -1, //是否微信 （2015-01-22新增）
+				qq : u.match(/\sQQ/i) == " qq" //是否QQ
+			};
+		}(),
+		language : (navigator.browserLanguage || navigator.language)
+				.toLowerCase()
+	};
+	function submiState() {//提交变革状态
+		JingTooUploadUtil.changeDataState(3);
+	}
+	function setImg(html) {
+		$("#div_imglook").children("div:last").after(html);
+		getNumTp();
+	}
+	var getNumTp = function() {
+		var lx = $(".fos").attr("lx");
+		$(".fos .number:eq(0)").text($("." + lx + "tp").length);
+	}
+	function getFormatDate(){    
+	    var nowDate = new Date();     
+	    var year = nowDate.getFullYear();    
+	    var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;    
+	    var date = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate.getDate();
+	    return year + month + date;    
+	}   
+	
+	function getFormatDate2(){    
+	    var nowDate = new Date();     
+	    var year = nowDate.getFullYear();    
+	    var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1;    
+	    var date = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate.getDate();    
+	    var hour = nowDate.getHours()< 10 ? "0" + nowDate.getHours() : nowDate.getHours();    
+	    var minute = nowDate.getMinutes()< 10 ? "0" + nowDate.getMinutes() : nowDate.getMinutes();    
+	    var second = nowDate.getSeconds()< 10 ? "0" + nowDate.getSeconds() : nowDate.getSeconds();    
+	    return year + "-" + month + "-" + date+" "+hour+":"+minute+":"+second;    
+	}   
+</script>
+
+</head>
+<body>
+
+	<div class="cailiao" id="cailiao">
+		<div class="cailiao-left">
+			<!-- <input type="button" onclick="submiState()" value="提交"> -->
+			<!--图片预览容器-->
+			<div id="div_imglook">
+				<div class="motai" id="mo">
+					<span class="img-switch-btn-right" onclick="changePage(1)"
+						onmouseover="onmouseupBtnOver(this,2)"
+						onmouseout="onmouseupBtnOut(this,2)"></span>
+					<div id="caption"></div>
+
+					<img class="motaiimg moimg" id="moimgImg">
+					<div class="motaiimg moimg" id="moimgDiv"></div>
+					<!-- 	<span class="close" style="right:60px;" id="allScreen">×1</span>  -->
+					<span class="close" id="close">×</span> <span
+						class="img-switch-btn-left" onclick="changePage(2)"
+						onmouseover="onmouseupBtnOver(this,1)"
+						onmouseout="onmouseupBtnOut(this,1)"></span>
+
+				</div>
+				<div class="lookimgs  buttonS" num="99999999">
+					<!--图片选择对话框-->
+					<input type="file" multiple="multiple"
+						accept=".png,.jpg,.jpeg,.bmp,.pdf,.doc,.docx,.xls,.xlsx"
+						id="inputFileUpload" name="inputFileUpload"
+						onchange="changeImg1(this)" />
+
+					<div class="cailiao-btn" id="div_imgfile"
+						style="position: relative;">
+						<i class='bgcj shangchuan'></i> 上传
+					</div>
+
+				</div>
+				<div class="lookimgss " num="99999998">
+					<div class="cailiao-btn" id="div_imgfile">
+						<i class='bgcj gaopai'></i> 高拍
+					</div>
+				</div>
+				<!-- <div>
+					<img id="image" src="" alt="" style="width: 215px; height: 215px;">
+				</div> -->
+			</div>
+		</div>
+		<div id="addDalog"></div>
+		<div class="cailiao-right">
+		 <span class='lookall'>查看全部</span> <span
+				class='sumbt'>影像保存</span>
+			<ul class='cardList' id="material">
+			</ul>
+		</div>
+		<!-- <div class="cailiao-center" style="float:none;width:20%;margin-left:auto;margin-right:auto;margin-top:35%;" >
+			
+		</div> -->
+		<input type="file" name="filename" id="filename" hidden="hidden">
+
+	</div>
+</body>
+
+<script src="imgUp/js/IMGUP.js" type="text/javascript" charset="utf-8"></script>
+</html>
