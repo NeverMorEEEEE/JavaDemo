@@ -222,16 +222,7 @@
 			<artifactId>jdom</artifactId>
 			<version>1.0</version>
 		</dependency>
-		<dependency>
-			<groupId>sea</groupId>
-			<artifactId>SEASInterface</artifactId>
-			<version>1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>river</groupId>
-			<artifactId>wacs</artifactId>
-			<version>0.0.1</version>
-		</dependency>
+
 		<!-- dubbo相关 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -267,6 +258,15 @@
 			<groupId>io.netty</groupId>
 			<artifactId>netty-all</artifactId>
 			<version>5.0.0.Alpha2</version>
+		</dependency>
+		
+		
+		<!-- guava工具集 -->
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>26.0-jre</version>
 		</dependency>
 	</dependencies>
 

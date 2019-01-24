@@ -17,7 +17,7 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public class RedisService{
 	
 	public RedisService(){

@@ -17,8 +17,8 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-@Configuration
-@ConditionalOnClass(value = { RestTemplate.class, HttpClient.class })
+//@Configuration
+//@ConditionalOnClass(value = { RestTemplate.class, HttpClient.class })
 public class RestTemplateConfig {
     @Value("${remote.maxTotalConnect:0}")
     private int maxTotalConnect; // 连接池的最大连接数默认为0

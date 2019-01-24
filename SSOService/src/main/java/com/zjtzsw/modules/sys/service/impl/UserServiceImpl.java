@@ -72,27 +72,10 @@ public class UserServiceImpl implements UserService {
     		return false;
     	}
     	System.out.println("登录成功！");
-    	//生成模拟session
-    	String token = UUIDUtil.uuid();
-    	addCookie(hres,token,userInfo);
-    	loginVo.setToken(token);
+
 
     	return true; 	
     }
     
-    private void addCookie(HttpServletResponse hres,String token,UserInfo userinfo){
-    	//存储到Redis
-    	String result = jedisUtil.set(token, userinfo, 3600);
-    	if("!1".equals(result)){
-    		throw new WacException("保存session到redis失败！", -11);
-    	}
-    	System.out.println("session保存到Redis成功！SessionID : " + token);
-    	//创建COOKIE
-    	Cookie cookie = new Cookie("token-2", token);
-    	cookie.setMaxAge(600);
-    	cookie.setPath("/");
-    	//添加到客户端
-    	hres.addCookie(cookie);
     
-    }
 }

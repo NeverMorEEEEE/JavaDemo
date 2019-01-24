@@ -436,6 +436,11 @@
 			<artifactId>jurt</artifactId>
 			<version>2.3.0</version>
 		</dependency>
+	<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.0</version>
+		</dependency>
 
 	</dependencies>
 
@@ -447,8 +452,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 
@@ -457,8 +462,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 					<compilerArguments>
 						<extdirs>${project.basedir}/src/main/webapp/WEB-INF/lib</extdirs>
 					</compilerArguments>

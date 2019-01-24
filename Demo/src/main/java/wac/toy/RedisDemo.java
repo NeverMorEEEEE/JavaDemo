@@ -43,7 +43,7 @@ public class RedisDemo {
 		//		
 		//		System.out.println(Integer.MAX_VALUE + " : " + Integer.toBinaryString(Integer.MAX_VALUE));
 		//		System.out.println(Integer.MIN_VALUE);
-		JedisUtil.init("127.0.0.1", 6379, "jtzsw_redis", 6000);
+		JedisUtil.init("144.101.6.3", 6379, "jtzsw_redis", 6000);
 		UserInfo us1= new UserInfo();
 		us1.setUserAccount("123");
 		us1.setUserPass("wac");

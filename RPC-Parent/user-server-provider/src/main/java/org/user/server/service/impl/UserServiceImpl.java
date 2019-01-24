@@ -8,12 +8,12 @@ import com.alibaba.fastjson.JSONObject;
 public class UserServiceImpl implements UserService{
 
 	@Override
-	public JSONObject addUser() {
+	public JSONObject addUser(String value) {
 		// TODO Auto-generated method stub
 		JSONObject result = new JSONObject();
 		result.put("code", "00");
 		result.put("msg", "新增用户成功！");
-		
+		result.put("value", value);
 		return result;
 	}
 

@@ -16,7 +16,7 @@ public class RpcClient {
 
 	
 	@SuppressWarnings("unchecked")
-	public static <T> T getRemoteProxy(Class<T> interfaceClass,final InetSocketAddress address){
+	public static <T> T getRemoteProxy(final Class<T> interfaceClass,final InetSocketAddress address){
 		return (T)Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class<?>[]{interfaceClass},
 				new InvocationHandler() {
 					
@@ -30,12 +30,19 @@ public class RpcClient {
 							try(ObjectOutputStream serializer = new ObjectOutputStream(socket.getOutputStream());
 								ObjectInputStream deSerializer = new ObjectInputStream(socket.getInputStream())	){
 								
-								//创建传输数据包对象
-								RequestDate dataPacket = new RequestDate();
-								dataPacket.se
+								// 序列化放入到流中
+								serializer.writeUTF(interfaceClass.getName());
+								serializer.writeUTF(method.getName());
+								serializer.writeObject(method.getParameterTypes());
+								serializer.writeObject(args);
 								
+								return deSerializer.readObject();
 								
-								serializer.writeObject(obj);
+//								RequestDate dataPacket = new RequestDate();
+//								dataPacket.se
+//								
+//								
+//								serializer.writeObject(obj);
 							}
 							
 						} catch (Exception e) {

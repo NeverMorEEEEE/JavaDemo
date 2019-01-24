@@ -31,6 +31,8 @@ import com.zjtzsw.common.utils.JedisUtil;
 import com.zjtzsw.common.xss.XssHttpServletRequestWrapper;
 import com.zjtzsw.config.RedisService;
 import com.zjtzsw.modules.sys.domain.UserInfo;
+import com.zjtzsw.modules.sys.util.JWT.JKSUtil;
+import com.zjtzsw.modules.util.JWT.JwtUtil;
 
 /**
  * 检查用户的cookie,并校验有效性，无效则跳转SSOServiceURL
@@ -64,7 +66,51 @@ public class SessionClientFilter implements Filter {
 		//		}
 		//		
 	}
+	
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @param chain
+	 * @param cookieToken
+	 * @throws IOException
+	 * @throws ServletException
+	 */
+	private void checkJWTToken(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		HttpSession hs = request.getSession();
+		Enumeration<String> es = hs.getAttributeNames();
+		while(es.hasMoreElements()){
+			String key = es.nextElement();
+			System.out.println("key : " + key + " , value : " + hs.getAttribute(key));
+		}
 
+		String token = request.getParameter("token");
+		System.out.println("Token : " +  token);
+
+		if(token!=null&&!"".equals(token)){//连接是带token的
+
+			//没有token,检查cookie里是否有有效token
+			response.sendRedirect(url + "?callbackurl=" + request.getRequestURL());	
+			return;
+		}else{
+			//有token,校验有效性
+			String privateKey = JKSUtil.getPrivateStrByJks("wac");//这里是加密解密的key。
+			JwtUtil.parseJWT(token, privateKey);
+			response.sendRedirect(url + "?callbackurl=" + request.getRequestURL());	
+			return;
+		}
+	}
+	
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @param chain
+	 * @param cookieToken
+	 * @throws IOException
+	 * @throws ServletException
+	 */
 	private void check(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			@CookieValue("token")String cookieToken)
 			throws IOException, ServletException {
@@ -215,7 +261,7 @@ public class SessionClientFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 //		check((HttpServletRequest)request,(HttpServletResponse)response,chain);
-		JSONPCheck((HttpServletRequest)request,(HttpServletResponse)response,chain);
+		checkJWTToken((HttpServletRequest)request,(HttpServletResponse)response,chain);
 	}
 
 	public static String getUrl() {

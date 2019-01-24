@@ -4,5 +4,5 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface UserService {
 
-	public JSONObject addUser();
+	public JSONObject addUser(String value);
 }

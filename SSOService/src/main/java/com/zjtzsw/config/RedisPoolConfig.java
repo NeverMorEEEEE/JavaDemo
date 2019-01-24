@@ -25,7 +25,7 @@ import com.zjtzsw.common.utils.JedisUtil;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
-@Configuration
+//@Configuration
 public class RedisPoolConfig {
     
 	Logger logger = LoggerFactory.getLogger(RedisPoolConfig.class);
