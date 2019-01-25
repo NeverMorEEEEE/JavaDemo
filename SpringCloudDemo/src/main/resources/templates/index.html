@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+Hello world!Here's Wac's Page!
+
+Server's Port : <p th:text="${port}">default message</p>
+</body>
+
+<script type="text/javascript">
+	var port = location.port;
+	console.log(location);
+
+</script>
+</html>
