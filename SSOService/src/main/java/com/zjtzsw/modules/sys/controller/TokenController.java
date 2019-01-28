@@ -21,7 +21,6 @@ import org.activiti.engine.impl.util.json.XML;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.session.ExpiringSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,7 +36,7 @@ import com.zjtzsw.modules.sys.service.UserService;
 import com.zjtzsw.modules.sys.util.JWT.JKSUtil;
 import com.zjtzsw.modules.sys.util.JWT.JwtUtil;
 import com.zjtzsw.modules.sys.util.cookieUtil.CookieUtil;
-import com.zjtzsw.modules.sys.util.springSession.SpringSessionDao;
+
 import com.zjtzsw.modules.sys.vo.LoginVo;
 
 @Controller
@@ -108,15 +107,15 @@ public class TokenController {
 	}
 	
 	
-	 private void kickUser(String userName)
-	  {
-	    ExpiringSession session = SpringSessionDao.getInstance().getSessionByDefaultIndex(userName);
-	    if (session != null)
-	    {
-	      System.out.println("������sessionID-------------->" + session.getId());
-	      SpringSessionDao.getInstance().delSession(session.getId());
-	    }
-	  }
+//	 private void kickUser(String userName)
+//	  {
+//	    ExpiringSession session = SpringSessionDao.getInstance().getSessionByDefaultIndex(userName);
+//	    if (session != null)
+//	    {
+//	      System.out.println("������sessionID-------------->" + session.getId());
+//	      SpringSessionDao.getInstance().delSession(session.getId());
+//	    }
+//	  }
 
 
 }

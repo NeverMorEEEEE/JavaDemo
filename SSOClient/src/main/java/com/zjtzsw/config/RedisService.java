@@ -1,6 +1,7 @@
 package com.zjtzsw.config;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.data.redis.serializer.RedisSerializer;
@@ -26,7 +28,7 @@ public class RedisService{
 
 	@SuppressWarnings("rawtypes")
 	@Autowired
-	private RedisTemplate redisTemplate;
+	private RedisTemplate<String, Object> redisTemplate;
 	/**
 	 * 批量删除对应的value
 	 * 
@@ -43,7 +45,7 @@ public class RedisService{
 	 * @param pattern
 	 */
 	public void removePattern(final String pattern) {
-		Set<Serializable> keys = redisTemplate.keys(pattern);
+		Set<String> keys = redisTemplate.keys(pattern);
 		if (keys.size() > 0)
 			redisTemplate.delete(keys);
 	}
@@ -75,7 +77,7 @@ public class RedisService{
 	public Object get(final String key) {
 		Object result = null;
 		redisTemplate.setValueSerializer(new StringRedisSerializer());
-		ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
+		ValueOperations<String, Object> operations = redisTemplate.opsForValue();
 		result = operations.get(key);
 		if(result==null){
 			return null;
@@ -94,7 +96,7 @@ public class RedisService{
 	public boolean set(final String key, Object value) {
 		boolean result = false;
 		try {
-			ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
+			ValueOperations<String, Object> operations = redisTemplate.opsForValue();
 			operations.set(key, value);
 			result = true;
 		} catch (Exception e) {
@@ -116,7 +118,7 @@ public class RedisService{
 	public boolean set(final String key, Object value, Long expireTime) {
 		boolean result = false;
 		try {
-			ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
+			ValueOperations<String, Object> operations = redisTemplate.opsForValue();
 			operations.set(key, value);
 			redisTemplate.expire(key, expireTime, TimeUnit.SECONDS);
 			result = true;
@@ -148,15 +150,17 @@ public class RedisService{
 	 * @param key
 	 * @return
 	 */
-	public  Map<String,String> hmget(String key) {
-		Map<String,String> result =null;
-		try {
-			result=  redisTemplate.opsForHash().entries(key);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
+//	public  Map<String,Object> hmget(String key) {
+//		Map<Object, Object> result =null;
+//		try {
+//			result=  redisTemplate.opsForHash().entries(key);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return result;
+//	}
+
+    
 	
 	public static void main(String[] args) {
 

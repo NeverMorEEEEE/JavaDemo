@@ -1,5 +1,7 @@
 package com.zjtzsw.common.filter;
 
+import io.jsonwebtoken.Claims;
+
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -26,13 +28,14 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.CookieValue;
 
+import com.opslab.util.jwt.JKSUtil;
+import com.opslab.util.jwt.JwtUtil;
 import com.zjtzsw.common.constant.Constant;
 import com.zjtzsw.common.utils.JedisUtil;
 import com.zjtzsw.common.xss.XssHttpServletRequestWrapper;
 import com.zjtzsw.config.RedisService;
 import com.zjtzsw.modules.sys.domain.UserInfo;
-import com.zjtzsw.modules.sys.util.JWT.JKSUtil;
-import com.zjtzsw.modules.util.JWT.JwtUtil;
+
 
 /**
  * 检查用户的cookie,并校验有效性，无效则跳转SSOServiceURL
@@ -73,11 +76,10 @@ public class SessionClientFilter implements Filter {
 	 * @param response
 	 * @param chain
 	 * @param cookieToken
-	 * @throws IOException
-	 * @throws ServletException
+	 * @throws Exception 
 	 */
 	private void checkJWTToken(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
-			throws IOException, ServletException {
+			throws Exception {
 		HttpSession hs = request.getSession();
 		Enumeration<String> es = hs.getAttributeNames();
 		while(es.hasMoreElements()){
@@ -96,7 +98,8 @@ public class SessionClientFilter implements Filter {
 		}else{
 			//有token,校验有效性
 			String privateKey = JKSUtil.getPrivateStrByJks("wac");//这里是加密解密的key。
-			JwtUtil.parseJWT(token, privateKey);
+			Claims claims = JwtUtil.parseJWT(token, privateKey);
+			System.out.println("claims : " + claims);
 			response.sendRedirect(url + "?callbackurl=" + request.getRequestURL());	
 			return;
 		}
@@ -261,7 +264,12 @@ public class SessionClientFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 //		check((HttpServletRequest)request,(HttpServletResponse)response,chain);
-		checkJWTToken((HttpServletRequest)request,(HttpServletResponse)response,chain);
+		try {
+			checkJWTToken((HttpServletRequest)request,(HttpServletResponse)response,chain);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public static String getUrl() {

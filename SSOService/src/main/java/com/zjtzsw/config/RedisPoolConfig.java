@@ -25,7 +25,7 @@ import com.zjtzsw.common.utils.JedisUtil;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
-//@Configuration
+@Configuration
 public class RedisPoolConfig {
     
 	Logger logger = LoggerFactory.getLogger(RedisPoolConfig.class);
@@ -39,10 +39,10 @@ public class RedisPoolConfig {
     @Value("${spring.redis.timeout}")
     private int timeout;
 
-    @Value("${spring.redis.pool.max-idle}")
+    @Value("${spring.redis.jedis.pool.max-idle}")
     private int maxIdle;
 
-    @Value("${spring.redis.pool.max-wait}")
+    @Value("${spring.redis.jedis.pool.max-wait}")
     private long maxWaitMillis;
 
     @Value("${spring.redis.password}")
@@ -68,9 +68,7 @@ public class RedisPoolConfig {
     
     @Bean
     public JdkSerializationRedisSerializer JdkSerializationRedisSerializerFactory(){
-    	//设置AutoType白名单
     	ParserConfig.getGlobalInstance().addAccept("com.zjtzsw.modules.sys.domain.UserInfo"); 
-//      ParserConfig.getGlobalInstance().setAutoTypeSupport(true); 
 		return new JdkSerializationRedisSerializer();
     }
 

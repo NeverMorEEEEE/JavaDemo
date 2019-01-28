@@ -29,21 +29,21 @@ public class RestTemplateConfig {
     @Value("${remote.readTimeout:30000}")
     private int readTimeout; // 读取超时默认30s
 
-    // 创建HTTP客户端工厂
-    private ClientHttpRequestFactory createFactory() {
-        if (this.maxTotalConnect <= 0) {
-            SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
-            factory.setConnectTimeout(this.connectTimeout);
-            factory.setReadTimeout(this.readTimeout);
-            return factory;
-        }
-        HttpClient httpClient = HttpClientBuilder.create().setMaxConnTotal(this.maxTotalConnect)
-                .setMaxConnPerRoute(this.maxConnectPerRoute).build();
-        HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory(httpClient);
-        factory.setConnectTimeout(this.connectTimeout);
-        factory.setReadTimeout(this.readTimeout);
-        return factory;
-    }
+//    // 创建HTTP客户端工厂
+//    private ClientHttpRequestFactory createFactory() {
+//        if (this.maxTotalConnect <= 0) {
+//            SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
+//            factory.setConnectTimeout(this.connectTimeout);
+//            factory.setReadTimeout(this.readTimeout);
+//            return factory;
+//        }
+//        HttpClient httpClient = HttpClientBuilder.create().setMaxConnTotal(this.maxTotalConnect)
+//                .setMaxConnPerRoute(this.maxConnectPerRoute).build();
+//        HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory(httpClient);
+//        factory.setConnectTimeout(this.connectTimeout);
+//        factory.setReadTimeout(this.readTimeout);
+//        return factory;
+//    }
 
     // 初始化RestTemplate,并加入spring的Bean工厂，由spring统一管理
     @Bean

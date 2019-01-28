@@ -158,12 +158,11 @@ public class HelloController {
     }
     
     
-    @RequestMapping("/demo")
+    @RequestMapping("/test")
     @ResponseBody
-    public List<Aa10Entity> demo(){
-    	SeasInterface seas = new SeasInterface("http://10.84.94.57:7001/seas");
+    public String demo(){
     	
-    	return null;
+    	return "测试字符串！";
     }
     
     
