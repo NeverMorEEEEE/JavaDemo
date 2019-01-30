@@ -1,6 +1,7 @@
 package com.zjtzsw.config;
 
 import java.io.IOException;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +24,6 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-
-import freemarker.template.TemplateException;
 
 /**
  * spring mvc 配置
@@ -63,10 +62,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 //    
 //    }
 
-//    @Override
-//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("/**").addResourceLocations("/static/");
-//    }
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
+    }
     /*
     addViewControllers可以方便的实现一个请求直接映射成视图，而无需书写controller
     registry.addViewController("请求路径").setViewName("请求页面文件路径")
@@ -90,5 +89,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 //        configurer.setDefaultEncoding("UTF-8");
 //        return configurer;
 //    }
+    public static void main(String[] args) {
+		URL url = WebConfig.class.getClass().getResource("classpath:/static/");
+		System.out.println("URL : " + url);
+		
+	}
+
 
 }

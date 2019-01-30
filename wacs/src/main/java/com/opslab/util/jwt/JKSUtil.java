@@ -147,7 +147,7 @@ public class JKSUtil {
 	public static void main(String[] args) throws Exception {
 		// KeyPair keyPair = JKSUtil.getInstance().getKeyPair("test11");
 		// System.out.println(keyPair.getPrivate());
-		readJks();
+		System.out.println(JKSUtil.getPrivateStrByJks("wac"));
 
 		// readCer();
 		// System.out.println(KeyStore.getInstance("wac"));

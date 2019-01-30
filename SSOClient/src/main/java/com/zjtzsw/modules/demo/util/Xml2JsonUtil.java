@@ -12,25 +12,28 @@ import java.util.Map;
 
 
 
+
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;  
   
 
 
-
-import org.activiti.engine.impl.util.json.XML;
 import org.jdom.Document;  
 import org.jdom.Element;  
 import org.jdom.input.SAXBuilder;  
+import org.json.JSONException;
+import org.json.XML;
   
 public class Xml2JsonUtil {  
 	
 	// xml解析
 			/**
 			 * xml解析返回json
+			 * @throws JSONException 
 			 */
-	public static Map<String, Object> resolveAtt(String xml) {
-		org.activiti.engine.impl.util.json.JSONObject json = XML.toJSONObject(xml);
+	public static Map<String, Object> resolveAtt(String xml) throws JSONException {
+		org.json.JSONObject json = XML.toJSONObject(xml);
 		String str = parseJSON2Map(json.toString(2)).get("RECORD").toString();
 		if(str != null){
 			return parseJSON2Map(str);

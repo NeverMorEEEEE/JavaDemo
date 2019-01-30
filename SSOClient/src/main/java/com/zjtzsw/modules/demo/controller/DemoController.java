@@ -10,32 +10,25 @@ import java.util.Map;
 
 import oracle.sql.CLOB;
 
-import org.activiti.engine.impl.util.json.JSONArray;
-import org.activiti.engine.impl.util.json.XML;
+import org.json.JSONException;
+import org.json.XML;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+
+
 import org.springframework.web.client.RestTemplate;
 
-import seas.SeasInterface;
-
-import com.alibaba.dubbo.config.annotation.Reference;
+import com.alibaba.dubbo.common.json.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.zjtzsw.common.exception.WacException;
-import com.zjtzsw.common.utils.R;
 import com.zjtzsw.modules.demo.dao.MyMapper;
-import com.zjtzsw.modules.demo.dao.wacDao;
 import com.zjtzsw.modules.demo.entity.DemoEntity;
 import com.zjtzsw.modules.demo.entity.WacEntity;
 import com.zjtzsw.modules.demo.service.DemoService;
 import com.zjtzsw.modules.demo.service.WacService;
-import com.zjtzsw.modules.sys.domain.UserInfo;
-import com.zjtzsw.modules.sys.entity.Aa10Entity;
-import com.zjtzsw.modules.sys.result.CodeMsg;
-import com.zjtzsw.modules.sys.service.LoginService;
+
 
 @Controller
 @RequestMapping("/demo")
@@ -117,7 +110,7 @@ public class DemoController {
     
     @ResponseBody
     @RequestMapping("/testFormXml")
-    public Object testFormXml(String bod001) throws IOException, SQLException {
+    public Object testFormXml(String bod001) throws IOException, SQLException, JSONException {
     	Map od06 = myMapper.select("select * from od06 where bod001 = '" + bod001 + "'").get(0);
 		String jsonstr = "";
 		Object result = null;
@@ -142,10 +135,10 @@ public class DemoController {
 			String forminfo = URLDecoder.decode(forminfo_raw);
 			
 			System.out.println(forminfo);
-			org.activiti.engine.impl.util.json.JSONObject json = XML.toJSONObject( forminfo);
+			org.json.JSONObject json = XML.toJSONObject( forminfo);
 			
-			org.activiti.engine.impl.util.json.JSONObject records = json.getJSONObject("RECORDS");
-			JSONArray items = records.getJSONObject("FormInfo").getJSONArray("Item");
+			org.json.JSONObject records = json.getJSONObject("RECORDS");
+			org.json.JSONArray items = records.getJSONObject("FormInfo").getJSONArray("Item");
 			
 			for(int i = 0;i<items.length();i++){
 				Object js = items.get(i);
@@ -155,7 +148,7 @@ public class DemoController {
 						items.remove(i);
 					}
 					js = JSONObject.parseObject(items.get(i).toString());
-				}else if(items.get(i) instanceof org.activiti.engine.impl.util.json.JSONObject){
+				}else if(items.get(i) instanceof JSONObject){
 					
 				}
 		

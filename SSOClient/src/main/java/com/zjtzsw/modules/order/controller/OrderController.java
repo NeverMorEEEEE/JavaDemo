@@ -1,20 +1,5 @@
 package com.zjtzsw.modules.order.controller;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.net.URLDecoder;
-import java.sql.Clob;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-
-import oracle.sql.CLOB;
-
-import org.activiti.engine.impl.util.json.JSONArray;
-import org.activiti.engine.impl.util.json.XML;
-import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +7,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
-
-import seas.SeasInterface;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSONObject;

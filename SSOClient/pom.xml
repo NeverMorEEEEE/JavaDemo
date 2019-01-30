@@ -85,6 +85,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+		<!-- Thymeleaf对html语法的检查非常严格,引入这个包，配置spring.thymeleaf.mode=LEGACYHTML5 就可以避免 -->
+		<dependency>
+			<groupId>nekohtml</groupId>
+			<artifactId>nekohtml</artifactId>
+			<version>1.9.6.2</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
@@ -206,11 +214,6 @@
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.1</version>
 		</dependency>
-		<dependency>
-			<groupId>org.activiti</groupId>
-			<artifactId>activiti-engine</artifactId>
-			<version>5.18.0</version>
-		</dependency>
 
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
@@ -224,14 +227,15 @@
 			<version>1.0</version>
 		</dependency>
 		<dependency>
-			<groupId>sea</groupId>
-			<artifactId>SEASInterface</artifactId>
-			<version>1.1</version>
-		</dependency>
-		<dependency>
 			<groupId>river</groupId>
 			<artifactId>wacs</artifactId>
 			<version>0.0.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!-- dubbo相关 -->
 		<dependency>
@@ -243,22 +247,22 @@
 			<groupId>org.apache.zookeeper</groupId>
 			<artifactId>zookeeper</artifactId>
 			<version>${zookeeper.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>com.github.sgroschupf</groupId>
 			<artifactId>zkclient</artifactId>
 			<version>${zkclient.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>wac</groupId>
-			<artifactId>springBoot.ServiceDemo</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>wac</groupId>
-			<artifactId>dubbo-service-api</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		<!--<dependency> <groupId>wac</groupId> <artifactId>springBoot.ServiceDemo</artifactId> 
+			<version>0.0.1-SNAPSHOT</version> </dependency> <dependency> <groupId>wac</groupId> 
+			<artifactId>dubbo-service-api</artifactId> <version>0.0.1-SNAPSHOT</version> 
+			</dependency> -->
 		<!-- <dependency> <groupId>org.thymeleaf</groupId> <artifactId>thymeleaf</artifactId> 
 			<version>${thymeleaf.version}}</version> </dependency> -->
 
@@ -281,7 +285,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.zjtzsw.SsoClientApplication</mainClass>
+					<mainClass>com.zjtzsw.SSOClientApplication</mainClass>
 				</configuration>
 				<version>1.4.2.RELEASE</version>
 				<!-- spring热部署 -->
