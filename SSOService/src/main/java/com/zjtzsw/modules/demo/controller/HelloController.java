@@ -16,9 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import oracle.sql.CLOB;
 
-import org.activiti.engine.impl.util.json.JSONArray;
-import org.activiti.engine.impl.util.json.XML;
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONException;
+import org.json.XML;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.stereotype.Controller;
@@ -26,15 +26,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
-import seas.SeasInterface;
-
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.opslab.util.http.HttpRequest;
 import com.zjtzsw.common.constant.Constant;
 import com.zjtzsw.common.utils.R;
 import com.zjtzsw.common.utils.SpringContextUtils;
 import com.zjtzsw.modules.demo.dao.MyMapper;
-import com.zjtzsw.modules.sys.entity.Aa10Entity;
 
 @Controller
 @RequestMapping("/demo")
@@ -100,7 +98,7 @@ public class HelloController {
     
     @ResponseBody
     @RequestMapping("/testFormXml")
-    public Object testFormXml(String bod001) throws IOException, SQLException {
+    public Object testFormXml(String bod001) throws IOException, SQLException, JSONException {
     	Map od06 = myMapper.select("select * from od06 where bod001 = '" + bod001 + "'").get(0);
 		String jsonstr = "";
 		Object result = null;
@@ -125,10 +123,10 @@ public class HelloController {
 			String forminfo = URLDecoder.decode(forminfo_raw);
 			
 			System.out.println(forminfo);
-			org.activiti.engine.impl.util.json.JSONObject json = XML.toJSONObject( forminfo);
+			org.json.JSONObject json = XML.toJSONObject( forminfo);
 			
-			org.activiti.engine.impl.util.json.JSONObject records = json.getJSONObject("RECORDS");
-			JSONArray items = records.getJSONObject("FormInfo").getJSONArray("Item");
+			org.json.JSONObject records = json.getJSONObject("RECORDS");
+			org.json.JSONArray items = records.getJSONObject("FormInfo").getJSONArray("Item");
 			
 			for(int i = 0;i<items.length();i++){
 				Object js = items.get(i);
@@ -138,7 +136,7 @@ public class HelloController {
 						items.remove(i);
 					}
 					js = JSONObject.parseObject(items.get(i).toString());
-				}else if(items.get(i) instanceof org.activiti.engine.impl.util.json.JSONObject){
+				}else if(items.get(i) instanceof JSONObject){
 					
 				}
 		
@@ -165,13 +163,6 @@ public class HelloController {
     	return "测试字符串！";
     }
     
-    
-    @RequestMapping("/trsdemo")
-    @ResponseBody
-    public List<Aa10Entity> trsdemo(){
-    	
-    	return null;
-    }
     
     @RequestMapping("/jsonpDemo")
     @ResponseBody

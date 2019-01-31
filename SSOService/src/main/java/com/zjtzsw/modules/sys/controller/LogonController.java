@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import oracle.sql.CLOB;
 
-import org.activiti.engine.impl.util.json.XML;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
@@ -83,7 +82,8 @@ public class LogonController {
 		if(userService.login(hres, loginVo)){//登录成功则跳转页面
 			System.out.println("登录成功!");
 
-			String token = loginVo.getToken();
+//			String token = loginVo.getToken();
+			String token = "";
 			hreq.setAttribute("token", token);
 			hreq.getSession().setAttribute("token", token);
 //			hres.sendRedirect(url);

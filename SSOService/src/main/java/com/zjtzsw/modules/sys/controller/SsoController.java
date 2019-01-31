@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 import oracle.sql.CLOB;
 
-import org.activiti.engine.impl.util.json.XML;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,49 +40,73 @@ public class SsoController {
 	@Autowired
 	UserService userService;
 
-	@Autowired  
+	@Autowired
 	private MyMapper myMapper;
-	
+
 	@RequestMapping("/index")
-	public String index(HttpServletResponse hres,String callbackurl, HttpSession session, Model model) throws IOException{
-		//1.判断是否有全局的会话
-        //从会话中获取令牌信息,如果取不到说明没有全局会话,如果能取到说明有全局会话
-        String token = (String) session.getAttribute("token");
-        if(StringUtils.isEmpty(token)){
-            //表示没有全局会话
-            model.addAttribute("redirectUrl",callbackurl);
-            //跳转到统一认证中心的登陆页面.已经配置视图解析器,
-            // 会找/WEB-INF/views/login.jsp视图
-            return "/modules/home/LogonDialog";
-        }else{
-            /**---------------------------阶段三添加的代码start--------------------**/
-            //有全局会话
-            //取出令牌信息,重定向到redirectUrl,把令牌带上  
-            // http://www.wms.com:8089/main?token=
-        	System.out.println("全局会话登录： token:" +token);
-            model.addAttribute("token",token);
-            System.out.println(callbackurl);
-            if(callbackurl.lastIndexOf("?")>0){
-            	hres.sendRedirect(callbackurl +"&token=" + token);
-            }else{
-            	hres.sendRedirect(callbackurl +"?token=" + token);
-            }
-            return null;
-        }
+	public String index(HttpServletResponse hres, String callbackurl,
+			HttpSession session, Model model) throws IOException {
+		// 1.判断是否有全局的会话
+		// 从会话中获取令牌信息,如果取不到说明没有全局会话,如果能取到说明有全局会话
+		String token = (String) session.getAttribute("token");
+		if (StringUtils.isEmpty(token)) {
+			// 表示没有全局会话
+			model.addAttribute("redirectUrl", callbackurl);
+			// 跳转到统一认证中心的登陆页面.已经配置视图解析器,
+			// 会找/WEB-INF/views/login.jsp视图
+			return "/modules/home/LogonDialog";
+		} else {
+			/** ---------------------------阶段三添加的代码start-------------------- **/
+			// 有全局会话
+			// 取出令牌信息,重定向到redirectUrl,把令牌带上
+			// http://www.wms.com:8089/main?token=
+			System.out.println("全局会话登录： token:" + token);
+			model.addAttribute("token", token);
+			System.out.println(callbackurl);
+			if (callbackurl.lastIndexOf("?") > 0) {
+				hres.sendRedirect(callbackurl + "&token=" + token);
+			} else {
+				hres.sendRedirect(callbackurl + "?token=" + token);
+			}
+			return null;
+		}
+	}
+
+	@RequestMapping("/checkLogin")
+	public String checkLogin(String redirectUrl, HttpSession session,
+			Model model) {
+		// 1.判断是否有全局的会话
+		// 从会话中获取令牌信息,如果取不到说明没有全局会话,如果能取到说明有全局会话
+		String token = (String) session.getAttribute("token");
+		if (StringUtils.isEmpty(token)) {
+			// 表示没有全局会话
+			model.addAttribute("redirectUrl", redirectUrl);
+			// 跳转到统一认证中心的登陆页面.已经配置视图解析器,
+			// 会找/WEB-INF/views/login.jsp视图
+			return "/sso/login";
+		} else {
+			/** ---------------------------阶段三添加的代码start-------------------- **/
+			// 有全局会话
+			// 取出令牌信息,重定向到redirectUrl,把令牌带上
+			// http://www.wms.com:8089/main?token=
+			model.addAttribute("token", token);
+			/** ---------------------------阶段三添加的代码end----------------------- **/
+			return "redirect:" + redirectUrl;
+		}
 	}
 
 	@RequestMapping("/login")
-	public void login(HttpServletRequest hreq,HttpServletResponse hres,LoginVo loginVo){
+	public void login(HttpServletRequest hreq, HttpServletResponse hres,
+			LoginVo loginVo) {
 
 		userService.login(hres, loginVo);
 
 	}
-	
+
 	@RequestMapping("/user")
-	public void getUser(HttpServletRequest hreq,HttpServletResponse hres,LoginVo loginVo){
+	public void getUser(HttpServletRequest hreq, HttpServletResponse hres,
+			LoginVo loginVo) {
 		userService.login(hres, loginVo);
 	}
-	
-
 
 }

@@ -22,7 +22,7 @@ public class FilterConfig {
 	@Value("${sso.url}")
     private String ssourl;
 
-    @Bean
+   /* @Bean
     public FilterRegistrationBean xssFilterRegistration() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setDispatcherTypes(DispatcherType.REQUEST);
@@ -32,17 +32,17 @@ public class FilterConfig {
         registration.setOrder(Integer.MAX_VALUE-1);
         return registration;
     }
-    
-//    @Bean
-//    public FilterRegistrationBean SSOFilterRegistration() {
-//        FilterRegistrationBean registration = new FilterRegistrationBean();
-//        registration.setDispatcherTypes(DispatcherType.REQUEST);
-//        registration.setFilter(new SessionClientFilter());
-//        registration.addUrlPatterns("/demo/*");
-//        registration.setName("sessionFilter");
-//        registration.setOrder(Integer.MAX_VALUE);
+    */
+    @Bean
+    public FilterRegistrationBean SSOFilterRegistration() {
+        FilterRegistrationBean registration = new FilterRegistrationBean();
+        registration.setDispatcherTypes(DispatcherType.REQUEST);
+        registration.setFilter(new SessionClientFilter());
+        registration.addUrlPatterns("/demo/*");
+        registration.setName("sessionFilter");
+        registration.setOrder(Integer.MAX_VALUE);
 //        System.out.println("set SsoFilter_ssourl :" + ssourl);
 //        registration.addInitParameter("ssourl", ssourl);
-//        return registration;
-//    }
+        return registration;
+    }
 }

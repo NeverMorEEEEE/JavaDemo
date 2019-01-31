@@ -29,14 +29,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 //        converters.add(new StringHttpMessageConverter(Charset.forName("UTF-8")));
 //    }
 
-    @Override
-    public void configureViewResolvers(ViewResolverRegistry registry) {
-        registry.jsp("/jsp/", ".jsp");
-    }
+//    @Override
+//    public void configureViewResolvers(ViewResolverRegistry registry) {
+//        registry.jsp("/jsp/", ".jsp");
+//    }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**").addResourceLocations("/static/");
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
     }
     /*
     addViewControllers可以方便的实现一个请求直接映射成视图，而无需书写controller

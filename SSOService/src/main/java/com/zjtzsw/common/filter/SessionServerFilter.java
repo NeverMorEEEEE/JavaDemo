@@ -1,7 +1,6 @@
 package com.zjtzsw.common.filter;
 
 import com.zjtzsw.common.utils.JedisUtil;
-import com.zjtzsw.modules.sys.domain.UserInfo;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Enumeration;
@@ -97,16 +96,7 @@ public class SessionServerFilter
     }
     chain.doFilter(request, response);
   }
-  
-  private UserInfo getCachedUser(String token)
-  {
-    Object obj = JedisUtil.get(token);
-    System.out.println(obj);
-    if (obj == null) {
-      return null;
-    }
-    return (UserInfo)obj;
-  }
+ 
   
   public void destroy() {}
   

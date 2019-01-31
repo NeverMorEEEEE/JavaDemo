@@ -5,7 +5,9 @@ import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
-import oracle.net.aso.MD5;
+
+
+
 
 import org.apache.http.HttpResponse;
 import org.apache.ibatis.annotations.Param;
@@ -19,10 +21,8 @@ import com.zjtzsw.common.exception.WacException;
 import com.zjtzsw.common.utils.JedisUtil;
 import com.zjtzsw.common.utils.MD5Utils;
 import com.zjtzsw.common.utils.UUIDUtil;
-import com.zjtzsw.config.RedisService;
-import com.zjtzsw.modules.sys.mapper.UserMapper;
 import com.zjtzsw.modules.sys.domain.UserInfo;
-import com.zjtzsw.modules.sys.entity.Aa10Entity;
+import com.zjtzsw.modules.sys.mapper.UserMapper;
 import com.zjtzsw.modules.sys.result.CodeMsg;
 import com.zjtzsw.modules.sys.service.LoginService;
 import com.zjtzsw.modules.sys.service.UserService;

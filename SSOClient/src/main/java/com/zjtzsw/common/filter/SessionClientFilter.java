@@ -28,10 +28,14 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.CookieValue;
 
+import wac.utils.StringUtils;
+
 import com.opslab.util.jwt.JKSUtil;
 import com.opslab.util.jwt.JwtUtil;
+import com.tzsw.plat.commons.StringUtil;
 import com.zjtzsw.common.constant.Constant;
 import com.zjtzsw.common.utils.JedisUtil;
+import com.zjtzsw.common.utils.SSOClientUtil;
 import com.zjtzsw.common.xss.XssHttpServletRequestWrapper;
 import com.zjtzsw.config.RedisService;
 import com.zjtzsw.modules.sys.domain.UserInfo;
@@ -60,7 +64,8 @@ public class SessionClientFilter implements Filter {
 	@Override
 	public void init(FilterConfig config) throws ServletException {
 		System.out.println("SessionFilter Initing!");
-		url = config.getInitParameter("ssourl");
+		System.out.println("InitConfig's url : " + config.getInitParameter("ssourl"));
+		
 
 		//		String[] patternStr = config.getInitParameter("passUrl").split(";");
 		//		
@@ -87,22 +92,37 @@ public class SessionClientFilter implements Filter {
 			System.out.println("key : " + key + " , value : " + hs.getAttribute(key));
 		}
 
+		Boolean isLogin = (Boolean) hs.getAttribute("isLogin");
+		if (isLogin != null && isLogin) {
+			// 局部会话放行
+			System.out.println("局部session有效，放行！");
+			chain.doFilter(request, response);
+			return;
+		}
+		System.out.println("局部session无效");
 		String token = request.getParameter("token");
 		System.out.println("Token : " +  token);
 
 		if(token!=null&&!"".equals(token)){//连接是带token的
-
-			//没有token,检查cookie里是否有有效token
-			response.sendRedirect(url + "?callbackurl=" + request.getRequestURL());	
-			return;
-		}else{
 			//有token,校验有效性
 			String privateKey = JKSUtil.getPrivateStrByJks("wac");//这里是加密解密的key。
 			Claims claims = JwtUtil.parseJWT(token, privateKey);
 			System.out.println("claims : " + claims);
-			response.sendRedirect(url + "?callbackurl=" + request.getRequestURL());	
-			return;
+			String id = claims.getId();
+			String loginId = (String) claims.get("loginId");
+			if(StringUtils.isNotBlank(id)&&id.equals(loginId)){
+				//验证token里带的id和用户保存的loginId一致，token有效，增加session中isLogin=true
+				hs.setAttribute("isLogin", true);
+				//放行该次的请求
+                chain.doFilter(request, response);
+                return;
+			}
+
 		}
+		//没有token,统一跳转登录中心
+		SSOClientUtil.redirectToSSOURL(request, response);
+		System.out.println("URL2 :   " + url + "?callbackurl=" + request.getRequestURL());
+
 	}
 	
 	/**
@@ -265,7 +285,9 @@ public class SessionClientFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 //		check((HttpServletRequest)request,(HttpServletResponse)response,chain);
 		try {
+			System.out.println("SessionClientFilter working!");
 			checkJWTToken((HttpServletRequest)request,(HttpServletResponse)response,chain);
+			chain.doFilter(request, response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
