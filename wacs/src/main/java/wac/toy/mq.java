@@ -12,10 +12,13 @@ public class mq implements Runnable{
 		return str.contains("A")&& str.contains("B")&& str.contains("C")&& str.contains("D");
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		int pooSize = 9000;
+		Thread t1;
 		for(int i =0;i<pooSize;i++){
-			new Thread(new mq()).start();
+			t1 =  new Thread(new mq());
+			t1.start();
+			t1.join();
 		}
 		try {
 			Thread.sleep(2300);

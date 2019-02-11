@@ -5,48 +5,42 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 
-public class StringUtils
-{
-  public StringUtils() {}
-  
-  public static boolean isBlank(String str)
-  {
-    return (str == null) || ("".equals(str.trim()));
-  }
-  
-  public static boolean isNotBlank(String str)
-  {
-    return !isBlank(str);
-  }
-  
-  public static boolean areBlank(String... strs)
-  {
-    String[] arrayOfString = strs;
-    int j = strs.length;
-    for (int i = 0; i < j; i++)
-    {
-      String str = arrayOfString[i];
-      if (isNotBlank(str)) {
-        return false;
-      }
+public class StringUtils {
+    public StringUtils() {
     }
-    return true;
-  }
-  
-  public static boolean areNotBlank(String... strs)
-  {
-    String[] arrayOfString = strs;
-    int j = strs.length;
-    for (int i = 0; i < j; i++)
-    {
-      String str = arrayOfString[i];
-      if (isBlank(str)) {
-        return false;
-      }
+
+    public static boolean isBlank(String str) {
+        return (str == null) || ("".equals(str.trim()));
     }
-    return true;
-  }
-  
+
+    public static boolean isNotBlank(String str) {
+        return !isBlank(str);
+    }
+
+    public static boolean areBlank(String... strs) {
+        String[] arrayOfString = strs;
+        int j = strs.length;
+        for (int i = 0; i < j; i++) {
+            String str = arrayOfString[i];
+            if (isNotBlank(str)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean areNotBlank(String... strs) {
+        String[] arrayOfString = strs;
+        int j = strs.length;
+        for (int i = 0; i < j; i++) {
+            String str = arrayOfString[i];
+            if (isBlank(str)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 //  public static String encode(String str, int times)
 //  {
 //    if (isBlank(str)) {
@@ -64,7 +58,7 @@ public class StringUtils
 //    }
 //    return str;
 //  }
-  
+
 //  public static String encode(String str)
 //  {
 //    return encode(str, 1);
@@ -87,7 +81,7 @@ public class StringUtils
 //    }
 //    return str;
 //  }
-  
+
 //  public static String decode(String str)
 //  {
 //    return decode(str, 1);

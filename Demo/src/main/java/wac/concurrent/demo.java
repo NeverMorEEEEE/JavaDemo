@@ -6,14 +6,14 @@ import java.util.concurrent.locks.Lock;
 
 /**
  * 测试
+ *
  * @author wac
  * @date 2018年12月20日
  */
 public class demo {
 
 
-	
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
         // 创建一个执行任务的服务
         ExecutorService executor = Executors.newFixedThreadPool(3);
@@ -46,7 +46,7 @@ public class demo {
             // 如果想得到任务执行的结果或者是异常可对这个Future对象进行操作
             Future<String> future2 = executor.submit(new Callable<String>() {
                 @Override
-                public String call() throws Exception {             
+                public String call() throws Exception {
                     try {
                         while (true) {
                             System.out.println("task2 running.");
@@ -82,8 +82,8 @@ public class demo {
         }
         // 停止任务执行服务
         executor.shutdownNow();
-        
+
 //        new demo().test();
-        
+
     }
 }

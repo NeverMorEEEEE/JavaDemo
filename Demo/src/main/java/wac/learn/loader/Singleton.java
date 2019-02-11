@@ -3,71 +3,61 @@ package wac.learn.loader;
 public class Singleton {
 
 
+    public static class Inner {
 
-	public static class Inner{
+        static {
+            System.out.println("TestInner Static!");
+        }
 
-		static{
-			System.out.println("TestInner Static!");
-		}
+        public final static Singleton testInstance = new Singleton(3);
 
-		public final static Singleton testInstance = new Singleton(3);
-
-	}
-
+    }
 
 
-	public
+    public
 
-	static 
-	Singleton getInstance(){
+    static Singleton getInstance() {
 
-		return
+        return
 
-				Inner.testInstance;
+                Inner.testInstance;
 
-	}
-
+    }
 
 
-	public
+    public Singleton(int
 
-	Singleton(int
+                             i) {
 
-			i ) {
+        System.out.println("Test"
+                + i + "Construct! ");
 
-		System.out.println("Test" 
-				+ i +"Construct! ");
-
-	}
+    }
 
 
+    //类静态块
 
-	//类静态块
+    static
 
-	static
+    {
 
-	{
+        System.out.println("Test Static");
 
-		System.out.println("Test Static");
-
-	}
-
+    }
 
 
-	//类静态属性
+    //类静态属性
 
-	public static Singleton testOut = new Singleton(1);
+    public static Singleton testOut = new Singleton(1);
 
 
+    public static void main(String args[]) {
 
-	public static void main(String args[]){
+        Singleton t = new Singleton(2);
 
-		Singleton t = new Singleton(2);
+        Singleton.getInstance();
 
-		Singleton.getInstance();
-
-	}
-
+    }
 
 
 }

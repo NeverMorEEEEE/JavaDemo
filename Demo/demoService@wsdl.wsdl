@@ -1,56 +1,62 @@
-<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.webservices.modules.zjtzsw.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DemoServiceWs" targetNamespace="http://service.webservices.modules.zjtzsw.com">
-  <wsdl:types>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service.webservices.modules.zjtzsw.com" elementFormDefault="unqualified" targetNamespace="http://service.webservices.modules.zjtzsw.com" version="1.0">
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://service.webservices.modules.zjtzsw.com"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+                  name="DemoServiceWs" targetNamespace="http://service.webservices.modules.zjtzsw.com">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service.webservices.modules.zjtzsw.com"
+                   elementFormDefault="unqualified" targetNamespace="http://service.webservices.modules.zjtzsw.com"
+                   version="1.0">
 
-  <xs:element name="getBanjInfo" type="tns:getBanjInfo"/>
+            <xs:element name="getBanjInfo" type="tns:getBanjInfo"/>
 
-  <xs:element name="getBanjInfoResponse" type="tns:getBanjInfoResponse"/>
+            <xs:element name="getBanjInfoResponse" type="tns:getBanjInfoResponse"/>
 
-  <xs:complexType name="getBanjInfo">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="jsonObj" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
+            <xs:complexType name="getBanjInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="jsonObj" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
 
-  <xs:complexType name="getBanjInfoResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
+            <xs:complexType name="getBanjInfoResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
 
-</xs:schema>
-  </wsdl:types>
-  <wsdl:message name="getBanjInfoResponse">
-    <wsdl:part element="tns:getBanjInfoResponse" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getBanjInfo">
-    <wsdl:part element="tns:getBanjInfo" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:portType name="DemoServiceWs">
-    <wsdl:operation name="getBanjInfo">
-      <wsdl:input message="tns:getBanjInfo" name="getBanjInfo">
-    </wsdl:input>
-      <wsdl:output message="tns:getBanjInfoResponse" name="getBanjInfoResponse">
-    </wsdl:output>
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:binding name="DemoServiceWsSoapBinding" type="tns:DemoServiceWs">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="getBanjInfo">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="getBanjInfo">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="getBanjInfoResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="DemoServiceWs">
-    <wsdl:port binding="tns:DemoServiceWsSoapBinding" name="DemoServiceWsImplPort">
-      <soap:address location="http://127.0.0.1/ws/demoService"/>
-    </wsdl:port>
-  </wsdl:service>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getBanjInfoResponse">
+        <wsdl:part element="tns:getBanjInfoResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getBanjInfo">
+        <wsdl:part element="tns:getBanjInfo" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="DemoServiceWs">
+        <wsdl:operation name="getBanjInfo">
+            <wsdl:input message="tns:getBanjInfo" name="getBanjInfo">
+            </wsdl:input>
+            <wsdl:output message="tns:getBanjInfoResponse" name="getBanjInfoResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="DemoServiceWsSoapBinding" type="tns:DemoServiceWs">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getBanjInfo">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getBanjInfo">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getBanjInfoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="DemoServiceWs">
+        <wsdl:port binding="tns:DemoServiceWsSoapBinding" name="DemoServiceWsImplPort">
+            <soap:address location="http://127.0.0.1/ws/demoService"/>
+        </wsdl:port>
+    </wsdl:service>
 </wsdl:definitions>

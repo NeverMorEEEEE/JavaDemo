@@ -1,13 +1,13 @@
 /**
  * Period.java
- *
+ * <p>
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package com.ces.webservice;
 
-public class Period  implements java.io.Serializable {
+public class Period implements java.io.Serializable {
     private java.lang.String bgqx;
 
     private java.lang.String bmbm;
@@ -26,26 +26,26 @@ public class Period  implements java.io.Serializable {
     }
 
     public Period(
-           java.lang.String bgqx,
-           java.lang.String bmbm,
-           java.lang.String bmmc,
-           java.lang.String gdfw,
-           java.lang.String sxbbh,
-           java.lang.String sxbm,
-           java.lang.String sxmc) {
-           this.bgqx = bgqx;
-           this.bmbm = bmbm;
-           this.bmmc = bmmc;
-           this.gdfw = gdfw;
-           this.sxbbh = sxbbh;
-           this.sxbm = sxbm;
-           this.sxmc = sxmc;
+            java.lang.String bgqx,
+            java.lang.String bmbm,
+            java.lang.String bmmc,
+            java.lang.String gdfw,
+            java.lang.String sxbbh,
+            java.lang.String sxbm,
+            java.lang.String sxmc) {
+        this.bgqx = bgqx;
+        this.bmbm = bmbm;
+        this.bmmc = bmmc;
+        this.gdfw = gdfw;
+        this.sxbbh = sxbbh;
+        this.sxbm = sxbm;
+        this.sxmc = sxmc;
     }
 
 
     /**
      * Gets the bgqx value for this Period.
-     * 
+     *
      * @return bgqx
      */
     public java.lang.String getBgqx() {
@@ -55,7 +55,7 @@ public class Period  implements java.io.Serializable {
 
     /**
      * Sets the bgqx value for this Period.
-     * 
+     *
      * @param bgqx
      */
     public void setBgqx(java.lang.String bgqx) {
@@ -65,7 +65,7 @@ public class Period  implements java.io.Serializable {
 
     /**
      * Gets the bmbm value for this Period.
-     * 
+     *
      * @return bmbm
      */
     public java.lang.String getBmbm() {
@@ -75,7 +75,7 @@ public class Period  implements java.io.Serializable {
 
     /**
      * Sets the bmbm value for this Period.
-     * 
+     *
      * @param bmbm
      */
     public void setBmbm(java.lang.String bmbm) {
@@ -85,7 +85,7 @@ public class Period  implements java.io.Serializable {
 
     /**
      * Gets the bmmc value for this Period.
-     * 
+     *
      * @return bmmc
      */
     public java.lang.String getBmmc() {
@@ -95,7 +95,7 @@ public class Period  implements java.io.Serializable {
 
     /**
      * Sets the bmmc value for this Period.
-     * 
+     *
      * @param bmmc
      */
     public void setBmmc(java.lang.String bmmc) {
@@ -105,7 +105,7 @@ public class Period  implements java.io.Serializable {
 
     /**
      * Gets the gdfw value for this Period.
-     * 
+     *
      * @return gdfw
      */
     public java.lang.String getGdfw() {
@@ -115,7 +115,7 @@ public class Period  implements java.io.Serializable {
 
     /**
      * Sets the gdfw value for this Period.
-     * 
+     *
      * @param gdfw
      */
     public void setGdfw(java.lang.String gdfw) {
@@ -125,7 +125,7 @@ public class Period  implements java.io.Serializable {
 
     /**
      * Gets the sxbbh value for this Period.
-     * 
+     *
      * @return sxbbh
      */
     public java.lang.String getSxbbh() {
@@ -135,7 +135,7 @@ public class Period  implements java.io.Serializable {
 
     /**
      * Sets the sxbbh value for this Period.
-     * 
+     *
      * @param sxbbh
      */
     public void setSxbbh(java.lang.String sxbbh) {
@@ -145,7 +145,7 @@ public class Period  implements java.io.Serializable {
 
     /**
      * Gets the sxbm value for this Period.
-     * 
+     *
      * @return sxbm
      */
     public java.lang.String getSxbm() {
@@ -155,7 +155,7 @@ public class Period  implements java.io.Serializable {
 
     /**
      * Sets the sxbm value for this Period.
-     * 
+     *
      * @param sxbm
      */
     public void setSxbm(java.lang.String sxbm) {
@@ -165,7 +165,7 @@ public class Period  implements java.io.Serializable {
 
     /**
      * Gets the sxmc value for this Period.
-     * 
+     *
      * @return sxmc
      */
     public java.lang.String getSxmc() {
@@ -175,7 +175,7 @@ public class Period  implements java.io.Serializable {
 
     /**
      * Sets the sxmc value for this Period.
-     * 
+     *
      * @param sxmc
      */
     public void setSxmc(java.lang.String sxmc) {
@@ -183,6 +183,7 @@ public class Period  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
+
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof Period)) return false;
         Period other = (Period) obj;
@@ -193,33 +194,34 @@ public class Period  implements java.io.Serializable {
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.bgqx==null && other.getBgqx()==null) || 
-             (this.bgqx!=null &&
-              this.bgqx.equals(other.getBgqx()))) &&
-            ((this.bmbm==null && other.getBmbm()==null) || 
-             (this.bmbm!=null &&
-              this.bmbm.equals(other.getBmbm()))) &&
-            ((this.bmmc==null && other.getBmmc()==null) || 
-             (this.bmmc!=null &&
-              this.bmmc.equals(other.getBmmc()))) &&
-            ((this.gdfw==null && other.getGdfw()==null) || 
-             (this.gdfw!=null &&
-              this.gdfw.equals(other.getGdfw()))) &&
-            ((this.sxbbh==null && other.getSxbbh()==null) || 
-             (this.sxbbh!=null &&
-              this.sxbbh.equals(other.getSxbbh()))) &&
-            ((this.sxbm==null && other.getSxbm()==null) || 
-             (this.sxbm!=null &&
-              this.sxbm.equals(other.getSxbm()))) &&
-            ((this.sxmc==null && other.getSxmc()==null) || 
-             (this.sxmc!=null &&
-              this.sxmc.equals(other.getSxmc())));
+        _equals = true &&
+                ((this.bgqx == null && other.getBgqx() == null) ||
+                        (this.bgqx != null &&
+                                this.bgqx.equals(other.getBgqx()))) &&
+                ((this.bmbm == null && other.getBmbm() == null) ||
+                        (this.bmbm != null &&
+                                this.bmbm.equals(other.getBmbm()))) &&
+                ((this.bmmc == null && other.getBmmc() == null) ||
+                        (this.bmmc != null &&
+                                this.bmmc.equals(other.getBmmc()))) &&
+                ((this.gdfw == null && other.getGdfw() == null) ||
+                        (this.gdfw != null &&
+                                this.gdfw.equals(other.getGdfw()))) &&
+                ((this.sxbbh == null && other.getSxbbh() == null) ||
+                        (this.sxbbh != null &&
+                                this.sxbbh.equals(other.getSxbbh()))) &&
+                ((this.sxbm == null && other.getSxbm() == null) ||
+                        (this.sxbm != null &&
+                                this.sxbm.equals(other.getSxbm()))) &&
+                ((this.sxmc == null && other.getSxmc() == null) ||
+                        (this.sxmc != null &&
+                                this.sxmc.equals(other.getSxmc())));
         __equalsCalc = null;
         return _equals;
     }
 
     private boolean __hashCodeCalc = false;
+
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
@@ -253,7 +255,7 @@ public class Period  implements java.io.Serializable {
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(Period.class, true);
+            new org.apache.axis.description.TypeDesc(Period.class, true);
 
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://webservice.ces.com/", "period"));
@@ -319,24 +321,24 @@ public class Period  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanSerializer(
+                        _javaType, _xmlType, typeDesc);
     }
 
     /**
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanDeserializer(
+                        _javaType, _xmlType, typeDesc);
     }
 
 }

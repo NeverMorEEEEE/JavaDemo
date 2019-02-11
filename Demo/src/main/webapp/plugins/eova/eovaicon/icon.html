@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>EOVA ICON SELECT</title>
-<link rel="stylesheet" type="text/css" href="/plugin/eovaicon/icon.css">
+    <title>EOVA ICON SELECT</title>
+    <link rel="stylesheet" type="text/css" href="/plugin/eovaicon/icon.css">
 
-<link rel="stylesheet" type="text/css" href="/easy/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="/easy/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/easy/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/easy/themes/icon.css">
 
-<script type="text/javascript" src="/easy/jquery-2.0.3.js"></script>
-<script type="text/javascript" src="/easy/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="/easy/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="/easy/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="/easy/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/easy/locale/easyui-lang-zh_CN.js"></script>
 
 
-<script type="text/javascript" src="/plugin/eovaicon/icon.js"></script>
+    <script type="text/javascript" src="/plugin/eovaicon/icon.js"></script>
 </head>
 <body>
 <div>
-	<div id="icon_panel" class="icon_panel" style="width: 540px; height: 260px" align="center">
-		Loading...
-	</div>
-	<div class="easyui-panel" style="text-align: center;padding-top: 5px;" data-options="border:false">
-		<a id="btmPreviousPage" href="javascript:void(0);" onclick="previousIconPage();" class="easyui-linkbutton" data-options="iconCls:'resultsetprevious'">上一页</a>
-		<span id="pageInfo"></span>
-		<a id="btmNextPage" href="javascript:void(0);" onclick="nextIconPage();" class="easyui-linkbutton" data-options="iconCls:'resultsetnext'">下一页</a>
-	</div>
+    <div id="icon_panel" class="icon_panel" style="width: 540px; height: 260px" align="center">
+        Loading...
+    </div>
+    <div class="easyui-panel" style="text-align: center;padding-top: 5px;" data-options="border:false">
+        <a id="btmPreviousPage" href="javascript:void(0);" onclick="previousIconPage();" class="easyui-linkbutton"
+           data-options="iconCls:'resultsetprevious'">上一页</a>
+        <span id="pageInfo"></span>
+        <a id="btmNextPage" href="javascript:void(0);" onclick="nextIconPage();" class="easyui-linkbutton"
+           data-options="iconCls:'resultsetnext'">下一页</a>
+    </div>
 </div>
 <input id="icon" type="hidden">
 <script type="text/javascript">
@@ -106,6 +108,7 @@
 		$dialog.dialog('destroy');
 	};
 	
+
 </script>
 </body>
 </html>

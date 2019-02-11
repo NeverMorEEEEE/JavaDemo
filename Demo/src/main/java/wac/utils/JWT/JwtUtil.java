@@ -14,9 +14,10 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 public class JwtUtil {
-	
-	/**
+
+    /**
      * 创建jwt
+     *
      * @param id
      * @param subject
      * @param ttlMillis 过期的时间长度
@@ -27,11 +28,11 @@ public class JwtUtil {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256; //指定签名的时候使用的签名算法，也就是header那部分，jjwt已经将这部分内容封装好了。
         long nowMillis = System.currentTimeMillis();//生成JWT的时间
         Date now = new Date(nowMillis);
-        Map<String,Object> claims = new HashMap<String,Object>();//创建payload的私有声明（根据特定的业务需要添加，如果要拿这个做验证，一般是需要和jwt的接收方提前沟通好验证方式的）
+        Map<String, Object> claims = new HashMap<String, Object>();//创建payload的私有声明（根据特定的业务需要添加，如果要拿这个做验证，一般是需要和jwt的接收方提前沟通好验证方式的）
         claims.put("uid", "DSSFAWDWADAS...");
         claims.put("user_name", "admin");
-        claims.put("nick_name","DASDA121");
-        SecretKey key = (SecretKey) JKSUtil.getKeyStoreByJks().getKey("wac","123456".toCharArray());//生成签名的时候使用的秘钥secret,这个方法本地封装了的，一般可以从本地配置文件中读取，切记这个秘钥不能外露哦。它就是你服务端的私钥，在任何场景都不应该流露出去。一旦客户端得知这个secret, 那就意味着客户端是可以自我签发jwt了。
+        claims.put("nick_name", "DASDA121");
+        SecretKey key = (SecretKey) JKSUtil.getKeyStoreByJks().getKey("wac", "123456".toCharArray());//生成签名的时候使用的秘钥secret,这个方法本地封装了的，一般可以从本地配置文件中读取，切记这个秘钥不能外露哦。它就是你服务端的私钥，在任何场景都不应该流露出去。一旦客户端得知这个secret, 那就意味着客户端是可以自我签发jwt了。
         //下面就是在为payload添加各种标准声明和私有声明了
         JwtBuilder builder = Jwts.builder() //这里其实就是new一个JwtBuilder，设置jwt的body
                 .setClaims(claims)          //如果有私有声明，一定要先设置这个自己创建的私有的声明，这个是给builder的claim赋值，一旦写在标准的声明赋值之后，就是覆盖了那些标准的声明的
@@ -48,9 +49,10 @@ public class JwtUtil {
         //打印了一哈哈确实是下面的这个样子
         //eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJEU1NGQVdEV0FEQVMuLi4iLCJzdWIiOiIiLCJ1c2VyX25hbWUiOiJhZG1pbiIsIm5pY2tfbmFtZSI6IkRBU0RBMTIxIiwiZXhwIjoxNTE3ODI4MDE4LCJpYXQiOjE1MTc4Mjc5NTgsImp0aSI6Imp3dCJ9.xjIvBbdPbEMBMurmwW6IzBkS3MPwicbqQa2Y5hjHSyo
     }
-    
+
     /**
      * 解密
+     *
      * @param jsonWebToken
      * @param base64Security
      * @return
@@ -69,6 +71,7 @@ public class JwtUtil {
 
     /**
      * 前三个参数为自己用户token的一些信息比如id，权限，名称等。不要将隐私信息放入（大家都可以获取到）
+     *
      * @param map
      * @param base64Security
      * @return
@@ -78,7 +81,7 @@ public class JwtUtil {
         //添加构成JWT的参数
         JwtBuilder builder = Jwts.builder().setHeaderParam("typ", "JWT")
                 .setPayload(new Gson().toJson(map))
-                .signWith(signatureAlgorithm,base64Security.getBytes()); //估计是第三段密钥
+                .signWith(signatureAlgorithm, base64Security.getBytes()); //估计是第三段密钥
         //生成JWT
         return builder.compact();
     }
@@ -92,10 +95,10 @@ public class JwtUtil {
 
         //密钥
         String keyt = "79e7c69681b8270162386e6daa53d1dc";
-        String token=JwtUtil.createJWT(map, keyt);
-        System.out.println("JWT加密的结果："+ token);
-        System.out.println("JWT解密的结果："+ parseJWT(token, keyt));
-    } 
+        String token = JwtUtil.createJWT(map, keyt);
+        System.out.println("JWT加密的结果：" + token);
+        System.out.println("JWT解密的结果：" + parseJWT(token, keyt));
+    }
 
 
 }

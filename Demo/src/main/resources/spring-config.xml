@@ -14,16 +14,16 @@
        default-lazy-init="true" default-autowire="byName">
 
     <!-- 配置注解扫描 -->
-    <context:annotation-config />
+    <context:annotation-config/>
 
 
-     <!-- Spring定时器注解开关-->
- <!--   <task:annotation-driven />
-   <task:scheduled-tasks scheduler="myScheduler">
-        <task:scheduled ref="TaskJob" method="performflow" cron="0/30 * * * * ?"/>
-    </task:scheduled-tasks>
-    <task:scheduler id="myScheduler" pool-size="10"/>
-    <aop:aspectj-autoproxy />
-    <bean id="TaskJob" class="com.tzsw.apps.business.transact.controller.AcceptController">
-	</bean> -->
+    <!-- Spring定时器注解开关-->
+    <!--   <task:annotation-driven />
+      <task:scheduled-tasks scheduler="myScheduler">
+           <task:scheduled ref="TaskJob" method="performflow" cron="0/30 * * * * ?"/>
+       </task:scheduled-tasks>
+       <task:scheduler id="myScheduler" pool-size="10"/>
+       <aop:aspectj-autoproxy />
+       <bean id="TaskJob" class="com.tzsw.apps.business.transact.controller.AcceptController">
+       </bean> -->
 </beans>

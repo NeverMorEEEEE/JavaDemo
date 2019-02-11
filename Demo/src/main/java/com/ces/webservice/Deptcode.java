@@ -1,13 +1,13 @@
 /**
  * Deptcode.java
- *
+ * <p>
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package com.ces.webservice;
 
-public class Deptcode  implements java.io.Serializable {
+public class Deptcode implements java.io.Serializable {
     private java.lang.String bmbm;
 
     private java.lang.String bmmc;
@@ -18,18 +18,18 @@ public class Deptcode  implements java.io.Serializable {
     }
 
     public Deptcode(
-           java.lang.String bmbm,
-           java.lang.String bmmc,
-           java.lang.String qzqc) {
-           this.bmbm = bmbm;
-           this.bmmc = bmmc;
-           this.qzqc = qzqc;
+            java.lang.String bmbm,
+            java.lang.String bmmc,
+            java.lang.String qzqc) {
+        this.bmbm = bmbm;
+        this.bmmc = bmmc;
+        this.qzqc = qzqc;
     }
 
 
     /**
      * Gets the bmbm value for this Deptcode.
-     * 
+     *
      * @return bmbm
      */
     public java.lang.String getBmbm() {
@@ -39,7 +39,7 @@ public class Deptcode  implements java.io.Serializable {
 
     /**
      * Sets the bmbm value for this Deptcode.
-     * 
+     *
      * @param bmbm
      */
     public void setBmbm(java.lang.String bmbm) {
@@ -49,7 +49,7 @@ public class Deptcode  implements java.io.Serializable {
 
     /**
      * Gets the bmmc value for this Deptcode.
-     * 
+     *
      * @return bmmc
      */
     public java.lang.String getBmmc() {
@@ -59,7 +59,7 @@ public class Deptcode  implements java.io.Serializable {
 
     /**
      * Sets the bmmc value for this Deptcode.
-     * 
+     *
      * @param bmmc
      */
     public void setBmmc(java.lang.String bmmc) {
@@ -69,7 +69,7 @@ public class Deptcode  implements java.io.Serializable {
 
     /**
      * Gets the qzqc value for this Deptcode.
-     * 
+     *
      * @return qzqc
      */
     public java.lang.String getQzqc() {
@@ -79,7 +79,7 @@ public class Deptcode  implements java.io.Serializable {
 
     /**
      * Sets the qzqc value for this Deptcode.
-     * 
+     *
      * @param qzqc
      */
     public void setQzqc(java.lang.String qzqc) {
@@ -87,6 +87,7 @@ public class Deptcode  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
+
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof Deptcode)) return false;
         Deptcode other = (Deptcode) obj;
@@ -97,21 +98,22 @@ public class Deptcode  implements java.io.Serializable {
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.bmbm==null && other.getBmbm()==null) || 
-             (this.bmbm!=null &&
-              this.bmbm.equals(other.getBmbm()))) &&
-            ((this.bmmc==null && other.getBmmc()==null) || 
-             (this.bmmc!=null &&
-              this.bmmc.equals(other.getBmmc()))) &&
-            ((this.qzqc==null && other.getQzqc()==null) || 
-             (this.qzqc!=null &&
-              this.qzqc.equals(other.getQzqc())));
+        _equals = true &&
+                ((this.bmbm == null && other.getBmbm() == null) ||
+                        (this.bmbm != null &&
+                                this.bmbm.equals(other.getBmbm()))) &&
+                ((this.bmmc == null && other.getBmmc() == null) ||
+                        (this.bmmc != null &&
+                                this.bmmc.equals(other.getBmmc()))) &&
+                ((this.qzqc == null && other.getQzqc() == null) ||
+                        (this.qzqc != null &&
+                                this.qzqc.equals(other.getQzqc())));
         __equalsCalc = null;
         return _equals;
     }
 
     private boolean __hashCodeCalc = false;
+
     public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
@@ -133,7 +135,7 @@ public class Deptcode  implements java.io.Serializable {
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(Deptcode.class, true);
+            new org.apache.axis.description.TypeDesc(Deptcode.class, true);
 
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("http://webservice.ces.com/", "deptcode"));
@@ -171,24 +173,24 @@ public class Deptcode  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanSerializer(
+                        _javaType, _xmlType, typeDesc);
     }
 
     /**
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+            java.lang.String mechType,
+            java.lang.Class _javaType,
+            javax.xml.namespace.QName _xmlType) {
+        return
+                new org.apache.axis.encoding.ser.BeanDeserializer(
+                        _javaType, _xmlType, typeDesc);
     }
 
 }

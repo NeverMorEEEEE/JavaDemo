@@ -1,4 +1,5 @@
 package wac.dp.prototype.model;
+
 /*
  * 创建型-->原型模式
  * 用原型实例指定创建对象的种类,并且通过拷贝这些原型创建新的对象.
@@ -11,26 +12,29 @@ package wac.dp.prototype.model;
  * 
  * 面试:Object类下提供的方法有哪些？
  * */
-public class Sheep implements Cloneable{
-	private String type;
-	private String color;
-	
-	@Override
-	public Object clone() throws CloneNotSupportedException {
-		return super.clone();
-	}
-	
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	public String getColor() {
-		return color;
-	}
-	public void setColor(String color) {
-		this.color = color;
-	}
-	
+public class Sheep implements Cloneable {
+    private String type;
+    private String color;
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
 }

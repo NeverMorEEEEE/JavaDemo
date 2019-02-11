@@ -4,7 +4,7 @@ import java.lang.reflect.Method;
 
 public interface InvocationHandler {
 
-	void invoke(Object obj, Method m);
-	
+    void invoke(Object obj, Method m);
+
 
 }

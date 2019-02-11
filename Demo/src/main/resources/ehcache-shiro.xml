@@ -9,16 +9,16 @@
             overflowToDisk="false"
             diskPersistent="false"
             diskExpiryThreadIntervalSeconds="120"
-            />
+    />
 
-    <cache name="jfinalRealm.authorizationCache" 
-           maxElementsInMemory="10000" 
-           eternal="true" 
-           diskPersistent="false" 
-           overflowToDisk="true" 
-           diskExpiryThreadIntervalSeconds="600"> 
-    </cache>    
-        
+    <cache name="jfinalRealm.authorizationCache"
+           maxElementsInMemory="10000"
+           eternal="true"
+           diskPersistent="false"
+           overflowToDisk="true"
+           diskExpiryThreadIntervalSeconds="600">
+    </cache>
+
     <cache name="shiro-activeSessionCache"
            maxElementsInMemory="10000"
            eternal="true"
