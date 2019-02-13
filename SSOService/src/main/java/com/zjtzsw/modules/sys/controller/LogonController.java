@@ -38,7 +38,7 @@ import com.zjtzsw.modules.sys.service.UserService;
 import com.zjtzsw.modules.sys.vo.LoginVo;
 
 @Controller
-@PropertySource(value = {"classpath:sso.properties"},encoding="utf-8")
+//@PropertySource(value = {"classpath:sso.properties"},encoding="utf-8")
 @RequestMapping("/home")
 public class LogonController {
 	
@@ -79,7 +79,7 @@ public class LogonController {
 		}
 		System.out.println("回调URL : " + url);
 		
-		if(userService.login(hres, loginVo)){//登录成功则跳转页面
+		if(wac.utils.StringUtils.isNotBlank(userService.login(hres, loginVo))){//登录成功则跳转页面
 			System.out.println("登录成功!");
 
 //			String token = loginVo.getToken();

@@ -6,7 +6,7 @@
 	<groupId>wac</groupId>
 	<artifactId>springBoot.SSOServer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>WacSpringBootDemo</name>
 	<description>Project for Spring Boot</description>
@@ -326,4 +326,7 @@
 			</resource>
 		</resources>
 	</build>
+	<modules>
+		<module>web</module>
+	</modules>
 </project>

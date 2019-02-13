@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+
+    <context:annotation-config/>
+
+    <!-- 	<bean id="springHelper" class="com.tzsw.apps.util.SpringHelper" /> -->
+
+    <!-- 配置统一数据源 -->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:db.properties</value>
+                <value>classpath*:redis.properties</value>
+                <value>classpath*:init.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 数据源配置 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          destroy-method="close">
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+        <property name="driverClassName" value="${driverClassName}"/>
+        <property name="filters" value="mergeStat,wall"/>
+
+        <property name="maxActive" value="${maxActive}"/>
+        <property name="initialSize" value="${initialSize}"/>
+        <property name="maxWait" value="${maxWait}"/>
+        <property name="minIdle" value="${minIdle}"/>
+
+        <property name="timeBetweenEvictionRunsMillis" value="${timeBetweenEvictionRunsMillis}"/>
+        <property name="minEvictableIdleTimeMillis" value="${minEvictableIdleTimeMillis}"/>
+
+        <property name="validationQuery" value="${validationQuery}"/>
+        <property name="testWhileIdle" value="${testWhileIdle}"/>
+        <property name="testOnBorrow" value="${testOnBorrow}"/>
+        <property name="testOnReturn" value="${testOnReturn}"/>
+        <property name="poolPreparedStatements" value="${poolPreparedStatements}"/>
+        <property name="maxOpenPreparedStatements" value="${maxOpenPreparedStatements}"/>
+        <property name="removeAbandoned" value="${dremoveAbandoned}"/> <!-- 打开removeAbandoned功能 -->
+        <property name="removeAbandonedTimeout" value="${removeAbandonedTimeout}"/>
+        <!-- 1800秒，也就30分钟 -->
+        <property name="logAbandoned" value="${logAbandoned}"/> <!-- 关闭abanded连接时输出错误日志 -->
+    </bean>
+
+
+    <!-- 全局异常处理 -->
+    <bean id="exceptionHandler" class="com.tzsw.apps.config.intecptor.MyExcetionIntecptor"/>
+
+    <!-- activiti配置 -->
+    <!-- 	<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+            <property name="dataSource" ref="dataSource" />
+            <property name="transactionManager" ref="transactionManager" />
+            <property name="databaseSchemaUpdate" value="true" />
+            <property name="mailServerHost" value="localhost" />
+            <property name="mailServerPort" value="5025" />
+            <property name="jpaHandleTransaction" value="true" />
+            <property name="jpaCloseEntityManager" value="true" />
+            <property name="jobExecutorActivate" value="false" />
+            <property name="history" value="full"></property>
+            <property name="activityFontName" value="宋体" />
+            <property name="labelFontName" value="宋体" />
+        </bean>
+        定义流程引擎
+        <bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
+            <property name="processEngineConfiguration" ref="processEngineConfiguration" />
+        </bean>
+
+        <bean id="repositoryService" factory-bean="processEngine"
+            factory-method="getRepositoryService" />
+        <bean id="runtimeService" factory-bean="processEngine"
+            factory-method="getRuntimeService" />
+        <bean id="taskService" factory-bean="processEngine"
+            factory-method="getTaskService" />
+        <bean id="formService" factory-bean="processEngine"
+            factory-method="getFormService" />
+        <bean id="historyService" factory-bean="processEngine"
+            factory-method="getHistoryService" />
+        <bean id="managementService" factory-bean="processEngine"
+            factory-method="getManagementService" />
+        <bean id="identityService" factory-bean="processEngine"
+            factory-method="getIdentityService" /> -->
+    <!-- activiti配置结束 -->
+
+    <!-- 可视化流程图 -->
+    <!-- <bean id="loadTimeWeaver" class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver">
+        </bean> <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource" /> <property name="persistenceXmlLocation"
+        value="classpath:META-INF/persistence.xml" /> <property name="persistenceUnitName"
+        value="com.activiti.jpa" /> <property name="loadTimeWeaver" ref="loadTimeWeaver"
+        /> </bean> -->
+
+    <!-- 事务控制 -->
+    <!--  <import resource="applicationContext-tx.xml"/>  -->
+    <!-- 定时 -->
+    <!-- <import resource="spring-config.xml"/> -->
+    <!-- redis配置 -->
+    <import resource="applicationContext-redis.xml"/>
+</beans>

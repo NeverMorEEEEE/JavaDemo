@@ -6,9 +6,11 @@ import java.util.Map;
 
 import javax.crypto.SecretKey;
 
+import com.auth0.jwt.JWT;
 import com.google.gson.Gson;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -92,9 +94,11 @@ public class JwtUtil {
 
         //密钥
         String keyt = "79e7c69681b8270162386e6daa53d1dc";
+       
         String token=JwtUtil.createJWT(map, keyt);
         System.out.println("JWT加密的结果："+ token);
         System.out.println("JWT解密的结果："+ parseJWT(token, keyt));
+        
     } 
 
 

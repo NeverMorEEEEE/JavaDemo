@@ -25,9 +25,11 @@ import org.springframework.web.client.RestTemplate;
 
 import com.alibaba.druid.util.StringUtils;
 import com.alibaba.fastjson.JSONObject;
+import com.zjtzsw.common.utils.JedisUtil;
 import com.zjtzsw.common.utils.R;
 import com.zjtzsw.modules.demo.dao.MyMapper;
 import com.zjtzsw.modules.sys.service.UserService;
+import com.zjtzsw.modules.sys.util.cookieUtil.CookieUtil;
 import com.zjtzsw.modules.sys.vo.LoginVo;
 
 @Controller
@@ -36,6 +38,9 @@ public class SsoController {
 
 	@Autowired
 	RestTemplate restTemplate;
+	
+	@Autowired
+	JedisUtil redisService;
 
 	@Autowired
 	UserService userService;
@@ -99,7 +104,13 @@ public class SsoController {
 	public void login(HttpServletRequest hreq, HttpServletResponse hres,
 			LoginVo loginVo) {
 
-		userService.login(hres, loginVo);
+		String token = userService.login(hres, loginVo);
+		if(wac.utils.StringUtils.isNotBlank(token)){
+			//登录成功,原路返回,带上token
+			
+			CookieUtil.addCookie(hres, "token", token);
+			
+		}
 
 	}
 

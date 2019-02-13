@@ -1,0 +1,87 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title>OrderDEmo页面</title>
+<script src="/libs/jquery.min.js" type="text/javascript"></script>
+<script src="/plugins/miniui/miniui.js" type="text/javascript"></script>
+<link href="/plugins/miniui/themes/icons.css" rel="stylesheet" type="text/css" />
+<link href="/css/common.css" rel="stylesheet" type="text/css" />
+<link href="/css/apply.css" rel="stylesheet" type="text/css" />
+<style>
+	html{
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+</style>
+</head>
+<body>
+
+	<!-- <div class="cailiao" id="cailiao">
+		<span class="img-switch-btn-right" onclick="sendOrder()">SendOrder</span>
+	<fieldset>
+			<div class="container" id="dataForm">
+				<input class="mini-hidden" name="id" id="id">
+				<div class="mini-col-12" align="right">
+					<a class="mini-button" iconCls="icon-upload" tooltip="保存" onClick="saveFn">保存</a> 
+				</div>
+				<div class="mini-clearfix ">
+					<span class="subtitle">创建订单</span><hr/>
+					<div class="mini-col-4">
+						<input class="mini-textbox" name="consumenrId" id='consumenrId' label="consumenrId" labelField="true">
+					</div>
+					<div class="mini-col-4">
+						<input class="mini-textbox" name="consumenrName" id='consumenrName' label="消费者姓名" labelField="true">
+					</div>
+					<div class="mini-col-4">
+						<input class="mini-textbox" name="consumenrPhone" id='consumenrPhone' label="消费者电话" labelField="true">
+					</div>
+					<div class="mini-col-4">
+						<input class="mini-textbox" name="deliveraddress" id='deliveraddress' label="派送地址" labelField="true">
+					</div>
+					<div class="mini-col-4">
+						<input class="mini-textbox" name="remarks" id='remarks' label="备注" labelField="true">
+					</div>
+				
+		        </div>
+			</div>
+		</fieldset> 
+
+	</div>-->
+	
+	
+	
+	
+</body>
+<script type="text/javascript">
+	mini.parse();
+	var dataForm = new mini.Form("dataForm");
+	
+	function sendOrder(){
+		var formData = dataForm.getData();
+		console.log(formData);
+		
+		$.ajax({
+            url : '/order/addOrder',
+            data : formData,
+            type : "post",
+            async: false,
+            dataType : "json",
+            success : function(r) {
+            	console.log('Result:' + r);
+                if(r.success){
+                	c.code="00";
+                	c.msg="保存成功";
+                }else {
+                	c.code="-1";
+                	c.msg="保存失败";
+                }
+            },
+            complete : function() {
+                mini.unmask();
+            }
+        });
+	}
+	
+	
+</script>
+</html>

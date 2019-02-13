@@ -109,6 +109,7 @@ public class SessionClientFilter implements Filter {
 			Claims claims = JwtUtil.parseJWT(token, privateKey);
 			System.out.println("claims : " + claims);
 			String id = claims.getId();
+				
 			String loginId = (String) claims.get("loginId");
 			if(StringUtils.isNotBlank(id)&&id.equals(loginId)){
 				//验证token里带的id和用户保存的loginId一致，token有效，增加session中isLogin=true
@@ -241,7 +242,8 @@ public class SessionClientFilter implements Filter {
 		System.out.println("局部session无效");
 		System.out.println("请求URL : " + request.getRequestURL());
 		request.setAttribute("callbackurl", request.getRequestURL());
-		request.getRequestDispatcher("/home/index").forward(request, response);
+//		request.getRequestDispatcher("/home/index").forward(request, response);
+		response.sendRedirect(url + "?callbackurl=" + request.getRequestURL());	
 	}
 
 	private String getURLWithOutToken(HttpServletRequest request){
