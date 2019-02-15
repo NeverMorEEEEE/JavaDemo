@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -69,5 +70,6 @@ public class RestTemplateConfig {
         //converterList.add(new FastJsonHttpMessageConverter4());
         return restTemplate;
     }
+    
 
 }

@@ -6,7 +6,7 @@
 	<groupId>wac</groupId>
 	<artifactId>springBoot.SSOServer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
 	<name>WacSpringBootDemo</name>
 	<description>Project for Spring Boot</description>
@@ -66,6 +66,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -85,11 +91,28 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-		<!-- Thymeleaf对html语法的检查非常严格,引入这个包，配置spring.thymeleaf.mode=LEGACYHTML5 就可以避免 -->
+		<!-- Thymeleaf对html语法的检查非常严格,引入这个包，配置spring.thymeleaf.mode=LEGACYHTML5 
+			就可以避免 -->
 		<dependency>
 			<groupId>nekohtml</groupId>
 			<artifactId>nekohtml</artifactId>
 			<version>1.9.6.2</version>
+		</dependency>
+
+		<!-- 集成Swagger -->
+		<!-- <dependency> <groupId>com.gitee.reger</groupId> <artifactId>spring-boot-starter-swagger</artifactId> 
+			</dependency> -->
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.7.0</version>
 		</dependency>
 
 
@@ -326,7 +349,4 @@
 			</resource>
 		</resources>
 	</build>
-	<modules>
-		<module>web</module>
-	</modules>
 </project>

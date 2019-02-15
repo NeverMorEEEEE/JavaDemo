@@ -22,7 +22,7 @@ public class SSOClientApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(SSOClientApplication.class, args);
-		  new WacWebSocketSerivce().run(8086);  
+//		  new WacWebSocketSerivce().run(8086);  
 
 	}
 /*	@Override

@@ -2,6 +2,7 @@ package com.zjtzsw.modules.sys.vo;
 
 public class LoginVo {
 	private String account;
+	private String name;
 	private String password;
 	
 	public String getAccount() {
@@ -16,9 +17,17 @@ public class LoginVo {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	@Override
 	public String toString() {
-		return "LoginVo [account=" + account + ", password=" + password + "]";
+		return "LoginVo [account=" + account + ",name: "+ name + ", password=" + password + "]";
 	}
 	
 	

@@ -26,10 +26,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.client.RestTemplate;
 
 import wac.utils.StringUtils;
 
+import com.alibaba.fastjson.JSONObject;
 import com.opslab.util.jwt.JKSUtil;
 import com.opslab.util.jwt.JwtUtil;
 import com.tzsw.plat.commons.StringUtil;
@@ -60,7 +64,10 @@ public class SessionClientFilter implements Filter {
 	@Autowired
 	JedisUtil redisService;
 
-
+	@Autowired
+	RestTemplate restTemplate;
+	
+	
 	@Override
 	public void init(FilterConfig config) throws ServletException {
 		System.out.println("SessionFilter Initing!");
@@ -74,6 +81,64 @@ public class SessionClientFilter implements Filter {
 		//		}
 		//		
 	}
+	
+	public static boolean TokenCheck(String token){
+		try {
+			String privateKey = JKSUtil.getPrivateStrByJks("wac");
+			Claims claims = JwtUtil.parseJWT(token, "secretkey");
+			System.out.println("claims : " + claims);
+			String id = claims.getId();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+			
+		}//这里是加密解密的key。
+	}
+	
+	public boolean redisCheck(String token){
+		try {
+			String privateKey = JKSUtil.getPrivateStrByJks("wac");
+			Claims claims = JwtUtil.parseJWT(token, "secretkey");
+			System.out.println("claims : " + claims);
+			String id = claims.getId();
+			
+			//
+			
+			Object obj = redisService.get(token);
+			
+			System.out.println("redis_token_get : " + obj);
+			
+			
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+			
+		}//这里是加密解密的key。
+	}
+	
+	//获取到SSO去检验token的地址，并注册到SSO
+	public boolean SSOTokenCheck(HttpServletRequest request,String token) throws IOException{
+		String sso_token_check_url = SSOClientUtil.getSSOTokenCheckUrl(request, token);
+		
+		try {
+			//
+			JSONObject result = JSONObject.parseObject(restTemplate.postForObject(sso_token_check_url, token, String.class));
+			
+			System.out.println("调用URL");
+			if("00".equals(result.getString("code"))){
+				// 校验token成功，注册成功
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+			
+		}//这里是加密解密的key。
+		return false;
+	}
+	
 	
 	/**
 	 * 
@@ -104,14 +169,9 @@ public class SessionClientFilter implements Filter {
 		System.out.println("Token : " +  token);
 
 		if(token!=null&&!"".equals(token)){//连接是带token的
-			//有token,校验有效性
-			String privateKey = JKSUtil.getPrivateStrByJks("wac");//这里是加密解密的key。
-			Claims claims = JwtUtil.parseJWT(token, privateKey);
-			System.out.println("claims : " + claims);
-			String id = claims.getId();
-				
-			String loginId = (String) claims.get("loginId");
-			if(StringUtils.isNotBlank(id)&&id.equals(loginId)){
+			
+			//使用不同的校验方法来校验token
+			if(TokenCheck(token)){
 				//验证token里带的id和用户保存的loginId一致，token有效，增加session中isLogin=true
 				hs.setAttribute("isLogin", true);
 				//放行该次的请求
@@ -135,9 +195,7 @@ public class SessionClientFilter implements Filter {
 	 * @throws IOException
 	 * @throws ServletException
 	 */
-	private void check(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
-			@CookieValue("token")String cookieToken)
-			throws IOException, ServletException {
+	private void check(HttpServletRequest request, HttpServletResponse response, FilterChain chain)throws Exception {
 		HttpSession hs = request.getSession();
 		Enumeration<String> es = hs.getAttributeNames();
 		while(es.hasMoreElements()){
@@ -145,9 +203,10 @@ public class SessionClientFilter implements Filter {
 			System.out.println("key : " + key + " , value : " + hs.getAttribute(key));
 		}
 
-		String isLogin = (String) hs.getAttribute("isLogin");
-		if(isLogin!=null&&!"".equals(isLogin)){
-			//局部会话放行
+		Boolean isLogin = (Boolean) hs.getAttribute("isLogin");
+		if (isLogin != null && isLogin) {
+			// 局部会话放行
+			System.out.println("局部session有效，放行！");
 			chain.doFilter(request, response);
 			return;
 		}
@@ -156,43 +215,22 @@ public class SessionClientFilter implements Filter {
 		System.out.println("Token : " +  token);
 
 		if(token!=null&&!"".equals(token)){//连接是带token的
+			
+			//使用不同的校验方法来校验token
+			if(SSOTokenCheck(request,token)){
+				// 校验成功，添加局部session标志
+				//验证token里带的id和用户保存的loginId一致，token有效，增加session中isLogin=true
+				hs.setAttribute("isLogin", true);
+				hs.setAttribute("token", token);
+				//放行该次的请求
+                chain.doFilter(request, response);
+                return;
+			}
 
-			UserInfo user = getCachedUser(token);
-			System.out.println(user);
-			if(user!=null){//token有效，则保存token,往下走
-				//cookie有效,允许继续访问;
-				Cookie c = new Cookie("isLogin","true");
-				c.setMaxAge(3600);
-				c.setPath("/");
-				response.addCookie(c);
-				request.getSession().setAttribute("token", token);
-				request.getSession().setAttribute("isLogin", "true");
-				Cookie c1 = new Cookie("account", user.getUserAccount());
-				c1.setMaxAge(3600);
-				c1.setPath("/");
-				response.addCookie(c1);
-//				request.getRequestURL();
-				String turl = getURLWithOutToken(request);
-				response.sendRedirect(turl);
-				return;
-			}else{
-				//token无效
-				response.sendRedirect(url + "?callbackurl=" + request.getRequestURL());	
-				return;
-			}
-		}else{
-			//没有token,检查cookie里是否有有效token
-//			token = getCookieByName(request,"token").getValue();
-			token = cookieToken;
-			if(token!=null&&!"".equals(token)){//校验浏览器cookie里的token,有效则生成局部session
-				request.getSession().setAttribute("token", token);
-				request.getSession().setAttribute("isLogin", "true");
-				chain.doFilter(request, response);
-				return;
-			}
-			response.sendRedirect(url + "?callbackurl=" + request.getRequestURL());	
-			return;
 		}
+		//没有token,统一跳转登录中心
+		SSOClientUtil.redirectToSSOURL(request, response);
+		System.out.println("URL2 :   " + url + "?callbackurl=" + request.getRequestURL());
 	}
 	
 	/**
@@ -288,7 +326,7 @@ public class SessionClientFilter implements Filter {
 //		check((HttpServletRequest)request,(HttpServletResponse)response,chain);
 		try {
 			System.out.println("SessionClientFilter working!");
-			checkJWTToken((HttpServletRequest)request,(HttpServletResponse)response,chain);
+			check((HttpServletRequest)request,(HttpServletResponse)response,chain);
 			chain.doFilter(request, response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

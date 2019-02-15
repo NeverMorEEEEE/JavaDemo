@@ -6,6 +6,12 @@ import java.util.Map;
 
 import javax.crypto.SecretKey;
 
+import com.alibaba.druid.util.StringUtils;
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.Claim;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.google.gson.Gson;
 
 import io.jsonwebtoken.Claims;
@@ -82,6 +88,44 @@ public class JwtUtil {
         //生成JWT
         return builder.compact();
     }
+    
+    
+    
+    
+    /**
+     * 解密Token
+     * 
+     * @param token
+     * @return
+     * @throws Exception
+     */
+    public static Map<String, Claim> verifyToken(String token,String key) {
+        DecodedJWT jwt = null;
+        try {
+            JWTVerifier verifier = JWT.require(Algorithm.HMAC256(key)).build();
+            jwt = verifier.verify(token);
+        } catch (Exception e) {
+            // e.printStackTrace();
+            // token 校验失败, 抛出Token验证非法异常
+        }
+        return jwt.getClaims();
+    }
+
+    /**
+     * 根据Token获取user_id
+     * 
+     * @param token
+     * @return user_id
+     */
+    public static Long getAppUID(String token,String key) {
+        Map<String, Claim> claims = verifyToken(token,key);
+        Claim user_id_claim = claims.get("user_id");
+        if (null == user_id_claim || StringUtils.isEmpty(user_id_claim.asString())) {
+            // token 校验失败, 抛出Token验证非法异常
+        }
+        return Long.valueOf(user_id_claim.asString());
+    }
+
 
     public static void main(String[] args) {
         Map<String, Object> map = new HashMap<String, Object>();

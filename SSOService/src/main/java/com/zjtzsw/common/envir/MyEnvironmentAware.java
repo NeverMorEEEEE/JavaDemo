@@ -12,7 +12,7 @@ import org.springframework.core.env.Environment;
  *
  */
  
-//@Configuration
+@Configuration
 public class MyEnvironmentAware implements EnvironmentAware{
  
        //注入application.properties的属性到指定变量中.

@@ -7,6 +7,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.zjtzsw.common.filter.SessionServerFilter;
 import com.zjtzsw.common.xss.XssFilter;
 
 /**
@@ -20,11 +21,8 @@ public class FilterConfig {
 	
 	@Value("${sso.url}")
     private String ssourl;
-	@Value("${sso.welcomeurl}")
-    private String welcomeurl;
-	
 
-    @Bean
+   /* @Bean
     public FilterRegistrationBean xssFilterRegistration() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setDispatcherTypes(DispatcherType.REQUEST);
@@ -34,18 +32,17 @@ public class FilterConfig {
         registration.setOrder(Integer.MAX_VALUE-1);
         return registration;
     }
-    
- /*   @Bean
+    */
+/*    @Bean
     public FilterRegistrationBean SSOFilterRegistration() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setDispatcherTypes(DispatcherType.REQUEST);
         registration.setFilter(new SessionServerFilter());
-        registration.addUrlPatterns("/sso/*");
+        registration.addUrlPatterns("/demo/*");
         registration.setName("sessionFilter");
         registration.setOrder(Integer.MAX_VALUE);
-        System.out.println("set SsoFilter_ssourl :" + ssourl);
-        registration.addInitParameter("ssourl", ssourl);
-        registration.addInitParameter("welcomeurl", welcomeurl);
+//        System.out.println("set SsoFilter_ssourl :" + ssourl);
+//        registration.addInitParameter("ssourl", ssourl);
         return registration;
     }*/
 }

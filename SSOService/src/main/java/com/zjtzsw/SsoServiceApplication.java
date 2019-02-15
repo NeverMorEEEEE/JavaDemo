@@ -20,11 +20,9 @@ import com.zjtzsw.common.utils.SpringContextUtils;
 @ServletComponentScan
 @SpringBootApplication
 public class SsoServiceApplication extends SpringBootServletInitializer {
-
-	public static void main(String[] args) throws ServletException {
-		ApplicationContext app = SpringApplication.run(
-				SsoServiceApplication.class, args);
-		SpringContextUtils.setApplicationContext(app);
+	
+	public static void main(String[] args) throws Exception {
+		SpringApplication.run(SsoServiceApplication.class, args);
 	}
 
 //	@Override

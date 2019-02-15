@@ -8,8 +8,10 @@ import java.net.URLDecoder;
 import java.nio.charset.Charset;
 import java.sql.Clob;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -32,8 +34,11 @@ import org.springframework.web.client.RestTemplate;
 
 import com.alibaba.fastjson.JSONObject;
 import com.tzsw.plat.commons.StringUtil;
+import com.zjtzsw.common.utils.JaxbUtil;
+import com.zjtzsw.common.utils.MD5Utils;
 import com.zjtzsw.common.utils.R;
 import com.zjtzsw.modules.demo.dao.MyMapper;
+import com.zjtzsw.modules.sys.domain.UserInfo;
 import com.zjtzsw.modules.sys.service.UserService;
 import com.zjtzsw.modules.sys.vo.LoginVo;
 
@@ -54,6 +59,8 @@ public class LogonController {
 
 	@Autowired
 	UserService userService;
+	
+
 
 	@Autowired  
 	private MyMapper myMapper;
@@ -63,6 +70,7 @@ public class LogonController {
 
 		return "/modules/home/LogonDialog";
 	}
+
 	
 	@ResponseBody
 	@RequestMapping("/login")
@@ -79,7 +87,7 @@ public class LogonController {
 		}
 		System.out.println("回调URL : " + url);
 		
-		if(wac.utils.StringUtils.isNotBlank(userService.login(hres, loginVo))){//登录成功则跳转页面
+		if(wac.utils.StringUtils.isNotBlank(userService.login(hres, loginVo).getString("token"))){//登录成功则跳转页面
 			System.out.println("登录成功!");
 
 //			String token = loginVo.getToken();
@@ -118,8 +126,6 @@ public class LogonController {
 		}else{
 			return msg;
 		}
-		
-		
 	}
 	/**
 	 * 设置跨域Cookie

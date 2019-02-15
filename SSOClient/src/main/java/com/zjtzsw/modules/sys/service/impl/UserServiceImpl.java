@@ -15,7 +15,6 @@ import com.zjtzsw.common.constant.Constant;
 import com.zjtzsw.common.exception.TZException;
 import com.zjtzsw.common.exception.WacException;
 import com.zjtzsw.common.utils.MD5Utils;
-import com.zjtzsw.common.utils.UUIDUtil;
 import com.zjtzsw.config.RedisService;
 import com.zjtzsw.modules.sys.mapper.UserMapper;
 import com.zjtzsw.modules.sys.domain.UserInfo;
@@ -24,6 +23,8 @@ import com.zjtzsw.modules.sys.result.CodeMsg;
 import com.zjtzsw.modules.sys.service.LoginService;
 import com.zjtzsw.modules.sys.service.UserService;
 import com.zjtzsw.modules.sys.vo.LoginVo;
+
+import wac.utils.UUIDUtil;
 
 @Service("userService")
 @Transactional
@@ -60,7 +61,7 @@ public class UserServiceImpl implements UserService {
     	}
     	System.out.println("登录成功！");
     	//生成模拟session
-    	String tooken = UUIDUtil.uuid();
+    	String tooken = UUIDUtil.RandomUUID();
     	addCookie(hres,tooken,userInfo);
     	
     	
