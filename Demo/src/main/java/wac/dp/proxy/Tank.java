@@ -18,6 +18,11 @@ public class Tank implements Movable {
         System.out.println("Tank Move 结束,用时 " + (System.currentTimeMillis() - start));
     }
 
+    @Override
+    public void str() {
+
+    }
+
     public void test(Object... args) {
         System.out.println(args.getClass());
         for (Object arg : args) {

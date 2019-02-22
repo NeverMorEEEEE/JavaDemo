@@ -41,7 +41,7 @@ public class demo1 {
 
                     try {
                         Thread.sleep(200L);
-                        System.out.println();
+                        System.out.println("44");
                     } catch (Exception ex) {
 
                     }
@@ -58,30 +58,8 @@ public class demo1 {
 
 
     public static void main(String[] args) {
-//		String path = "C:/Users/Administrator/Desktop";
-//		 File[] files = new File(path).listFiles();
-//		 for(File file : files){
-//			 System.out.println(file);
-//		 }
-        final HashMap hm = new HashMap();
-        int count = 0;
-//		 ExecutorService es = Executors.newFixedThreadPool(10);
-//		 for(int i =0;i<100;i++){
-//			 es.execute(new Runnable(){
-//				 	
-//					@Override
-//					public void run() {
-//						
-//						System.out.println(Thread.currentThread().getName());
-////						System.out.println(hm.get(this.toString()));
-////						hm.put(this.toString(), Thread.currentThread().getId());
-//					} 
-//					 
-//			 });	 
-//		 }
-//		
-//		 new demo1().test();
 
+		 new demo1().test();
 
     }
 

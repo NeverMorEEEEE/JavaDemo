@@ -12,6 +12,7 @@ public class client {
         String str = "wac.dp.proxy.test.UserMgr";
 
         InvocationHandler th = new TimeHandler(h);
+
         UserMgr u = (UserMgr) new Proxy().newProxyInstance("UserMgrProxy", UserMgr.class, th);
 
         u.addUser();

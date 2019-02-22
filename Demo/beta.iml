@@ -150,14 +150,6 @@
     <orderEntry type="library" name="Maven: org.apache.rocketmq:rocketmq-common:4.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.rocketmq:rocketmq-remoting:4.2.0" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-all:4.0.42.Final" level="project" />
-    <orderEntry type="library" name="Maven: river:wacs:0.0.1" level="project" />
-    <orderEntry type="library" name="Maven: commons-net:commons-net:2.0" level="project" />
-    <orderEntry type="library" name="Maven: com.artofsolving:jodconverter:2.2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.openoffice:juh:2.3.0" level="project" />
-    <orderEntry type="library" name="Maven: org.openoffice:ridl:2.3.0" level="project" />
-    <orderEntry type="library" name="Maven: org.openoffice:unoil:2.3.0" level="project" />
-    <orderEntry type="library" name="Maven: org.mozilla.intl:chardet:1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.openoffice:jurt:2.3.0" level="project" />
     <orderEntry type="library" name="Maven: io.jsonwebtoken:jjwt:0.9.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.8.9" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.0" level="project" />
@@ -165,5 +157,17 @@
     <orderEntry type="library" name="Maven: org.apiguardian:apiguardian-api:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.mybatis:mybatis:3.4.4" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/lib" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="pageoffice" level="project" />
   </component>
 </module>

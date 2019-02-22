@@ -18,5 +18,10 @@ public class Tank3 implements Movable {
         System.out.println("Move 结束,用时 " + (System.currentTimeMillis() - start));
     }
 
+    @Override
+    public void str() {
+
+    }
+
 
 }

@@ -1,3 +1,4 @@
+/*
 package wac.utils;
 
 import java.io.File;
@@ -37,7 +38,8 @@ public class PdfUtil {
         PdfUtil.port = port;
     }
 
-    /**
+    */
+/**
      * 将Office文档转换为PDF. 运行该函数需要用到OpenOffice, OpenOffice下载地址为
      * http://www.openoffice.org/
      * <p>
@@ -54,7 +56,8 @@ public class PdfUtil {
      * @return 操作成功与否的提示信息. 如果返回 -1, 表示找不到源文件, 或url.properties配置错误; 如果返回 0,
      * 则表示操作成功; 返回1, 则表示转换失败
      * @throws ConnectException
-     */
+     *//*
+
     public static int office2PDF(String sourceFile, String destFile) throws ConnectException {
 
         System.out.println(sourceFile + " ===>>> " + destFile);
@@ -92,3 +95,4 @@ public class PdfUtil {
 
     }
 }
+*/

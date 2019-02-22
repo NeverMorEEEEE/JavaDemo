@@ -1,6 +1,7 @@
 package wac.concurrent;
 
 import java.util.LinkedList;
+
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -8,9 +9,21 @@ import java.util.concurrent.Executors;
 
 import wac.basic.stack.MyStack;
 
+
+
+/**
+ *  偏向锁 <<轻量级锁<<重量级锁
+ * 
+ *  偏向锁：只有一个线程进入临界区；
+ *	轻量级锁：多个线程交替进入临界区；
+ *	重量级锁：多个线程同时进入临界区。
+ * 
+ * @author Administrator
+ * @version 创建时间：2019年2月20日 下午3:05:38
+ */
 public class TestThread implements Runnable {
 
-    public volatile Obj obj;
+    public  Obj obj;
 
     static int num = 0;
 
@@ -43,42 +56,12 @@ public class TestThread implements Runnable {
         obj.flag = false;
     }
 
-    //	 static CountDownLatch countDownLatch = new CountDownLatch(30);
-//	    public static void main(String []args) throws InterruptedException {
-//	        //开启30个线程进行累加操作
-//	        for(int i=0;i<30;i++){
-//	            new Thread(){
-//	                public void run(){
-//	                    for(int j=0;j<10000;j++){
-//	                        num++;//自加操作
-//	                    }
-//	                    countDownLatch.countDown();
-//	                }
-//	            }.start();
-//	        }
-//	        //等待计算线程执行完
-//	        countDownLatch.await();
-//	        System.out.println(num);
     public static void main(String[] args) throws InterruptedException {
-//		 Obj obj = new Obj(5000);
-//		TestThread t1 = new TestThread(obj);
-//		ExecutorService es = Executors.newFixedThreadPool(10);
-//		for (int i = 0; i < 10; i++) {
-//			es.execute(t1);
-//		}
-//		try {
-//			Thread.sleep(2000);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-////		t1.stop();
-//		obj.stop();
-        //使用countDownLaunch来模拟多线程并发
+
         CountDownLatch countDownLatch = new CountDownLatch(75);
-        Obj obj = new Obj(5000);
+        Obj obj = new Obj(10000);
 //		开启30个线程进行累加操作
-        for (int i = 0; i < 75; i++) {
+        for (int i = 0; i < 100; i++) {
             new Thread() {
                 public void run() {
 //	                    for(int j=0;j<10000;j++){

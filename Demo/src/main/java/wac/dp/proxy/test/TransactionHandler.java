@@ -28,9 +28,9 @@ public class TransactionHandler implements InvocationHandler {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (InvocationTargetException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        // TODO Auto-generated catch block
         System.out.println("After TransactionHandler");
     }
 

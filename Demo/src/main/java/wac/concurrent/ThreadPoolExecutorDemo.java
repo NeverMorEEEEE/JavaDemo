@@ -1,7 +1,13 @@
 package wac.concurrent;
 
+import wac.utils.Printer;
+
+import javax.xml.rpc.Call;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
+import java.util.stream.IntStream;
 
 
 /**
@@ -10,10 +16,18 @@ import java.util.concurrent.locks.Lock;
  * @author wac
  * @date 2018年12月20日
  */
-public class demo {
+public class ThreadPoolExecutorDemo {
+
 
 
     public static void main(String[] args) {
+        List<Worker> workerList = new LinkedList<Worker>();
+
+        for(int i=0;i<10;i++){
+            Printer.print("装填第" + i + "个Worker" );
+            workerList.add(new Worker());
+        }
+        Printer.print("装填完成" );
 
         // 创建一个执行任务的服务
         ExecutorService executor = Executors.newFixedThreadPool(3);
