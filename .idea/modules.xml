@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudDemo/Dispatch/Dispatch.iml" filepath="$PROJECT_DIR$/SpringCloudDemo/Dispatch/Dispatch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/JavaDemo.iml" filepath="$PROJECT_DIR$/.idea/JavaDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudDemo/SpringCloudDemo.iml" filepath="$PROJECT_DIR$/SpringCloudDemo/SpringCloudDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Demo/beta.iml" filepath="$PROJECT_DIR$/Demo/beta.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudDemo/demoServer1/demoServer1.iml" filepath="$PROJECT_DIR$/SpringCloudDemo/demoServer1/demoServer1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudDemo/demoServer2/demoServer2.iml" filepath="$PROJECT_DIR$/SpringCloudDemo/demoServer2/demoServer2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudDemo/demoServer3/demoServer3.iml" filepath="$PROJECT_DIR$/SpringCloudDemo/demoServer3/demoServer3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudDemo/eurake-server/eurake-server.iml" filepath="$PROJECT_DIR$/SpringCloudDemo/eurake-server/eurake-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RPC-Parent/rpc-client/rpc-client.iml" filepath="$PROJECT_DIR$/RPC-Parent/rpc-client/rpc-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RPC-Parent/rpc-parent.iml" filepath="$PROJECT_DIR$/RPC-Parent/rpc-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RPC-Parent/rpc-server/rpc-server.iml" filepath="$PROJECT_DIR$/RPC-Parent/rpc-server/rpc-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SSOClient/springBoot.ClientDemo.iml" filepath="$PROJECT_DIR$/SSOClient/springBoot.ClientDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SSOService/springBoot.SSOServer.iml" filepath="$PROJECT_DIR$/SSOService/springBoot.SSOServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RPC-Parent/user-server-api/user-server-api.iml" filepath="$PROJECT_DIR$/RPC-Parent/user-server-api/user-server-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RPC-Parent/user-server-provider/user-server-provider.iml" filepath="$PROJECT_DIR$/RPC-Parent/user-server-provider/user-server-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wacs/wacs.iml" filepath="$PROJECT_DIR$/wacs/wacs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudDemo/web/web.iml" filepath="$PROJECT_DIR$/SpringCloudDemo/web/web.iml" />
+    </modules>
+  </component>
+</project>
