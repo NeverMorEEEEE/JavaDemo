@@ -1,3 +1,4 @@
+/*
 package wac.jfinalDemo;
 
 import java.util.List;
@@ -78,3 +79,4 @@ public class AutoTableBindPluginDemo extends ExtActiveRecordPlugin {
     }
 
 }
+*/

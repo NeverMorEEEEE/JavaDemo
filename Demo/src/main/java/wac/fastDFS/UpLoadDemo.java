@@ -5,7 +5,7 @@ import org.csource.fastdfs.StorageClient;
 import org.csource.fastdfs.StorageServer;
 import org.csource.fastdfs.TrackerClient;
 import org.csource.fastdfs.TrackerServer;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class UpLoadDemo {
 

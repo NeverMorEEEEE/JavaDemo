@@ -3,6 +3,8 @@ package wac.utils.redis;
 import java.io.File;
 import java.io.IOException;
 
+import com.github.tobato.fastdfs.proto.mapper.BytesUtil;
+import com.mchange.lang.ByteUtils;
 import net.sf.json.JSONObject;
 
 import org.aspectj.util.FileUtil;
@@ -16,11 +18,11 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import com.mchange.v2.ser.SerializableUtils;
-import com.opslab.util.StringUtils;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
+import wac.utils.StringUtils;
 import wac.utils.serializer.FastJsonRedisSerializer;
 
 public class JedisUtil {
@@ -139,7 +141,7 @@ public class JedisUtil {
         try {
             jedis = getJedis();
             byte[] bytes = jedis.get(key.getBytes());
-            if (!StringUtils.isEmpty(bytes)) {
+            if (bytes.length>0) {
 
                 return serializer.deserialize(bytes);
 //            	return SerializableUtils.fromByteArray(bytes);
@@ -159,7 +161,6 @@ public class JedisUtil {
      *
      * @param key
      * @param value
-     * @param expiretime
      * @return
      */
     public static String set(String key, Object value) {

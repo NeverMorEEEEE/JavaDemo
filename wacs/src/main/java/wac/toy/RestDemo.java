@@ -16,7 +16,6 @@ import sun.misc.BASE64Encoder;
 import wac.utils.Md5;
 
 import com.alibaba.fastjson.JSONObject;
-import com.tzsw.core.util.DateUtil;
 
 public class RestDemo {
 

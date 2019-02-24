@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>river</groupId>
-    <artifactId>beta</artifactId>
+    <artifactId>demo</artifactId>
     <packaging>war</packaging>
-    <version>0.0.1-Beta</version>
-    <name>Beta Maven Webapp</name>
+    <version>0.0.1-Demo</version>
+    <name>Demo Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
 
@@ -409,6 +409,13 @@
             <groupId>com.github.tobato</groupId>
             <artifactId>fastdfs-client</artifactId>
             <version>1.26.1-RELEASE</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
+        <dependency>
+            <groupId>org.csource</groupId>
+            <artifactId>fastdfs-client-java</artifactId>
+            <version>1.27-RELEASE</version>
         </dependency>
 
 

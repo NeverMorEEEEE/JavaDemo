@@ -16,7 +16,7 @@ import java.util.Properties;
 
 import org.apache.commons.dbcp.BasicDataSource;
 
-import com.app.common.util.DBUtil;
+
 
 public class DBCPUtils {
 

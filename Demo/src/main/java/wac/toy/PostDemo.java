@@ -4,7 +4,6 @@ import java.net.URLEncoder;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.opslab.util.http.HttpRequest;
 
 public class PostDemo {
 

@@ -570,4 +570,9 @@ public final class StringUtils {
     public  static boolean leftEquals(String str1,String str2,int length){
         return left(str1,length).equals(left(str2,length));
     }
+
+	public static String StringReplace(String str1, String str2, String type) {
+		// TODO Auto-generated method stub
+		return type.replaceAll(str1, str2);
+	}
 }

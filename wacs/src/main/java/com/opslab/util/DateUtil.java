@@ -1,18 +1,18 @@
 package com.opslab.util;
 
-import com.tzsw.core.jfinal.annotation.MethodInfo;
-import com.tzsw.plat.commons.CommonVerify;
-import com.tzsw.plat.commons.StringUtil;
-import com.tzsw.plat.commons.TypeCast;
-import com.tzsw.plat.util.exception.AppException;
 import java.io.PrintStream;
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import wac.basic.exception.AppException;
 
 
 
@@ -28,7 +28,7 @@ public abstract class DateUtil
 
 	public DateUtil() {}
 
-	@MethodInfo(comments="得到应用服务器当前日期，只有年月日，没有时分秒", author="zqb", date="2016?年?6?月?15?日")
+
 	public static java.util.Date getDate()
 	{
 		Calendar oneCalendar = Calendar.getInstance();
@@ -49,7 +49,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="根据所给年、月、日，得到日期(java.util.Date类型)，注意：只有年月日，没有时分秒。年、月、日不合法会抛IllegalArgumentException", author="zqb", date="2016?年?6?月?15?日", params={"yyyy年", "MM月", "dd日"})
+
 	public static java.util.Date getDate(int yyyy, int MM, int dd)
 	{
 		return getDate(yyyy, MM, dd, 0, 0, 0);
@@ -74,7 +74,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="根据所给年、月、日，得到日期(java.util.Date类型)，年、月、日不合法会抛IllegalArgumentException", author="zqb", date="2016?年?6?月?15?日", params={"yyyy年", "MM月", "dd日", "HH时", "mm分", "ss秒"})
+
 	public static java.util.Date getDate(int yyyy, int MM, int dd, int HH, int mm, int ss)
 	{
 		if (!verityDate(yyyy, MM, dd))
@@ -89,7 +89,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="获取当前年", author="zqb", date="2016?年?6?月?15?日", params={""})
+
 	public static String getYear()
 	{
 		Calendar calendar = Calendar.getInstance();
@@ -101,7 +101,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="获取当前月 （补0）", author="zqb", date="2016?年?6?月?15?日")
+
 	public static String getMonth()
 	{
 		Calendar calendar = Calendar.getInstance();
@@ -119,7 +119,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="获取当前日（补0））", author="zqb", date="2016?年?6?月?15?日")
+
 	public static String getDay()
 	{
 		Calendar calendar = Calendar.getInstance();
@@ -137,7 +137,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="获取当前年月日(yyyyMMdd)", author="zqb", date="2016?年?6?月?15?日")
+
 	public static String getCurrentYearMonthDay()
 	{
 		return getYear() + getMonth() + getDay();
@@ -147,7 +147,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="获取应用服务器系统时间，既有年月日，又有时分秒", author="zqb", date="2016?年?6?月?15?日")
+
 	public static java.util.Date getSystemCurrentTime()
 	{
 		long currentTime = System.currentTimeMillis();
@@ -163,7 +163,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="两种时间格式的转换:java.util.Date to java.util.Date", author="zqb", date="2016?年?6?月?15?日", params={"java.util.Date date"})
+
 	public static java.sql.Date converUtilTOSql(java.util.Date date)
 	{
 		java.sql.Date d = java.sql.Date.valueOf(date.toString());
@@ -176,7 +176,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="两种时间格式的转换：java.util.Date to java.util.Date", author="zqb", date="2016?年?6?月?15?日", params={"java.util.Date date"})
+
 	public static java.util.Date converSqlTOUtil(java.util.Date date)
 	{
 		return date;
@@ -188,7 +188,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="根据身份证号码获取性别(返回值：1－男，2－女，空为身份证号码错误)", author="zqb", date="2016?年?6?月?15?日", params={"id"})
+
 	public static String getGender(String iDCard)
 	{
 		int gender = 3;
@@ -218,7 +218,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="根据所给年、月、日，检验是否为合法日期。", author="zbq", date="2016?年?6?月?15?日", params={"yyyy年", "MM月", "dd日"})
+
 	public static boolean verityDate(int yyyy, int MM, int dd)
 	{
 		boolean flag = false;
@@ -246,7 +246,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="将月数量转换成x年x个月格式显示。 如month2YearMonth(16)=1年4个月", author="cxp", date="2016?年?6?月?15?日", params={"s"})
+
 	public static String month2YearMonth(String s)
 	{
 		String s1 = "";
@@ -262,7 +262,7 @@ public abstract class DateUtil
 		return s1;
 	}
 
-	@MethodInfo(comments="得到当前年月", author="lwd", date="2016?年?6?月?15?日")
+
 	public static String getCurrentYearMonth()
 	{
 		Calendar calendar = Calendar.getInstance();
@@ -275,7 +275,7 @@ public abstract class DateUtil
 		return s + s1;
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={""})
+
 	public static long calcSeconds(String startDate, String endDate) throws ParseException {
 		String format = "yyyy-MM-dd HH:mm:ss";
 		SimpleDateFormat sf = new SimpleDateFormat(format);
@@ -289,7 +289,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"要转换的毫秒数"})
+
 	public static String formatDuring(long mss)
 	{
 		long days = mss / 86400000L;
@@ -308,7 +308,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"begin 时间段的开始", " end 时间段的结束"})
+
 	public static String formatDuring(java.util.Date begin, java.util.Date end)
 	{
 		if ((begin == null) || (end == null)) {
@@ -323,7 +323,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="String转化为时间类型", author="cxp", date="2016?年?6?月?15?日", params={" adateStrteStr", " format"})
+
 	public static java.util.Date convertDate(String adateStrteStr, String format)
 	{
 		java.util.Date date = null;
@@ -342,7 +342,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="获取当前时间是的几周", author="cxp", date="2016?年?6?月?15?日", params={"本周上下地几周(如本周 DateUtil.weekOfYear(0))"})
+
 	public static String weekOfYear(int s)
 	{
 		Calendar cal = Calendar.getInstance();
@@ -365,7 +365,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="获取当月第一天", author="cxp", date="2016?年?6?月?15?日", params={""})
+
 	public static java.util.Date getFirstDayOfMonth(java.util.Date date)
 	{
 		Calendar firstDate = Calendar.getInstance();
@@ -374,7 +374,7 @@ public abstract class DateUtil
 		return firstDate.getTime();
 	}
 
-	@MethodInfo(comments="当月最后一天", author="zbq", date="2016?年?6?月?15?日", params={""})
+
 	public static java.util.Date getDefaultDay(java.util.Date date)
 	{
 		Calendar lastDate = Calendar.getInstance();
@@ -390,7 +390,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="获取输入当年的的几周获取这周的所有日期数组", author="zbq", date="2016?年?6?月?15?日", params={"weekofday"})
+
 	public static String[] weeks(String weekofday)
 	{
 		String[] weeks = new String[7];
@@ -423,7 +423,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="获取输入当年的的几周获取这周的所在季度", author="zbq", date="2016?年?6?月?15?日", params={"weekofday"})
+
 	public static String weekinQuarterly(String weekofday)
 	{
 		Calendar cal = Calendar.getInstance();
@@ -447,7 +447,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="获取当前时间是周几（中国版）", author="zbq", date="2016?年?6?月?15?日")
+
 	public static int getDayOfWeek()
 	{
 		Calendar cal = Calendar.getInstance();
@@ -467,7 +467,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="获取当前时间所在的季度", author="zbq", date="2016?年?6?月?15?日")
+
 	public static String getQuarterly()
 	{
 		Calendar cal = Calendar.getInstance();
@@ -481,7 +481,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments=" 获取输入时间所在的季度", author="zbq", date="2016?年?6?月?15?日", params={" 输入时间"})
+
 	public static String getQuarterly(java.util.Date date)
 	{
 		Calendar cal = Calendar.getInstance();
@@ -495,7 +495,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="输入时间是否为工作日", author="zbq", date="2016?年?6?月?15?日", params={"date"})
+
 	public static boolean isWeek(java.util.Date date)
 	{
 		Calendar cal = Calendar.getInstance();
@@ -516,7 +516,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="获取输入格式的日期字符串，字符串遵循Oracle格式", author="zbq", date="2016?年?6?月?15?日", params={"d-日期", "format- 指定日期格式，格式的写法为Oracle格式"})
+
 	public static String dateToString(java.util.Date d, String format)
 	{
 		if (d == null) {
@@ -621,7 +621,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="时间比较", author="zbq", date="2016?年?6?月?15?日", params={"a 时间1（时间格式 hh:mm）", "b 时间2（时间格式 hh:mm）"})
+
 	public static boolean isCompareTime(String a, String b, String n)
 	{
 		int ah = Integer.parseInt(a.split(":")[0]);
@@ -643,7 +643,13 @@ public abstract class DateUtil
 
 		return false;
 	}
-
+	
+	public static boolean numberVerify(String s) {
+//		return Pattern.compile("^[0-9]*$").matcher(s).matches();
+		
+		return s.matches("^[0-9]*$");
+		
+	}
 
 
 	public static java.util.Date converToDate(String s)
@@ -662,7 +668,8 @@ public abstract class DateUtil
 		String dd; String yyyy; String MM;
 	
 
-		if ((len == 8) && (CommonVerify.numberVerify(s))) {
+//		if ((len == 8) && (CommonVerify.numberVerify(s))) {
+		if ((len == 8) && (numberVerify(s))) {
 			yyyy = s.substring(0, 4);
 			MM = s.substring(4, 6);
 			dd = s.substring(6, 8);
@@ -763,13 +770,13 @@ public abstract class DateUtil
 		}
 
 
-		type = StringUtil.StringReplace("YYYY", "yyyy", type);
-		type = StringUtil.StringReplace("DD", "dd", type);
-		type = StringUtil.StringReplace("SS", "ss", type);
-		type = StringUtil.StringReplace("hh24", "HH", type);
-		type = StringUtil.StringReplace("HH24", "HH", type);
-		type = StringUtil.StringReplace("MI", "mm", type);
-		type = StringUtil.StringReplace("mi", "mm", type);
+		type = StringUtils.StringReplace("YYYY", "yyyy", type);
+		type = StringUtils.StringReplace("DD", "dd", type);
+		type = StringUtils.StringReplace("SS", "ss", type);
+		type = StringUtils.StringReplace("hh24", "HH", type);
+		type = StringUtils.StringReplace("HH24", "HH", type);
+		type = StringUtils.StringReplace("MI", "mm", type);
+		type = StringUtils.StringReplace("mi", "mm", type);
 
 		if ((type == null) || (type.trim().equals(""))) {
 			returnStr = DateFormat.getDateTimeInstance().format(dt);
@@ -828,8 +835,11 @@ public abstract class DateUtil
 		case 3: 
 			try
 			{
-
-				java.util.Date oneDay = TypeCast.stringToDate(s, "", true);
+				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				Date  oneDay = format.parse(s);
+				
+				 
+//				java.util.Date oneDay = TypeCast.stringToDate(s, "", true);
 				Calendar ca = Calendar.getInstance();
 				ca.clear();
 				ca.setTime(oneDay);
@@ -881,7 +891,7 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"data"})
+
 	public static String addDay(String data)
 	{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -896,7 +906,7 @@ public abstract class DateUtil
 		return sdf.format(cd.getTime());
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"add"})
+
 	public static String addDay(int add) { SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	Calendar cd = Calendar.getInstance();
 	cd.setTime(new java.util.Date());
@@ -904,7 +914,7 @@ public abstract class DateUtil
 	return sdf.format(cd.getTime());
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"data", "add"})
+
 	public static String addDay(String data, int add) { SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	Calendar cd = Calendar.getInstance();
 	try {
@@ -917,17 +927,17 @@ public abstract class DateUtil
 	return sdf.format(cd.getTime());
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date", "amount"})
+
 	public static java.util.Date getAfterDate(java.util.Date date, int amount) { Calendar cal = Calendar.getInstance();
 	cal.setTime(date);
 	cal.add(5, amount);
 	return cal.getTime();
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={" year", "amount"})
+
 	public static int getMonthDay(int year, int month) { return getMonthDayByYear(year)[(--month)]; }
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"year"})
+
 	public static int[] getMonthDayByYear(int year) {
 		int[] monthDay = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 		if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
@@ -935,10 +945,10 @@ public abstract class DateUtil
 		return monthDay;
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"startTime", "endTime"})
+
 	public static long[] dateDiff(String startTime, String endTime) { return dateDiff(startTime, endTime, "yyyy-MM-dd"); }
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"startTime", "endTime", "format"})
+
 	public static long[] dateDiff(String startTime, String endTime, String format) {
 		SimpleDateFormat sd = new SimpleDateFormat(format);
 
@@ -970,7 +980,7 @@ public abstract class DateUtil
 		return date;
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"dateStr", "format"})
+
 	public static java.util.Date parseDate(String dateStr, String format) { java.util.Date date = null;
 	try {
 		SimpleDateFormat dateFormat = new SimpleDateFormat(format);
@@ -981,18 +991,18 @@ public abstract class DateUtil
 	return date;
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"dateStr", "format", "toFormat"})
+
 	public static String formatDate(String dateStr, String format, String toFormat) { return format(parseDate(dateStr, format), toFormat); }
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"dateStr"})
+
 	public static java.util.Date parseDate(String dateStr) {
 		return parseDate(dateStr, "yyyy-MM-dd");
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日")
+
 	public static String getCurrentDateTime() { return format(new java.util.Date(), "yyyy-MM-dd HH:mm:ss"); }
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date", "format"})
+
 	public static String format(java.util.Date date, String format) {
 		String result = "";
 		try {
@@ -1005,69 +1015,69 @@ public abstract class DateUtil
 		return result;
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date"})
+
 	public static String format(java.util.Date date) { return format(date, "yyyy-MM-dd"); }
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date"})
+
 	public static int getYear(java.util.Date date) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		return calendar.get(1);
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date"})
+
 	public static int getMonth(java.util.Date date) { Calendar calendar = Calendar.getInstance();
 	calendar.setTime(date);
 	return calendar.get(2) + 1;
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date"})
+
 	public static int getDay(java.util.Date date) { Calendar calendar = Calendar.getInstance();
 	calendar.setTime(date);
 	return calendar.get(5);
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date"})
+
 	public static int getHour(java.util.Date date) { Calendar calendar = Calendar.getInstance();
 	calendar.setTime(date);
 	return calendar.get(11);
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date"})
+
 	public static int getMinute(java.util.Date date) { Calendar calendar = Calendar.getInstance();
 	calendar.setTime(date);
 	return calendar.get(12);
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date"})
+
 	public static int getSecond(java.util.Date date) { Calendar calendar = Calendar.getInstance();
 	calendar.setTime(date);
 	return calendar.get(13);
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date"})
+
 	public static long getMillis(java.util.Date date) { Calendar calendar = Calendar.getInstance();
 	calendar.setTime(date);
 	return calendar.getTimeInMillis();
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日")
+
 	public static String getNow() {
 		return getDate(new java.util.Date());
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date"})
+
 	public static String getDate(java.util.Date date) { return format(date, "yyyy-MM-dd"); }
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date"})
+
 	public static String getTime(java.util.Date date) {
 		return format(date, "HH:mm:ss");
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date"})
+
 	public static String getDateTime(java.util.Date date) { return format(date, "yyyy-MM-dd HH:mm:ss"); }
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date", "day"})
+
 	public static java.util.Date addDate(java.util.Date date, int day) {
 		Calendar calendar = Calendar.getInstance();
 		long millis = getMillis(date) + day * 24L * 3600L * 1000L;
@@ -1075,16 +1085,16 @@ public abstract class DateUtil
 		return calendar.getTime();
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date", "day"})
+
 	public static long diffDate(java.util.Date date, java.util.Date date1) { return (getMillis(date) - getMillis(date1)) / 86400000L; }
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"strdate"})
+
 	public static String getMonthBegin(String strdate) {
 		java.util.Date date = parseDate(strdate);
 		return format(addDate(null, 0), "yyyy-MM") + "-01";
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"strdate"})
+
 	public static String getMonthEnd(String strdate) { java.util.Date date = parseDate(getMonthBegin(strdate));
 	Calendar calendar = Calendar.getInstance();
 	calendar.setTime(date);
@@ -1093,10 +1103,10 @@ public abstract class DateUtil
 	return formatDate(calendar.getTime());
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date"})
+
 	public static String formatDate(java.util.Date date) { return formatDateByFormat(date, "yyyy-MM-dd"); }
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日", params={"date", "format"})
+
 	public static String formatDateByFormat(java.util.Date date, String format) {
 		String result = "";
 		if (date != null) {
@@ -1110,7 +1120,7 @@ public abstract class DateUtil
 		return result;
 	}
 
-	@MethodInfo(comments="注释待补", author="cxp", date="2016?年?6?月?15?日")
+
 	public static final int getCurrentDayOfWeek() { return Calendar.getInstance().get(7) - 1; }
 
 
@@ -1119,13 +1129,20 @@ public abstract class DateUtil
 
 
 
-	@MethodInfo(comments="获取当前时间，精确到秒，转换成字符串", author="yuanzp", date="2016?年?5?月?11?日")
+
 	public static String getDateStr()
 	{
 		SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMddHHmmss");
 		String Str = fmt.format(new java.util.Date());
 		return Str;
 	}
+	
+	
+	
+	public static void main(String[] args) {
+		System.out.println(numberVerify("12325a915"));
+	}
+	
 }
 
 /* Location:           D:\m2_yth\repository\com\zjtzsw\j1\j1-frame-beta\1.1.1\j1-frame-beta-1.1.1.jar

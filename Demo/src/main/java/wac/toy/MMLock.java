@@ -6,10 +6,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import org.apache.axis.utils.ByteArray;
-
 import com.mchange.lang.ByteUtils;
-
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
@@ -137,9 +134,9 @@ public class MMLock {
 
         System.out.println(bmd5.toString());
         System.out.println(ByteUtils.toHexAscii(bmd5));
-        System.out.println(com.opslab.util.ByteUtils.bytesToHexFun1(bmd5));
-        System.out.println(com.opslab.util.ByteUtils.bytesToHexFun2(bmd5));
-        System.out.println(com.opslab.util.ByteUtils.bytesToHexFun3(bmd5));
+        System.out.println(ByteUtils.toHexAscii(bmd5));
+        System.out.println(ByteUtils.toHexAscii(bmd5));
+        System.out.println(ByteUtils.toHexAscii(bmd5));
 
 
     }

@@ -18,8 +18,6 @@ import org.apache.commons.dbcp.BasicDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.app.common.util.DBUtil;
-
 public class DBCPFACTORYUtils {
 
     private static final Logger log = LoggerFactory.getLogger(DBCPFACTORYUtils.class);

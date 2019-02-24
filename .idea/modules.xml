@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SpringCloudDemo/Dispatch/Dispatch.iml" filepath="$PROJECT_DIR$/SpringCloudDemo/Dispatch/Dispatch.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/JavaDemo.iml" filepath="$PROJECT_DIR$/.idea/JavaDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringCloudDemo/SpringCloudDemo.iml" filepath="$PROJECT_DIR$/SpringCloudDemo/SpringCloudDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/Demo/beta.iml" filepath="$PROJECT_DIR$/Demo/beta.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringCloudDemo/demoServer1/demoServer1.iml" filepath="$PROJECT_DIR$/SpringCloudDemo/demoServer1/demoServer1.iml" />
@@ -17,6 +16,7 @@
       <module fileurl="file://$PROJECT_DIR$/SSOService/springBoot.SSOServer.iml" filepath="$PROJECT_DIR$/SSOService/springBoot.SSOServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/RPC-Parent/user-server-api/user-server-api.iml" filepath="$PROJECT_DIR$/RPC-Parent/user-server-api/user-server-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/RPC-Parent/user-server-provider/user-server-provider.iml" filepath="$PROJECT_DIR$/RPC-Parent/user-server-provider/user-server-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wacs/wacs.iml" filepath="$PROJECT_DIR$/wacs/wacs.iml" />
       <module fileurl="file://$PROJECT_DIR$/wacs/wacs.iml" filepath="$PROJECT_DIR$/wacs/wacs.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringCloudDemo/web/web.iml" filepath="$PROJECT_DIR$/SpringCloudDemo/web/web.iml" />
     </modules>
