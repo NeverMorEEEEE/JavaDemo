@@ -11,10 +11,12 @@ public class JoinDemo {
                 try {
                     System.out.println("sleep 3000ms");
                     Thread.sleep(3000);
+
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
+                System.out.println("thread sleep 结束时间： " + System.currentTimeMillis());
             }
         });
         System.out.println("开始时间： " + System.currentTimeMillis());

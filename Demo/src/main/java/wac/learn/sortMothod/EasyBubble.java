@@ -1,6 +1,6 @@
 package wac.learn.sortMothod;
 
-import wac.dp.strategy.comparable;
+import wac.dp.BehavioralPatterns.strategy.comparable;
 
 
 /**

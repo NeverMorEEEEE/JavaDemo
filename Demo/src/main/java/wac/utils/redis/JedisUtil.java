@@ -3,8 +3,6 @@ package wac.utils.redis;
 import java.io.File;
 import java.io.IOException;
 
-import com.github.tobato.fastdfs.proto.mapper.BytesUtil;
-import com.mchange.lang.ByteUtils;
 import net.sf.json.JSONObject;
 
 import org.aspectj.util.FileUtil;

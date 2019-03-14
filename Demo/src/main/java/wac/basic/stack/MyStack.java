@@ -1,9 +1,5 @@
 package wac.basic.stack;
 
-import java.util.Arrays;
-
-import wac.dp.proxy.Tank;
-
 public class MyStack {
 
     static final int DEFAULT_INITIAL_CAPACITY = 1 << 4; // aka 16

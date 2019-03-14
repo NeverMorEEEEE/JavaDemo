@@ -6,7 +6,7 @@
 	<artifactId>wacs</artifactId>
 	<packaging>jar</packaging>
 	<version>0.0.1</version>
-	<name>demo Maven Webapp</name>
+	<name>wac's java Utils Program</name>
 	<url>http://maven.apache.org</url>
 
 
@@ -255,11 +255,11 @@
 			<artifactId>jxl</artifactId>
 			<version>2.6.12</version>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>com.baidu.ueditor</groupId>
 			<artifactId>ueditor</artifactId>
 			<version>1.1.1</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
@@ -306,12 +306,12 @@
 			<version>1.6.1</version>
 		</dependency>
 
-		<dependency>
+		<!--<dependency>
 			<groupId>jacob</groupId>
 			<artifactId>jacob</artifactId>
 			<version>0.0.0</version>
 		</dependency>
-
+-->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-web</artifactId>
@@ -330,11 +330,11 @@
 			<version>2.6.9</version>
 		</dependency>
 		<!--jstl by yuanzp -->
-		<dependency>
+		<!--<dependency>
 			<groupId>com.zjtzsw.j1</groupId>
 			<artifactId>j1-frame-beta</artifactId>
 			<version>1.1.1</version>
-		</dependency>
+		</dependency>-->
 
 		<dependency>
 			<groupId>jstl</groupId>
@@ -379,7 +379,7 @@
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc6</artifactId>
-			<version>11.2.0.1.0</version>
+			<version>11.1.0.7.0</version>
 		</dependency>
 		<!-- easy poi excele操作 star -->
 		<dependency>
@@ -476,25 +476,8 @@
 					</compilerArguments>
 				</configuration>
 			</plugin>
-
-
-
-
-			<!-- jetty插件 -->
-			<plugin>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.2.3.v20140905</version>
-				<configuration>
-					<scanIntervalSeconds>0</scanIntervalSeconds>
-					<webApp>
-						<contextPath>/wac</contextPath>
-						<defaultsDescriptor>src/main/resources/jetty/webdefault.xml</defaultsDescriptor>
-					</webApp>
-				</configuration>
-			</plugin>
 			<!-- tomcat插件 -->
-			<plugin>
+			<!--<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.1</version>
@@ -503,7 +486,7 @@
 					<charset>UTF-8</charset>
 					<uriEncoding>UTF-8</uriEncoding>
 				</configuration>
-			</plugin>
+			</plugin>-->
 
 		</plugins>
 	</build>

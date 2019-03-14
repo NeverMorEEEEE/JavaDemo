@@ -1,8 +1,10 @@
 package wac.learn.sortMothod;
 
-import wac.dp.strategy.comparable;
-import wac.dp.strategy.compartor;
+import wac.dp.BehavioralPatterns.strategy.comparable;
 
+/**
+ *  选择排序：每次找到最大（小的），放在无序的最前面，
+ */
 public class ChooseSort {
 
     public static Object[] sort(Object[] arr) {
@@ -12,7 +14,7 @@ public class ChooseSort {
 
         for (int i = len - 1; i >= 0; i--) {
             max = i;
-            for (int j = 0; j < i + 1; j++) {
+                for (int j = 0; j < i + 1; j++) {
 //				if(arr[j]>arr[max]){
 //					max = j;
 //				}
@@ -41,7 +43,6 @@ public class ChooseSort {
         int len = arr.length;
         int max;
 
-
         for (int i = len - 1; i >= 0; i--) {
             max = i;
             for (int j = 0; j < i + 1; j++) {
@@ -50,7 +51,10 @@ public class ChooseSort {
                     max = j;
                 }
             }
-            EasyBubble.swap(arr, max, i);
+            int tmp = arr[i];
+            arr[max] = arr[i];
+            arr[i] = tmp;
+//            EasyBubble.swap(arr, max, i);
         }
 
         return arr;

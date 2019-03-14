@@ -6,4 +6,6 @@ public interface Iterator<E> {
 
     boolean hasNext();
 
+
+
 }

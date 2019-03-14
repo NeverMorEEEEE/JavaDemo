@@ -1,5 +1,7 @@
 package wac.concurrent;
 
+import com.opslab.util.RandomUtil;
+
 import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
@@ -57,9 +59,13 @@ public class demo1 {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-		 new demo1().test();
+//		 new demo1().test();
+        for(int i=0;i<1000;i++){
+            System.out.println(RandomUtil.Random_generatingLongBounded_withRange(0,1000L));
+        }
+
 
     }
 

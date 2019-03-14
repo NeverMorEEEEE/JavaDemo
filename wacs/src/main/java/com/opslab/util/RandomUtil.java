@@ -25,6 +25,15 @@ public final class RandomUtil {
     }
 
     /**
+     *  生成指定范围的Long随机数
+     * @throws Exception
+     */
+    public static long Random_generatingLongBounded_withRange(long min,long max) throws Exception {
+        long rangeLong = min + (((long) (new Random().nextDouble() * (max - min))));
+        return rangeLong;
+    }
+
+    /**
      * 返回固定长度的数字
      *
      * @param length

@@ -3,13 +3,14 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>river</groupId>
     <artifactId>demo</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>0.0.1-Demo</version>
-    <name>Demo Maven Webapp</name>
+    <name>Wac' JAVA DEMO</name>
     <url>http://maven.apache.org</url>
 
 
     <properties>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <activiti.version>5.18.0</activiti.version>
         <spring.version>3.2.3.RELEASE</spring.version>
@@ -252,11 +253,7 @@
             <artifactId>jxl</artifactId>
             <version>2.6.12</version>
         </dependency>
-        <dependency>
-            <groupId>com.baidu.ueditor</groupId>
-            <artifactId>ueditor</artifactId>
-            <version>1.1.1</version>
-        </dependency>
+
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -304,12 +301,6 @@
         </dependency>
 
         <dependency>
-            <groupId>jacob</groupId>
-            <artifactId>jacob</artifactId>
-            <version>0.0.0</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-web</artifactId>
             <version>1.2.4</version>
@@ -332,14 +323,6 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20160810</version>
-        </dependency>
-
-
-        <!--jstl by yuanzp -->
-        <dependency>
-            <groupId>com.zjtzsw.j1</groupId>
-            <artifactId>j1-frame-beta</artifactId>
-            <version>1.1.1</version>
         </dependency>
 
         <dependency>
@@ -383,8 +366,8 @@
         <!-- oracle驱动 -->
         <dependency>
             <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.1.0</version>
+            <artifactId>ojdbc14</artifactId>
+            <version>10.2.0.3.0</version>
         </dependency>
         <!-- easy poi excele操作 star -->
         <dependency>
@@ -406,9 +389,9 @@
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.github.tobato/fastdfs-client -->
         <dependency>
-            <groupId>com.github.tobato</groupId>
-            <artifactId>fastdfs-client</artifactId>
-            <version>1.26.1-RELEASE</version>
+            <groupId>org.csource</groupId>
+            <artifactId>fastdfs-client-java</artifactId>
+            <version>1.27-RELEASE</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.csource/fastdfs-client-java -->
@@ -466,101 +449,56 @@
             <artifactId>mybatis</artifactId>
             <version>3.4.4</version>
         </dependency>
+        <dependency>
+            <groupId>river</groupId>
+            <artifactId>wacs</artifactId>
+            <version>0.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.4.1</version>
+        </dependency>
 
     </dependencies>
 
 
-    <!--<build>
+    <build>
         <sourceDirectory>src</sourceDirectory>
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
-            </plugin>
+            </plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <compilerArguments>
                         <extdirs>${project.basedir}/src/main/webapp/WEB-INF/lib</extdirs>
+                        <bootclasspath>${java.home}/lib/rt.jar;${java.home}/lib/jce.jar</bootclasspath>
                     </compilerArguments>
                 </configuration>
             </plugin>
 
-
-
-
-            &lt;!&ndash; jetty插件 &ndash;&gt;
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.2.3.v20140905</version>
-                &lt;!&ndash;<configuration>
-                    <scanIntervalSeconds>0</scanIntervalSeconds>
-                    <webApp>
-                        <contextPath>/beta</contextPath>
-                        <defaultsDescriptor>src/main/resources/jetty/webdefault.xml</defaultsDescriptor>
-                    </webApp>
-                </configuration>&ndash;&gt;
-            </plugin>
-            &lt;!&ndash; tomcat插件 &ndash;&gt;
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat8-maven-plugin</artifactId>
-                <version>2.1</version>
-                <configuration>
-                    <path>/beta</path>
-                    <charset>UTF-8</charset>
-                    <uriEncoding>UTF-8</uriEncoding>
-                </configuration>
-            </plugin>
-
-        </plugins>
-    </build>-->
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>utf8</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                    <!-- 打包包含空文件夹 -->
-                    <includeEmptyDirectories>true</includeEmptyDirectories>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <!-- 打包支持本地JAR -->
-                    <webResources>
-                        <resource>
-                            <!-- directory标签指向的是包含你所有要用jar包的目录 -->
-                            <directory>${project.basedir}/lib</directory>
-                            <!-- targetPath表示编译后要把这些jar包复制到的位置 -->
-                            <targetPath>WEB-INF/lib</targetPath>
-                            <!-- 不进行变量替换 -->
-                            <filtering>false</filtering>
-                            <includes>
-                                <!-- 只导入所有以jar为后缀的文件 -->
-                                <include>**/*.jar</include>
-                            </includes>
-                        </resource>
-                    </webResources>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
+
 
 </project>
